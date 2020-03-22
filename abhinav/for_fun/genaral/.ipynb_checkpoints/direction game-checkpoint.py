@@ -12,6 +12,7 @@ Commands:
   go [direction]
   get [item]
 ''')
+
 def showStatus():
   print('---------------------------')
   print(name + ' is in the ' + currentRoom)
@@ -77,7 +78,6 @@ while True:
       currentRoom = rooms[currentRoom][move[1]]
     else:
       print('You can\'t go that way!')
-      health += 1
 
   if move[0] == 'get' :
     if 'item' in rooms[currentRoom] and move[1] in rooms[currentRoom]['item']:
