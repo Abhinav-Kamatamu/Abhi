@@ -6,7 +6,7 @@ ask = input('Do you know the rules?[Yes, no]')
 ask = ask.lower()
 
 if ask == "no":
-    print('-------Rules-------\n The Rules are:- \n\tYou will have 2 minutes to play\n\tTry your best to collect the blocks\n\n-------Rules-------')
+    print('-------Rules------\n The Rules are:- \n\tYou will have 2 minutes to play\n\tTry your best to collect the blocks\n\n-------Rules-------')
     time.sleep(5)
 #--variables--
 clock = pygame.time.Clock()
