@@ -86,8 +86,15 @@ while go:
         sleep(2)
         pygame.font.init()
         p1_win=name,'has won'
-        font=pygame.font.Font('freesansbold.ttf', 32)
+        font=pygame.font.Font('freesansbold.ttf', 30)
         text=font.render(f'{name} has won the game',True,(0,0,0),(255,255,255))
+        textrect=text.get_rect()
+        textrect.center=(w/2,h/2)
+        win.blit(text,textrect)
+        pygame.display.update()
+        sleep(1)
+        font=pygame.font.Font('freesansbold.ttf', 30)
+        text=font.render('',True,(0,0,0),(255,255,255))
         textrect=text.get_rect()
         textrect.center=(w/2,h/2)
         win.blit(text,textrect)
@@ -102,15 +109,23 @@ while go:
     if b==100:
         position(a,b)
         sleep(2)
-        p2_win=(name_2,'has won')
-        font=pygame.font.Font('freesansbold.ttf', 32)
-        
+        pygame.font.init()
+        p1_win=name,'has won'
+        font=pygame.font.Font('freesansbold.ttf', 30)
         text=font.render(f'{name_2} has won the game',True,(0,0,0),(255,255,255))
         textrect=text.get_rect()
         textrect.center=(w/2,h/2)
         win.blit(text,textrect)
         pygame.display.update()
+        sleep(1)
+        font=pygame.font.Font('freesansbold.ttf', 30)
+        text=font.render('',True,(0,0,0),(255,255,255))
+        textrect=text.get_rect()
+        textrect.center=(w/2,h/2)
+        win.blit(text,textrect)
+        pygame.display.update()
         break
+    
     for event in pygame.event.get():
         if event.type==QUIT:
 
