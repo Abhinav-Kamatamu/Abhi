@@ -2,9 +2,15 @@ import pygame, random, time
 from pygame.locals import *
 pygame.init()
 
+ask = input('Do you know the rules?[Yes, no]')
+ask = ask.lower()
+
+if ask == "no":
+    print('-------Rules-------\n The Rules are:- \n\tYou will have 2 minutes to play\n\tTry your best to collect the blocks\n\n-------Rules-------')
+    time.sleep(10)
 #--variables--
 clock = pygame.time.Clock()
-w = int(input('Set screen size(500, 600, 700) prefered size is 500 :- '))
+w = int(input('\nSet screen size(500, 600, 700) prefered size is 500 :- '))
 fps = w//10
 h = w
 win = pygame.display.set_mode((w,h))
@@ -15,6 +21,8 @@ s = w//10
 speed = w//200 + 4
 score = 0
 checker = False
+timer = pygame.time.get_ticks()
+ender = 120000
 #----Block----
 T = [pygame.time.get_ticks() for i in range(5)]
 Bs = w//9
@@ -75,7 +83,7 @@ while True:
     block(5)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            print(f'Abhinav\'s Game Says,\'Your score was {score}\'')
+            print(f'\nAbhinav\'s Game Says,\'Your score was {score}\'')
             exit()
     _type_=pygame.font.Font('freesansbold.ttf',(w*4)//100)
     text=_type_.render(f'Score:- {score}',True,(255,0,0))
@@ -83,6 +91,20 @@ while True:
     textrect.topleft = (0,0)
     win.blit(text,textrect)
     pygame.display.update()
-    if score == 100 or score == 200:
-        speed +=1
+    now = pygame.time.get_ticks()
+    if now - timer >= ender:
+        for i in range(0,3):
+            win.fill((0,0,0))
+            pygame.display.update()
+            pygame.time.delay(500)
+            _type_=pygame.font.Font('freesansbold.ttf',(w*4)//45)
+            text=_type_.render('TIME UP',True,(255,255,255))
+            textrect=text.get_rect()
+            textrect.center = (w//2,h//2)
+            win.blit(text,textrect)
+            pygame.display.update()
+            time.sleep(1)
+        
+        print(f'\nAbhinav\'s Game Says,\'Your score was {score}\'')
+        exit()
     clock.tick(fps)
