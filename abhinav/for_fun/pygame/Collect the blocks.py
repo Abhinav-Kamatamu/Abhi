@@ -60,8 +60,10 @@ def block(i):
             for jy in range (By[i-1],By[i-1] + Bs):
                 if player.collidepoint(jx,jy):
                     checker = True
+                    By[i-1] = -Bs
+                    Bx[i-1] = random.randint(0, w-Bs)
         if checker:
-            score += 2
+            score += 1
             checker = False
 while True:
     win.fill((255,255,255))
@@ -81,4 +83,6 @@ while True:
     textrect.topleft = (0,0)
     win.blit(text,textrect)
     pygame.display.update()
+    if score == 100 or score == 200:
+        speed +=1
     clock.tick(fps)
