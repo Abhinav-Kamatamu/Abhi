@@ -1,4 +1,4 @@
-import pygame, random, time
+iimport pygame, random, time
 from pygame.locals import *
 pygame.init()
 
@@ -80,5 +80,6 @@ while True:
     textrect=text.get_rect()
     textrect.topleft = (0,0)
     win.blit(text,textrect)
+    pygame.display.update()
     clock.tick(fps)
     

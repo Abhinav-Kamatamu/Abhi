@@ -7,7 +7,7 @@ ask = ask.lower()
 
 if ask == "no":
     print('-------Rules-------\n The Rules are:- \n\tYou will have 2 minutes to play\n\tTry your best to collect the blocks\n\n-------Rules-------')
-    time.sleep(10)
+    time.sleep(5)
 #--variables--
 clock = pygame.time.Clock()
 w = int(input('\nSet screen size(500, 600, 700) prefered size is 500 :- '))
