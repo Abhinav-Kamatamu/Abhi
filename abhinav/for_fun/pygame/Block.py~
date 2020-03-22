@@ -1,0 +1,12 @@
+window_height = 
+window_height = 
+
+class Block():
+    def __init__(self, color, breadth):
+        self.color = color
+        self.breadth = breadth
+        self.x = random.randint(1,200)
+        self.y = random.randint(1,200)
+        self.height = self.breadth
+    def draw(self):
+        win.fill((255,255,255))
