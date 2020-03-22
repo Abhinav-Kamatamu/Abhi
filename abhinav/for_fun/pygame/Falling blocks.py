@@ -80,10 +80,5 @@ while True:
     textrect=text.get_rect()
     textrect.topleft = (0,0)
     win.blit(text,textrect)
-    if score == range(0,1000,100):
-        win.fill((random.randint(0,255),random.randint(0,255),random.randint(0,255)))
-    pygame.display.update()
     clock.tick(fps)
-    if score == 100 or score == 200:
-        speed +=1
     
