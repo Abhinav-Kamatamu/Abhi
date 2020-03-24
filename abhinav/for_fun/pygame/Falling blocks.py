@@ -1,10 +1,10 @@
-iimport pygame, random, time
+import pygame, random, time
 from pygame.locals import *
 pygame.init()
 
 #--variables--
 clock = pygame.time.Clock()
-w = int(input('Set screen size(500, 600, 700) prefered size is 500 :- '))
+w = int(input('Set screen size(300, 400, 500) prefered size is 300 :- '))
 fps = w//10
 h = w
 win = pygame.display.set_mode((w,h))
