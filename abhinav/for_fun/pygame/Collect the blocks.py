@@ -23,6 +23,11 @@ score = 0
 checker = False
 timer = pygame.time.get_ticks()
 ender = 120000
+#---time up---
+cords = [(w//20,h//20),(),(),()]
+smalltype = pygame.font.Font('freesansbold.ttf',(w*4)//60)
+texts = [smalltype.render('TIME UP',True,(255,255,255)) for i in range(4)]
+textrects = [texts[i-1].get_rect() for i in range(4)]
 #----Block----
 T = [pygame.time.get_ticks() for i in range(5)]
 Bs = w//9
@@ -102,6 +107,7 @@ while True:
             textrect=text.get_rect()
             textrect.center = (w//2,h//2)
             win.blit(text,textrect)
+            
             pygame.display.update()
             time.sleep(1)
         
