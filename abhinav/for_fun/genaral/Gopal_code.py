@@ -349,7 +349,6 @@ def Decrypt(Arg):
                 pass
             
 
-    #print("".join(output))
         print("".join(output)) 
 
 def Encrypt(Arg):
