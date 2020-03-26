@@ -12,28 +12,33 @@ elif ask == 't':
     time.sleep(enter)
     print('\nend')
 elif ask == "p":
-    enter = int(input('Set timer  '))
     table = int(input('Enter the table.  '))
     limit = int(input('Till where do you want to learn?  '))+ 1
     start = pygame.time.get_ticks()
-    checker = False
-    for i in range(1,limit):
+    checker = 0
+    enter = int(input('Set timer.  '))
+    i = 1
+    while i != limit:
         if checker > 0:
-            i -= checker
+            if i > 0:
+                i -= 1
         ans = int(input(f'{table} X {i} = '))
         if ans != table*i:
             print('\nWRONG!!!\n')
             checker += 1
+        else:
+            checker = 0
         end = pygame.time.get_ticks()
         if end - start > enter*1000:
             print('time up')
             break
+        i+=1
 
 else:
     table = int(input('Enter the table.  '))
     limit = int(input('Till where do you want to learn?  '))+ 1
     start = pygame.time.get_ticks()
-    enter = 2 * limit
+    enter = int(input('Set Timer.  '))
     checker = 0
     i = 1
     teller = 0
