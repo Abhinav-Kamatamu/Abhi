@@ -4,11 +4,11 @@ pygame.init()
 
 #--variables--
 clock = pygame.time.Clock()
-w = int(input('Set screen size(300, 400, 500) prefered size is 300 :- '))
+w = 300
 fps = w//10
 h = w
 win = pygame.display.set_mode((w,h))
-pygame.display.set_caption('Abhinav made this Game')
+pygame.display.set_caption('Escape or die')
 x = w//2-(w//10/2)
 y = h+h//100-(h//10/2)-h//10
 s = w//10
@@ -16,6 +16,9 @@ speed = w//200 + 4
 score = 0
 pcol = (0,255,0)
 run = True
+scorer = 0
+timer = pygame.time.get_ticks()
+ender = 120000
 #----Block----
 T = [pygame.time.get_ticks() for i in range(5)]
 Bs = w//9
@@ -36,17 +39,17 @@ def draw():
         if x<= 0:
             pass
         else:
-            x -= speed + 1
+            x -= speed + 2
     if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
         if x +Bs >= w:
             pass
         else:
-            x += speed + 1
+            x += speed + 2
 
 
 
 def block(i):
-    global S,T,Bx,By,w,win,Bs,C,speed,score
+    global S,T,Bx,By,w,win,Bs,C,speed,scorer, score
     S[i-1] = pygame.time.get_ticks()
     if S[i-1]-T[i-1] >= C[i-1]*1000:
         pygame.draw.rect(win,bcol,(Bx[i-1],By[i-1],Bs,Bs))
@@ -55,7 +58,7 @@ def block(i):
         if By[i-1] > w + Bs:
             By[i-1] = -Bs
             Bx[i-1] = random.randint(0, w-Bs)
-            score += 1
+            scorer += 1
         key = pygame.key.get_pressed()
 
         if key[pygame.K_s] or key[pygame.K_DOWN]:
@@ -67,7 +70,10 @@ def block(i):
                         print(f'\n\n\n\n\n\n\n\nAbhinav\'s Game Says,\t\'Your score was {score}\'')
                         exit()
 while run:
-    win.fill((255,255,255))
+    if score > 50 and score < 100:
+        win.fill((random.randint(0,255),random.randint(0,255),random.randint(0,255)))
+    else:
+        win.fill((255,255,255))
     draw()
     block(1)
     block(2)
@@ -84,4 +90,23 @@ while run:
     textrect.topleft = (0,0)
     win.blit(text,textrect)
     pygame.display.update()
+    now = pygame.time.get_ticks()
+    if now - timer >= ender:
+        for i in range(0,3):
+            win.fill((0,0,0))
+            pygame.display.update()
+            pygame.time.delay(500)
+            _type_=pygame.font.Font('freesansbold.ttf',(w*4)//45)
+            text=_type_.render('TIME UP',True,(255,255,255))
+            textrect=text.get_rect()
+            textrect.center = (w//2,h//2)
+            win.blit(text,textrect)
+            pygame.display.update()
+            time.sleep(1)
+        
+        print(f'\n\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {score}\'')
+        exit()
+    if scorer == 3:
+        score += 1
+        scorer = 0
     clock.tick(fps)
