@@ -11,6 +11,8 @@ if ask == "no":
     
     You will have 2 minutes to collect blocks
     If your score reaches -5 you die
+    
+----RUlES----
 ''')
     time.sleep(5)
 #--variables--
