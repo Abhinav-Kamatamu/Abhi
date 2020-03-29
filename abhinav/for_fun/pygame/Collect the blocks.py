@@ -18,6 +18,20 @@ if ask == "no":
 #--variables--
 clock = pygame.time.Clock()
 w = 300
+pcol = input('Enter color[Yellow,Green,Blue,LightBlue,Red,Black]  ')
+if pcol == 'Yellow':
+    pcol = (255,255,0)
+    
+elif pcol == 'Green':
+    pcol=(0,255,0)
+elif pcol == 'Blue':
+    pcol = (0,0,255)
+elif pcol == 'LightBlue':
+    pcol = (0,255,255)
+elif pcol == 'Red':
+    pcol = (255,0,0)
+else:
+    pcol = (0,0,0)
 fps = w//10
 h = w
 win = pygame.display.set_mode((w,h))
@@ -25,12 +39,11 @@ pygame.display.set_caption('Collect or die')
 x = w//2-(w//10/2)
 y = h+10-(h//10/2)-h//10
 s = w//10
-speed = w//200 + 4
+speed = w//200 + 7
 score = 0
 checker = False
 timer = pygame.time.get_ticks()
 ender = 120000
-pcol = (0,255,0)
 back = (255,255,255)
 #----Block----
 T = [pygame.time.get_ticks() for i in range(5)]
