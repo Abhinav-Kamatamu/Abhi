@@ -5,6 +5,7 @@ ask = ask.lower()
 if ask == '' or ask == 'l':
     Table = int(input('Enter the table.  '))
     limit = int(input('Till where do you want to learn?  '))+ 1
+    print("")
     print("".join([(f'{Table} X {i} = {Table * i}\n') for i in range(1, limit)]))
 elif ask == 't':
     enter = int(input('Set timer.  '))

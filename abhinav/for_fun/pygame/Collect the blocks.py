@@ -29,8 +29,8 @@ checker = False
 timer = pygame.time.get_ticks()
 ender = 120000
 pcol = (0,255,0)
+back = (255,255,255)
 #----Block----
-bcol = (0,0,0)
 T = [pygame.time.get_ticks() for i in range(5)]
 Bs = w//9
 Bx = [random.randint(0, w - Bs) for _ in range(5)]
@@ -43,6 +43,7 @@ C = [random.randint(1,15) for _ in range(5)]
 def draw():
     global win, x, y,s, player, speed, pcol
     player = pygame.draw.rect(win,pcol,(x,y,s,s))
+    pygame.draw.rect(win,(0,0,0),(x,y,s,s),1)
     pygame.display.update()
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a] or keys[pygame.K_LEFT]:
@@ -62,7 +63,8 @@ def block(i):
     global S,T,Bx,By,w,win,Bs,C,speed,score, checker, bcol
     S[i-1] = pygame.time.get_ticks()
     if S[i-1]-T[i-1] >= C[i-1]*1000:
-        pygame.draw.rect(win,bcol,(Bx[i-1],By[i-1],Bs,Bs))
+        pygame.draw.rect(win,back,(Bx[i-1],By[i-1],Bs,Bs))
+        pygame.draw.rect(win,(0,0,0),(Bx[i-1],By[i-1],Bs,Bs),1)
         pygame.display.update()
         By[i-1] += speed
         if By[i-1] > w + Bs:
@@ -82,9 +84,11 @@ def block(i):
             checker = False
 while True:
     if score > 50 and score < 100:
-        win.fill((random.randint(0,255),random.randint(0,255),random.randint(0,255)))
+        back = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
+        win.fill(back)
     else:
-        win.fill((255,255,255))
+        back = (255,255,255)
+        win.fill(back)
     draw()
     block(1)
     block(2)
@@ -120,4 +124,5 @@ while True:
     if score == -5:
          print('\n\n\n\n\n\nAbhinav\'s Game Says,\'You died as your score was -5\'')
          exit()
+
     clock.tick(fps)
