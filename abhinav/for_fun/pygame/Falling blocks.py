@@ -33,6 +33,7 @@ bcol = (0,0,0)
 def draw():
     global win, x, y,s, player, speed
     player = pygame.draw.rect(win,pcol,(x,y,s,s))
+    pygame.draw.rect(win,(0,0,0),(x,y,s,s),1)
     pygame.display.update()
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a] or keys[pygame.K_LEFT]:
@@ -52,12 +53,15 @@ def block(i):
     global S,T,Bx,By,w,win,Bs,C,speed,scorer, score
     S[i-1] = pygame.time.get_ticks()
     if S[i-1]-T[i-1] >= C[i-1]*1000:
-        pygame.draw.rect(win,bcol,(Bx[i-1],By[i-1],Bs,Bs))
+        pygame.draw.rect(win,bcol,(Bx[i-1],By[i-1],Bs,Bs),1)
         pygame.display.update()
         By[i-1] += speed
         if By[i-1] > w + Bs:
             By[i-1] = -Bs
             Bx[i-1] = random.randint(0, w-Bs)
+            scorer += 1
+            scorer += 1
+            scorer += 1
             scorer += 1
         key = pygame.key.get_pressed()
 
@@ -70,7 +74,7 @@ def block(i):
                         print(f'\n\n\n\n\n\n\n\nAbhinav\'s Game Says,\t\'Your score was {score}\'')
                         exit()
 while run:
-    if score > 50 and score < 100:
+    if score > 100 and score < 200:
         win.fill((random.randint(0,255),random.randint(0,255),random.randint(0,255)))
     else:
         win.fill((255,255,255))
@@ -102,11 +106,10 @@ while run:
             textrect.center = (w//2,h//2)
             win.blit(text,textrect)
             pygame.display.update()
-            time.sleep(1)
-        
+            time.sleep(1) 
         print(f'\n\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {score}\'')
-        exit()
-    if scorer == 3:
+        break
+    if scorer > 3:
         score += 1
         scorer = 0
     clock.tick(fps)
