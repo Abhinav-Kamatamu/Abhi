@@ -25,20 +25,21 @@ win = pygame.display.set_mode((w,h))
 pygame.display.set_caption('Collect or die')
 x = w//2-(w//10/2)
 y = h+10-(h//10/2)-h//10
-s = w//10
+s = 300//10
 speed = w//200 + 4
 score = 0
+no_blocks = w//60
 checker = False
 timer = pygame.time.get_ticks()
 ender = 120000
 #----Block----
-T = [pygame.time.get_ticks() for i in range(5)]
+T = [pygame.time.get_ticks() for i in range(no_blocks)]
 bcol = (255,255,0)
-Bs = w//9
-Bx = [random.randint(0, w - Bs) for _ in range(5)]
-By = [-Bs for _ in range(5)]
-S = [None for _ in range(5)]
-C = [random.randint(1,15) for _ in range(5)]
+Bs = 300//9
+Bx = [random.randint(0, w - Bs) for _ in range(no_blocks)]
+By = [-Bs for _ in range(no_blocks)]
+S = [None for _ in range(no_blocks)]
+C = [random.randint(1,15) for _ in range(no_blocks)]
 #----Block----
 #--variables--
 
@@ -90,11 +91,8 @@ while True:
     else:
         win.fill((255,255,255))
     draw()
-    block(1)
-    block(2)
-    block(3)
-    block(4)
-    block(5)
+    for i in range(no_blocks):
+        block(i+1)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             print(f'\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {score}\'')
