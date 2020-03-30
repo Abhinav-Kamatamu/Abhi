@@ -3,20 +3,7 @@ from pygame.locals import *
 pygame.init()
 
 #--variables--
-pcol = input('Enter color[Yellow,Green,Blue,LightBlue,Red,Black]  ')
-if pcol == 'Yellow':
-    pcol = (255,255,0)
-    
-elif pcol == 'Green':
-    pcol=(0,255,0)
-elif pcol == 'Blue':
-    pcol = (0,0,255)
-elif pcol == 'LightBlue':
-    pcol = (0,255,255)
-elif pcol == 'Red':
-    pcol = (255,0,0)
-else:
-    pcol = (0,0,0)
+pcol = (0,255,255,True)
 clock = pygame.time.Clock()
 w = 300
 fps = w//10
@@ -26,20 +13,20 @@ pygame.display.set_caption('Escape or die')
 x = w//2-(w//10/2)
 y = h+h//100-(h//10/2)-h//10
 s = w//10
-speed = w//200 + 7
-score = 0
+speed = w//200 + 4
+score = 95
 run = True
 scorer = 0
 timer = pygame.time.get_ticks()
 ender = 120000
 #----Block----
+bcol = (255,255,0)
 T = [pygame.time.get_ticks() for i in range(5)]
 Bs = w//9
 Bx = [random.randint(0, w - Bs) for _ in range(5)]
 By = [-Bs for _ in range(5)]
 S = [None for _ in range(5)]
 C = [random.randint(1,15) for _ in range(5)]
-bcol = (0,0,0)
 #----Block----
 #--variables--
 
@@ -53,12 +40,12 @@ def draw():
         if x<= 0:
             pass
         else:
-            x -= speed + 2
+            x -= w//200 +6
     if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
         if x +Bs >= w:
             pass
         else:
-            x += speed + 2
+            x += w//200 +6
 
 
 
@@ -66,12 +53,13 @@ def block(i):
     global S,T,Bx,By,w,win,Bs,C,speed,scorer, score
     S[i-1] = pygame.time.get_ticks()
     if S[i-1]-T[i-1] >= C[i-1]*1000:
-        pygame.draw.rect(win,bcol,(Bx[i-1],By[i-1],Bs,Bs),1)
+        pygame.draw.rect(win,bcol,(Bx[i-1],By[i-1],Bs,Bs))
+        pygame.draw.rect(win,(0,0,0),(Bx[i-1],By[i-1],Bs,Bs),1)
         pygame.display.update()
         By[i-1] += speed
         if By[i-1] > w + Bs:
             By[i-1] = -Bs
-            Bx[i-1] = random.randint(0, w-Bs)
+            Bx[i-1] = int(random.randint(0, w-Bs))
             scorer += 1
             scorer += 1
             scorer += 1
@@ -125,4 +113,12 @@ while run:
     if scorer > 3:
         score += 1
         scorer = 0
+    if score == 30:
+        speed = w//200 +5
+    elif score == 50:
+        speed == w//200 +6
+    elif score == 80:
+        speed == w//200+7
+    elif score == 100:
+        speed = w//200 + 8
     clock.tick(fps)
