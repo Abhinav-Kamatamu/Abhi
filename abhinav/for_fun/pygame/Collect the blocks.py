@@ -18,20 +18,7 @@ if ask == "no":
 #--variables--
 clock = pygame.time.Clock()
 w = 300
-pcol = input('Enter color[Yellow,Green,Blue,LightBlue,Red,Black]  ')
-if pcol == 'Yellow':
-    pcol = (255,255,0)
-    
-elif pcol == 'Green':
-    pcol=(0,255,0)
-elif pcol == 'Blue':
-    pcol = (0,0,255)
-elif pcol == 'LightBlue':
-    pcol = (0,255,255)
-elif pcol == 'Red':
-    pcol = (255,0,0)
-else:
-    pcol = (0,0,0)
+pcol = (0,255,255)
 fps = w//10
 h = w
 win = pygame.display.set_mode((w,h))
@@ -39,14 +26,14 @@ pygame.display.set_caption('Collect or die')
 x = w//2-(w//10/2)
 y = h+10-(h//10/2)-h//10
 s = w//10
-speed = w//200 + 7
+speed = w//200 + 4
 score = 0
 checker = False
 timer = pygame.time.get_ticks()
 ender = 120000
-back = (255,255,255)
 #----Block----
 T = [pygame.time.get_ticks() for i in range(5)]
+bcol = (255,255,0)
 Bs = w//9
 Bx = [random.randint(0, w - Bs) for _ in range(5)]
 By = [-Bs for _ in range(5)]
@@ -65,12 +52,12 @@ def draw():
         if x<= 0:
             pass
         else:
-            x -= speed + 2
+            x -= w//200+6
     if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
         if x +Bs >= w:
             pass
         else:
-            x += speed + 2
+            x += w//200+6
     
 
 
@@ -78,7 +65,7 @@ def block(i):
     global S,T,Bx,By,w,win,Bs,C,speed,score, checker, bcol
     S[i-1] = pygame.time.get_ticks()
     if S[i-1]-T[i-1] >= C[i-1]*1000:
-        pygame.draw.rect(win,back,(Bx[i-1],By[i-1],Bs,Bs))
+        pygame.draw.rect(win,bcol,(Bx[i-1],By[i-1],Bs,Bs))
         pygame.draw.rect(win,(0,0,0),(Bx[i-1],By[i-1],Bs,Bs),1)
         pygame.display.update()
         By[i-1] += speed
@@ -99,11 +86,9 @@ def block(i):
             checker = False
 while True:
     if score > 50 and score < 100:
-        back = (random.randint(0,255),random.randint(0,255),random.randint(0,255))
-        win.fill(back)
+        win.fill((random.randint(0,255),random.randint(0,255),random.randint(0,255)))
     else:
-        back = (255,255,255)
-        win.fill(back)
+        win.fill((255,255,255))
     draw()
     block(1)
     block(2)
@@ -139,5 +124,12 @@ while True:
     if score == -5:
          print('\n\n\n\n\n\nAbhinav\'s Game Says,\'You died as your score was -5\'')
          exit()
-
+    if score == 30:
+        speed = w//200 +5
+    elif score == 50:
+        speed == w//200 +6
+    elif score == 80:
+        speed == w//200+7
+    elif score == 100:
+        speed = w//200 + 8
     clock.tick(fps)
