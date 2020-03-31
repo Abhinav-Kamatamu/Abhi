@@ -5,9 +5,9 @@ pygame.init()
 #--variables--
 pcol = (0,255,255,True)
 clock = pygame.time.Clock()
-w = 1800
+w = 300
 fps = w//10
-h = 1000
+h = w
 win = pygame.display.set_mode((w,h))
 pygame.display.set_caption('Escape or die')
 x = w//2-(w//10/2)
@@ -117,6 +117,4 @@ while run:
         speed == w//200 +6
     elif score == 80:
         speed == w//200+7
-    elif score == 100:
-        speed = w//200 + 8
     clock.tick(fps)
