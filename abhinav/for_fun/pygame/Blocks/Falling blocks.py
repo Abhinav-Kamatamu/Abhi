@@ -15,6 +15,7 @@ y = h+h//100-(w//10/2)-h//10
 s = 300//10
 speed = w//200 + 4
 score = 0
+print(speed)
 run = True
 no_blocks = w//60
 scorer = 0
@@ -38,7 +39,7 @@ def draw():
     pygame.display.update()
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a] or keys[pygame.K_LEFT]:
-        if x<= 0:
+        if x<= 5:
             pass
         else:
             x -= w//200 +6
