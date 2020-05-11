@@ -8,11 +8,11 @@ w = 600
 h = 600
 win = pygame.display.set_mode((w.h))
 x,y = (1/10*w,9/10*h)
-Cx,Cy = (1/10*w,9/10*h)
-r = 20
-l,b = (8/10*w, 5/10
+cx,cy = (1/10*w,9/10*h)
 r = 20
 l,b = (8/10*w, 5/100*h)
-Thats all
 #-----Variables-----
+while True:
+    pygame.draw.rect(win,(255,0,0),(x,y,l,b))
+    pygame.draw.circle(win(0,0,0),(cx,cy,r,r))
 
