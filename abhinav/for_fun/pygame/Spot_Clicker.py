@@ -38,7 +38,7 @@ def click():
     if play.collidepoint(cx,y):
         points+= pointing(True)
     else:
-        points = pointing()
+        points += pointing()
 def in_loops():
     global run,mx,my
     for event in pygame.event.get():
@@ -47,12 +47,15 @@ def in_loops():
             pygame.quit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             click()
+    show(points)
+def show(points):
+   pass 
 #-----Functions-----
 while run:
     win.fill((255,255,255))
     pygame.draw.rect(win,(255,0,0),(x,y,l,b))
-    pygame.draw.line(win,(0,255,0),(w/2,y),(w/2,y+b))
-    pygame.draw.circle(win,(0,0,0),(cx,cy),r,4)
+    pygame.draw.line(win,(0,255,0),(w/2,y),(w/2,y+b),4)
+    play = pygame.draw.circle(win,(0,0,0),(cx,cy),r,4)
     pygame.display.update()
     in_loops()
     clock.tick(fps)
