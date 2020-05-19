@@ -18,19 +18,27 @@ r = int(1/30*w)
 l = int(0.8*w)
 b = int(0.05*h)
 run = True
-mx,my = 0,0
 points = 0
 clock = pygame.time.Clock()
 #-----Variables-----
 
 #-----Functions-----
-def pointing():
-    global mx,my
-    pass
-def click(x,y):
-    global points
-    play.collidepoint(x,y)
-    points = pointing()
+def pointing(check = False):
+    global cx
+    if check:
+        return 100
+    if (w/2 >cx and cx >w/3) or( w/2<cx and cx<w/3):
+        return(50)
+    if (w/3 >cx and cx >w/4) or( w/3<cx and cx<w/4):
+        return 10
+    else:
+        return 0
+def click():
+    global points, cx, y
+    if play.collidepoint(cx,y):
+        points+= pointing(True)
+    else:
+        points = pointing()
 def in_loops():
     global run,mx,my
     for event in pygame.event.get():
@@ -38,12 +46,12 @@ def in_loops():
             run = False
             pygame.quit()
         if event.type == pygame.MOUSEBUTTONDOWN:
-            mx,my = event.pos
-            click(mx,my)
+            click()
 #-----Functions-----
 while run:
     win.fill((255,255,255))
     pygame.draw.rect(win,(255,0,0),(x,y,l,b))
+    pygame.draw.line(win,(0,255,0),(w/2,y),(w/2,y+b))
     pygame.draw.circle(win,(0,0,0),(cx,cy),r,4)
     pygame.display.update()
     in_loops()
