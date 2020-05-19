@@ -18,6 +18,7 @@ r = int(1/30*w)
 l = int(0.8*w)
 b = int(0.05*h)
 run = True
+mx = 0
 points = 0
 clock = pygame.time.Clock()
 #-----Variables-----
@@ -40,7 +41,7 @@ def click():
     else:
         points += pointing()
 def in_loops():
-    global run,mx,my
+    global run
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
@@ -50,6 +51,12 @@ def in_loops():
     show(points)
 def show(points):
    pass 
+def move():
+    global cx
+    if cx > x and cx<x+l:
+        cx +=speed
+    if cx > x+l and cx<x:
+        cx -= speed
 #-----Functions-----
 while run:
     win.fill((255,255,255))
