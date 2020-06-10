@@ -18,20 +18,22 @@ r = int(1/30*w)
 l = int(0.8*w)
 b = int(0.05*h)
 run = True
-speed = 4
+speed = 7
 mx = 0
 points = 0
 touched= 0
+click_disabled = False
+click_time= 0
 clock = pygame.time.Clock()
 #-----Variables-----
 
 #-----Functions-----
 def pointing(check = False):
     global cx
-    if check:
-        return 3
+    if (w/2 >cx and cx >w/2 -int(0.017*w))or ( w/2<cx and cx<w/2+int(0.017*w)):
+        return 16
     if (w/2 >cx and cx >w/3) or( w/2<cx and cx<w/3):
-        return(2)
+        return(4)
     if (w/3 >cx and cx >w/4) or( w/3<cx and cx<w/4):
         return 1
     else:
@@ -39,18 +41,26 @@ def pointing(check = False):
 def click():
     global points, w, y
     if play.collidepoint(w//2,cy):
-        points+= pointing(True)
+        points+= pointing()
     else:
         points += pointing()
 def in_loops():
-    global run
+    global run,click_time,click_disabled
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
             pygame.quit()
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_a]:
-        click()
+    if keys[pygame.K_SPACE]:
+        if not click_disabled:
+            click()
+            click_time = 0
+            click_disabled = True
+        if click_disabled:
+            click_time+=1
+            if click_time == 10:
+                click_disabled = False
+                click_time= 0
     move()
 def move():
     global cx,touched
