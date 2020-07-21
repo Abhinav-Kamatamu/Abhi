@@ -1,0 +1,17 @@
+body{
+    font-family: helvetica;
+}
+h1{
+    text-align: center;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)) ,url(Main%20Pic.jpg);
+    padding: 25% 5%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px;
+    color: rgba(151, 255, 247, 0);
+    transition: color 1s;
+}
+
+h1:hover{
+    color: rgb(151, 255, 247)
+}

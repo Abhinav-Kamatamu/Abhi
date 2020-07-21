@@ -95,7 +95,7 @@ while True:
         block(i+1)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            print(f'\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {score}\'')
+            print('\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {score}')
             exit()
     _type_=pygame.font.Font('freesansbold.ttf',(w*4)//100)
     text=_type_.render(f'Score:- {score}',True,(255,0,0))
