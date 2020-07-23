@@ -73,7 +73,7 @@ def block(i):
              for jx in range(Bx[i-1],Bx[i-1] + Bs):
                 for jy in range (By[i-1],By[i-1] + Bs):
                     if player.collidepoint(jx,jy):
-                        print(f'\n\n\n\n\n\n\n\nAbhinav\'s Game Says,\t\'Your score was {score}\'')
+                        print('\n\n\nSystem Elert!!!\nYou Lost!\n\tSCORE:-',score)
                         exit()
 while run:
     if score > 100 and score < 200:
@@ -85,10 +85,10 @@ while run:
         block(i+1)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            print(f'\n\n\n\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {score}\'')
+            print('\n\n\nSystem Elert!!!\nYou Lost!\n\tSCORE:-',score)
             exit()
     _type_=pygame.font.Font('freesansbold.ttf',(w*4)//100)
-    text=_type_.render(f'Score:- {score}',True,(255,0,0))
+    text=_type_.render('Score:- {}'.format(score),True,(255,0,0))
     textrect=text.get_rect()
     textrect.topleft = (0,0)
     win.blit(text,textrect)
@@ -106,7 +106,7 @@ while run:
             win.blit(text,textrect)
             pygame.display.update()
             time.sleep(1) 
-        print(f'\n\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {score}\'')
+        print('\n\n\nSystem Elert!!!\nYou Lost!\n\tSCORE:-',score)
         break
     if scorer > 3:
         score += 1
