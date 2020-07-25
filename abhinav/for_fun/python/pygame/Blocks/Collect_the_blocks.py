@@ -117,7 +117,7 @@ while True:
             pygame.display.update()
             time.sleep(1)
         
-        print(f'\n\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {score}\'')
+        print('\n\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {}\''.format(score))
         exit()
     if score == -5:
          print('\n\n\n\n\n\nAbhinav\'s Game Says,\'You died as your score was -5\'')
