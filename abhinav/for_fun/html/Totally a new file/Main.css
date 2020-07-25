@@ -24,9 +24,10 @@ body{
 .sub-heading{
     text-transform: capitalize;
     text-align: center;
-    color: #7c7c7c;
+    color: rgb(111, 111, 111);
     margin-top: 20px;
     padding-top: 25px;
+    margin-bottom: 25px;
 }
 
 .Pick_{
@@ -45,6 +46,7 @@ body{
     margin-right: 3%;
     transition: border 1s;
     transition: color 1s;
+    color: black;
     transition: background 1s;
     background-color: rgb(0, 232, 214);
 }
@@ -58,18 +60,34 @@ body{
 .Pick {
     max-width: 100%;
     text-align: center;
-    margin: auto;
+    margin: 25% auto;
 }
 .co{
-    background-color: #ebebeb;
+    background-color: rgba(0, 0, 0, 0.1);
 }
 .sub_heading_dash {
     text-align: center;
-    color: rgb(0, 232, 214);
+    color: rgb(3, 183, 169);
+}
+.section{
+    /*margin-bottom: 5%;*/
 }
 
 .para {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 100%;
+    text-align: center;
     
+}
+
+.para-headding {
+    margin-top: 50px;
+    color: red;
+    font-size: 110%
+}
+
+
+.para_object {
+    padding: 0px 25%;
+    font-family: MathJax_Caligraphic;
 }
