@@ -1,5 +1,7 @@
-import pygame, random, time
-from pygame.locals import *
+import random
+import time
+import pygame
+
 pygame.init()
 
 ask = input('Do you know the rules?[Yes, no]')
@@ -18,7 +20,7 @@ if ask == "no":
 #--variables--
 clock = pygame.time.Clock()
 w = 300
-pcol = (0,255,255)
+pcol = (0, 255, 255)
 fps = w//10
 h = w
 win = pygame.display.set_mode((w,h))
@@ -95,10 +97,10 @@ while True:
         block(i+1)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            print('\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {score}')
+            print('\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {}'.format(score))
             exit()
     _type_=pygame.font.Font('freesansbold.ttf',(w*4)//100)
-    text=_type_.render(f'Score:- {score}',True,(255,0,0))
+    text=_type_.render('Score:- {}'.format(score),True,(255,0,0))
     textrect=text.get_rect()
     textrect.topleft = (0,0)
     win.blit(text,textrect)
