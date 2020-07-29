@@ -4,12 +4,26 @@ from pygame.locals import *
 
 pygame.init()
 
+# ----------------------------------------------Variables
+
+# ---------------------------------------------General Variables
 w = 500
 h = 500
-y = 0
-fps = 90
+fps = 60
 clock = pygame.time.Clock()
-x = r.randint(0, w)
+speed = 4
+# ---------------------------------------------General Variables
+
+# ---------------------------------------------Player's variables
+player_w = 25 // 2 * 3
+player_h = player_w
+player_x = w // 2 - player_w // 2
+player_y = h // 8
+player_col = (255, 0, 0)
+player = None
+# ---------------------------------------------Player's variables
+
+# ---------------------------------------------Variables
 win = pygame.display.set_mode((w, h))
 pygame.display.set_caption('Abhinav\'s PROGRAM')
 win.fill((255, 255, 255))
@@ -25,13 +39,26 @@ def escape():
         exit()
 
 
+def player_block():
+    global win, player, player_x, player_y, player_w, player_h
+    player = pygame.draw.rect(win, player_col, (player_x, player_y, player_w, player_h))
+    keys = pygame.key.get_pressed()
+    if player_x <= w - player_w:
+        if keys[K_RIGHT] or keys[K_a]:
+            player_x += speed
+    if player_x >= 0:
+        if keys[K_LEFT] or keys[K_d]:
+            player_x -= speed
+
+
+def obstcal():
+    global line_col
+    pygame.draw.line(win, line_col, (r.randint(0,w/2)))
+
+
 while True:
-    ob = pygame.draw.circle(win, (0, 0, 0), (x, y), 4)
-    y += 1
-    if y > h:
-        y = 0
-        x = r.randint(0, w)
-    pygame.display.update()
     win.fill((255, 255, 255))
+    player_block()
     escape()
+    pygame.display.update()
     clock.tick(fps)
