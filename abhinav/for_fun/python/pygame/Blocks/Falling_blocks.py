@@ -118,8 +118,4 @@ while run:
         scorer = 0
     if score == 30:
         speed = w // 200 + 5
-    elif score == 50:
-        speed == w // 200 + 6
-    elif score == 80:
-        speed == w // 200 + 7
     clock.tick(fps)
