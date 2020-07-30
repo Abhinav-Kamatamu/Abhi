@@ -33,20 +33,32 @@ def boo(n):
         out = out + (dictab[num_tencrore * 10] + " ")
     if (num_crore > 0):
         out = out + (dictab[num_crore] + " crore ")
-    if (num_tenlakh > 0):
-        out = out + (dictab[num_tenlakh * 10] + " ")
-    if (num_lakh > 0):
-        out = out + (dictab[num_lakh] + " lakh ")
-    if (num_tenthousand > 0):
-        out = out + (dictab[num_tenthousand * 10] + " ")
-    if (num_thousand > 0):
-        out = out + (dictab[num_thousand] + " thousand ")
+        if num_tencrore == 1:
+            out = dictab[num_tencrore * 10 + num_crore] + " crore "
+    if num_tenlakh == 1:
+        out = out + dictab[num_tenlakh * 10 + num_lakh] + " lakh "
+    else:
+        if (num_tenlakh > 0):
+            out = out + (dictab[num_tenlakh * 10] + " ")
+        if (num_lakh > 0):
+            out = out + (dictab[num_lakh] + " lakh ")
+
+    if num_tenthousand == 1:
+        out = out + dictab[num_tenthousand * 10 + num_thousand] + " thousand "
+    else:
+        if (num_tenthousand > 0):
+            out = out + (dictab[num_tenthousand * 10] + " ")
+        if (num_thousand > 0):
+            out = out + (dictab[num_thousand] + " thousand ")
     if (num_hund > 0):
         out = out + (dictab[num_hund] + " hundred ")
-    if (num_ten > 0):
-        out = out + (dictab[num_ten * 10] + " ")
-    if (n > 0):
-        out = out + (dictab[n])
+    if num_ten == 1:
+        out = out + dictab[num_ten * 10 + n]
+    else:
+        if (num_ten > 0):
+            out = out + (dictab[num_ten * 10] + " ")
+        if (n > 0):
+            out = out + (dictab[n])
     return (out)
 
 
