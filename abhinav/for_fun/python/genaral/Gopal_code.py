@@ -1,364 +1,363 @@
 Functioning = True
 output = []
 
-def Decrypt(Arg):
-        i = 0
-        
-        
-        global output
-        while i < len(Arg):
-            
-            if Arg[i] == " ":
-                i += 1
-                output.append(" ")
-                pass
-            if Arg[i:(i + 3)] == "#*#":
-                output.append("a")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "!_!":
-                output.append("b")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "@#$":
-                output.append("c")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "&*^":
-                output.append("d")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "%%_":
-                output.append("e")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "/^/":
-                output.append("f")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "!&#":
-                output.append("g")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "&!@":
-                output.append("h")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "_^%":
-                output.append("i")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "%_^":
-                output.append("j")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "/@@":
-                output.append("k")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "?<>":
-                output.append("l")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "[@[":
-                output.append("m")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "&!>":
-                output.append("n")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "#*%":
-                output.append("o")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "@*$":
-                output.append("p")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "^^!":
-                output.append("q")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "%>>":
-                output.append("r")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "*^>":
-                output.append("s")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "^*$":
-                output.append("t")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "*@!":
-                output.append("u")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "$$>":
-                output.append("v")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "_#%":
-                output.append("w")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "&%<":
-                output.append("x")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "@&#":
-                output.append("y")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "[[@":
-                output.append("z")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "[{<":
-                output.append("1")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "}]>":
-                output.append("2")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "[<}":
-                output.append("3")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "}>]":
-                output.append("4")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "<[>":
-                output.append("5")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "{<]":
-                output.append("6")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "}>}":
-                output.append("7")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "><}":
-                output.append("8")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == ">[>":
-                output.append("9")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "><]":
-                output.append("0")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "!!!":
-                output.append("!")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "~~~":
-                output.append("~")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "```":
-                output.append("`")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "@@@":
-                output.append("@")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "###":
-                output.append("#")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "$$$":
-                output.append("$")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "%%%":
-                output.append("%")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "^^^":
-                output.append("^")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "&&&":
-                output.append("&")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "***":
-                output.append("*")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "(((":
-                output.append("(")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == ")))":
-                output.append(")")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "---":
-                output.append("-")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "___":
-                output.append("_")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "+++":
-                output.append("+")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "===":
-                output.append("=")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "{{{":
-                output.append("{")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "}}}":
-                output.append("}")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "[[[":
-                output.append("[")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "]]]":
-                output.append("]")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == ":::":
-                output.append(":")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == ";;;":
-                output.append(";")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "|||":
-                output.append("|")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "'''":
-                output.append("'")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == '""':
-                output.append('"')
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == ">>>":
-                output.append(">")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "<<<":
-                output.append("<")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "...":
-                output.append(".")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == ",,,":
-                output.append(",")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "///":
-                output.append("/")
-                i += 3
-                
-                pass
-            if Arg[i:(i + 3)] == "???":
-                output.append("?")
-                i += 3
-                
-                pass
-            
 
-        print("".join(output)) 
+def Decrypt(Arg):
+    i = 0
+
+    global output
+    while i < len(Arg):
+
+        if Arg[i] == " ":
+            i += 1
+            output.append(" ")
+            pass
+        if Arg[i:(i + 3)] == "#*#":
+            output.append("a")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "!_!":
+            output.append("b")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "@#$":
+            output.append("c")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "&*^":
+            output.append("d")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "%%_":
+            output.append("e")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "/^/":
+            output.append("f")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "!&#":
+            output.append("g")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "&!@":
+            output.append("h")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "_^%":
+            output.append("i")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "%_^":
+            output.append("j")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "/@@":
+            output.append("k")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "?<>":
+            output.append("l")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "[@[":
+            output.append("m")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "&!>":
+            output.append("n")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "#*%":
+            output.append("o")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "@*$":
+            output.append("p")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "^^!":
+            output.append("q")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "%>>":
+            output.append("r")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "*^>":
+            output.append("s")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "^*$":
+            output.append("t")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "*@!":
+            output.append("u")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "$$>":
+            output.append("v")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "_#%":
+            output.append("w")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "&%<":
+            output.append("x")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "@&#":
+            output.append("y")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "[[@":
+            output.append("z")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "[{<":
+            output.append("1")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "}]>":
+            output.append("2")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "[<}":
+            output.append("3")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "}>]":
+            output.append("4")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "<[>":
+            output.append("5")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "{<]":
+            output.append("6")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "}>}":
+            output.append("7")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "><}":
+            output.append("8")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == ">[>":
+            output.append("9")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "><]":
+            output.append("0")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "!!!":
+            output.append("!")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "~~~":
+            output.append("~")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "```":
+            output.append("`")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "@@@":
+            output.append("@")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "###":
+            output.append("#")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "$$$":
+            output.append("$")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "%%%":
+            output.append("%")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "^^^":
+            output.append("^")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "&&&":
+            output.append("&")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "***":
+            output.append("*")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "(((":
+            output.append("(")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == ")))":
+            output.append(")")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "---":
+            output.append("-")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "___":
+            output.append("_")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "+++":
+            output.append("+")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "===":
+            output.append("=")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "{{{":
+            output.append("{")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "}}}":
+            output.append("}")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "[[[":
+            output.append("[")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "]]]":
+            output.append("]")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == ":::":
+            output.append(":")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == ";;;":
+            output.append(";")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "|||":
+            output.append("|")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "'''":
+            output.append("'")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == '""':
+            output.append('"')
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == ">>>":
+            output.append(">")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "<<<":
+            output.append("<")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "...":
+            output.append(".")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == ",,,":
+            output.append(",")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "///":
+            output.append("/")
+            i += 3
+
+            pass
+        if Arg[i:(i + 3)] == "???":
+            output.append("?")
+            i += 3
+
+            pass
+
+    print("".join(output))
+
 
 def Encrypt(Arg):
-
     global output
 
     i = 0
 
     while i < len(Arg):
-        
+
         if Arg[i] == " ":
             output.append(" ")
             i += 1
@@ -626,17 +625,22 @@ def Encrypt(Arg):
 
     print("".join(output))
 
+print('''
+\tPRESS
+0    Encrypt
+1    Decrypt
+2    Quit
+''')
 while Functioning:
 
     output = []
-    
-    inputtype = int(input())
-    
-    if inputtype == 2 :
+    inputtype = int(input("Number:- "))
+
+    if inputtype == 2:
         Functioning = False
         break
 
-    inputword = str(input())
+    inputword = str(input("Type:-  "))
 
     if inputtype == 0:
         Encrypt(inputword.lower())
