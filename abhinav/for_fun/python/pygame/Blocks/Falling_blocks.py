@@ -5,23 +5,28 @@ import pygame
 pygame.init()
 
 # --variables--
-pcol = (0, 255, 255, True)
+# ------------------------------Changeables----------------
+
+pcol = (0, 255, 255)  # Player color
+w = 300  # Window Width
+fps = w // 10  # FPS of the game
+duration = 2  # Time for which the program will run
+
+# ------------------------------Changeables----------------
 clock = pygame.time.Clock()
-w = 300
-fps = w // 10
-h = w
+h = w  # Window Height
 win = pygame.display.set_mode((w, h))
 pygame.display.set_caption('Escape or die')
-x = w // 2 - (w // 10 / 2)
-y = h + h // 100 - (w // 10 / 2) - h // 10
-s = 300 // 10
+x = w // 2 - (w // 10 / 2)  # X cordinate of the player
+y = h + h // 100 - (w // 10 / 2) - h // 10  # Y cordinate of the player
+s = 300 // 10  #
 speed = w // 200 + 4
 score = 0
 run = True
 no_blocks = w // 60
 scorer = 0
 timer = pygame.time.get_ticks()
-ender = 120000
+ender = 2 * (60 * 1000)
 # ----Block----
 bcol = (255, 255, 0)
 T = [pygame.time.get_ticks() for i in range(no_blocks)]
