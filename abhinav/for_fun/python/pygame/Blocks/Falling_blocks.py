@@ -4,42 +4,49 @@ import pygame
 
 pygame.init()
 
-# --variables--
+# ---------------------------variables-----------------------
+
 # ------------------------------Changeables----------------
 
 pcol = (0, 255, 255)  # Player color
 w = 300  # Window Width
 fps = w // 10  # FPS of the game
 duration = 2  # Time for which the program will run
+bcol = (255, 255, 0)  # Color of block
+score_give = 3  # Point at which the score increases
 
 # ------------------------------Changeables----------------
+
 clock = pygame.time.Clock()
 h = w  # Window Height
-win = pygame.display.set_mode((w, h))
+win = pygame.display.set_mode((w, h))  # Screen of the game
 pygame.display.set_caption('Escape or die')
-x = w // 2 - (w // 10 / 2)  # X cordinate of the player
-y = h + h // 100 - (w // 10 / 2) - h // 10  # Y cordinate of the player
-s = 300 // 10  #
-speed = w // 200 + 4
-score = 0
-run = True
-no_blocks = w // 60
-scorer = 0
-timer = pygame.time.get_ticks()
-ender = 2 * (60 * 1000)
-# ----Block----
-bcol = (255, 255, 0)
-T = [pygame.time.get_ticks() for i in range(no_blocks)]
-Bs = 300 // 9
-Bx = [random.randint(0, w - Bs) for _ in range(no_blocks)]
-By = [-Bs for _ in range(no_blocks)]
-S = [None for _ in range(no_blocks)]
-C = [random.randint(1, 15) for _ in range(no_blocks)]
+x = w // 2 - (w // 10 / 2)  # X coordinate of the player
+y = h + h // 100 - (w // 10 / 2) - h // 10  # Y coordinate of the player
+s = 300 // 10  # Size of Player
+speed = w // 200 + 4  # Speed of the game
+score = 0  # Score of the player
+run = True  # States whether the code is running
+scorer = 0  # If decrease the chance of getting a score
+timer = pygame.time.get_ticks()  # Counts the time for which the game has been running
+ender = duration * (60 * 1000)  # Makes the time limit into minutes
+
+# --------------------------------Block-------------------
+
+no_blocks = w // 60  # No of obstacles
+T = [pygame.time.get_ticks() for i in range(no_blocks)]  # Different spawn time for each block
+Bs = 300 // 9  # Block size
+Bx = [random.randint(0, w - Bs) for _ in range(no_blocks)]  # Different x coordinate of each obstacle
+By = [-Bs for _ in range(no_blocks)]  # Different y coordinate of each obstacle
+S = [None for _ in range(no_blocks)]  # Allows the block to follow the time of spawning
+C = [random.randint(1, 15) for _ in range(no_blocks)]  # range of variations in block spawn time
 
 
-# ----Block----
-# --variables--
+# --------------------------------Block--------------------
+# ---------------------------variables-----------------------
 
+
+# Function to display the player
 def draw():
     global win, x, y, s, player, speed
     player = pygame.draw.rect(win, pcol, (x, y, s, s))
@@ -58,6 +65,7 @@ def draw():
             x += w // 200 + 6
 
 
+# Function to display the blocks
 def block(i):
     global S, T, Bx, By, h, win, Bs, C, speed, scorer, score
     S[i - 1] = pygame.time.get_ticks()
@@ -70,9 +78,6 @@ def block(i):
             By[i - 1] = -Bs
             Bx[i - 1] = int(random.randint(0, w - Bs))
             scorer += 1
-            scorer += 1
-            scorer += 1
-            scorer += 1
         key = pygame.key.get_pressed()
 
         if key[pygame.K_s] or key[pygame.K_DOWN]:
@@ -81,7 +86,7 @@ def block(i):
             for jx in range(Bx[i - 1], Bx[i - 1] + Bs):
                 for jy in range(By[i - 1], By[i - 1] + Bs):
                     if player.collidepoint(jx, jy):
-                        print('\n\n\nSystem Elert!!!\nYou Lost!\n\tSCORE:-', score)
+                        print('\n\n\nSystem Alert!!!\nYou Lost!\n\tSCORE:-', score)
                         exit()
 
 
@@ -95,7 +100,7 @@ while run:
         block(i + 1)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            print('\n\n\nSystem Elert!!!\nYou Lost!\n\tSCORE:-', score)
+            print('\n\n\nSystem Alert!!!\nYou Lost!\n\tSCORE:-', score)
             exit()
     _type_ = pygame.font.Font('freesansbold.ttf', (w * 4) // 100)
     text = _type_.render('Score:- {}'.format(score), True, (255, 0, 0))
@@ -116,9 +121,9 @@ while run:
             win.blit(text, textrect)
             pygame.display.update()
             time.sleep(1)
-        print('\n\n\nSystem Elert!!!\nYou Lost!\n\tSCORE:-', score)
+        print('\n\n\nSystem Alert!!!\nYou Lost!\n\tSCORE:-', score)
         break
-    if scorer > 3:
+    if scorer >= score_give:
         score += 1
         scorer = 0
     if score == 30:
