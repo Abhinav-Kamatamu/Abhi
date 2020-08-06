@@ -17,7 +17,7 @@ score_give = 3  # Point at which the score increases
 
 # ------------------------------Changeables----------------
 
-clock = pygame.time.Clock()
+clock = pygame.time.Clock() # Clock of the game
 h = w  # Window Height
 win = pygame.display.set_mode((w, h))  # Screen of the game
 pygame.display.set_caption('Escape or die')
@@ -40,9 +40,8 @@ Bx = [random.randint(0, w - Bs) for _ in range(no_blocks)]  # Different x coordi
 By = [-Bs for _ in range(no_blocks)]  # Different y coordinate of each obstacle
 S = [None for _ in range(no_blocks)]  # Allows the block to follow the time of spawning
 C = [random.randint(1, 15) for _ in range(no_blocks)]  # range of variations in block spawn time
-
-
 # --------------------------------Block--------------------
+
 # ---------------------------variables-----------------------
 
 
