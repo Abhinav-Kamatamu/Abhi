@@ -53,6 +53,7 @@ By = [-Bs for _ in range(no_blocks)]  # Different y coordinate of each obstacle
 S = [None for _ in range(no_blocks)]  # Allows the block to follow the time of spawning
 C = [random.randint(1, 15) for _ in range(no_blocks)]  # range of variations in block spawn time
 
+
 # --------------------------------Block--------------------
 
 # ---------------------------variables-----------------------
@@ -77,7 +78,7 @@ def draw():
             x += w // 200 + 6
 
 
-#Function to display the blocks
+# Function to display the blocks
 def block(i):
     global S, T, Bx, By, w, win, Bs, C, speed, score, checker, bcol
     S[i - 1] = pygame.time.get_ticks()
@@ -89,7 +90,10 @@ def block(i):
         if By[i - 1] > w + Bs:
             By[i - 1] = -Bs
             Bx[i - 1] = random.randint(0, w - Bs)
+            keys = pygame.key.get_pressed()
             score -= 1
+            if keys[pygame.K_s] or keys[pygame.K_DOWN]:
+                score += 1
         key = pygame.key.get_pressed()
 
         for jx in range(Bx[i - 1], Bx[i - 1] + Bs):
@@ -103,6 +107,17 @@ def block(i):
             checker = False
 
 
+def quit():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            print('\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {}'.format(score))
+            exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                print('\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {}'.format(score))
+                exit()
+
+
 while True:
     if 50 < score < 100:
         win.fill((random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))
@@ -111,10 +126,7 @@ while True:
     draw()
     for i in range(no_blocks):
         block(i + 1)
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            print('\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {}'.format(score))
-            exit()
+    quit()
     _type_ = pygame.font.Font('freesansbold.ttf', (w * 4) // 100)
     text = _type_.render('Score:- {}'.format(score), True, (255, 0, 0))
     textrect = text.get_rect()
