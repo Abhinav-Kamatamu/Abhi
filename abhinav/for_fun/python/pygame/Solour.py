@@ -15,7 +15,6 @@ for j in range(1, 256):
         pygame.draw.rect(win, (r, g, b), (x, y, 1, 1))
         x += 1
         b += 1
-        print(s20)
         if b in s20:
             g +=19
             r += 19
@@ -25,4 +24,4 @@ for j in range(1, 256):
     r =0
     pygame.display.update()
     g = 0
-sleep(10)
+sleep(100)
