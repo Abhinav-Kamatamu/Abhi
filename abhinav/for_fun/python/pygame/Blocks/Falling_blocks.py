@@ -56,12 +56,12 @@ def draw():
         if x <= 5:
             pass
         else:
-            x -= w // 200 + 6
+            x -= speed +4
     if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
         if x + Bs >= w:
             pass
         else:
-            x += w // 200 + 6
+            x += speed+4
 
 
 # Function to display the blocks

@@ -25,12 +25,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37a695d8-cf47-4519-8ab3-b65d8c4bed4d" name="Default Changelist" comment="Jest in case">
-      <change afterPath="$PROJECT_DIR$/pygame/Solour.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pygame/Try.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../html/Totally a new file/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../html/Totally a new file/Main.css" afterDir="false" />
+    <list default="true" id="37a695d8-cf47-4519-8ab3-b65d8c4bed4d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pygame/Blocks/Collect_the_blocks.py" beforeDir="false" afterPath="$PROJECT_DIR$/pygame/Blocks/Collect_the_blocks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pygame/Blocks/Falling_blocks.py" beforeDir="false" afterPath="$PROJECT_DIR$/pygame/Blocks/Falling_blocks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pygame/Solour.py" beforeDir="false" afterPath="$PROJECT_DIR$/pygame/Solour.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +61,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/Zoom/Social Saved chat/meeting_saved_chat.txt" />
   </component>
-  <component name="RunManager" selected="Python.Solour">
+  <component name="RunManager" selected="Python.Falling_blocks">
     <configuration name="Collect_the_blocks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -77,6 +75,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Blocks/Collect_the_blocks.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Falling_blocks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pygame/Blocks" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Blocks/Falling_blocks.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -148,41 +167,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="gEO" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pygame" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/gEO.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.Collect_the_blocks" />
       <item itemvalue="Python.Geo_2.0" />
-      <item itemvalue="Python.gEO" />
       <item itemvalue="Python.Solour" />
       <item itemvalue="Python.Try" />
+      <item itemvalue="Python.Falling_blocks" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Falling_blocks" />
         <item itemvalue="Python.Solour" />
         <item itemvalue="Python.Try" />
         <item itemvalue="Python.Collect_the_blocks" />
         <item itemvalue="Python.Geo_2.0" />
-        <item itemvalue="Python.gEO" />
       </list>
     </recent_temporary>
   </component>
@@ -296,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596697058792</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Jest in case">
+      <created>1597068892727</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1597068892727</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -334,7 +339,8 @@
     <MESSAGE value="Did a lot of #Comments" />
     <MESSAGE value="jhk" />
     <MESSAGE value="Comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments" />
+    <MESSAGE value="Jest in case" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jest in case" />
   </component>
   <component name="WindowStateProjectService">
     <state x="625" y="220" key="#Inspections" timestamp="1595938669343">
@@ -353,10 +359,10 @@
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
     <state x="634" y="268" key="#xdebugger.evaluate/65.24.1615.1026@65.24.1615.1026" timestamp="1597067766031" />
-    <state x="468" y="97" key="CommitChangelistDialog2" timestamp="1597035044986">
+    <state x="468" y="97" key="CommitChangelistDialog2" timestamp="1597068892400">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state x="468" y="97" key="CommitChangelistDialog2/65.24.1615.1026@65.24.1615.1026" timestamp="1597035044986" />
+    <state x="468" y="97" key="CommitChangelistDialog2/65.24.1615.1026@65.24.1615.1026" timestamp="1597068892400" />
     <state x="528" y="99" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1596081101881" />
     <state x="223" y="94" key="DiffContextDialog" timestamp="1596040401785">
       <screen x="65" y="24" width="1855" height="1056" />
@@ -367,25 +373,25 @@
     </state>
     <state x="687" y="289" key="FileChooserDialogImpl/65.24.1615.1026@65.24.1615.1026" timestamp="1596774480070" />
     <state x="779" y="297" key="FileChooserDialogImpl/65.24.1855.1056@65.24.1855.1056" timestamp="1596077932404" />
-    <state width="1592" height="286" key="GridCell.Tab.0.bottom" timestamp="1597068854725">
+    <state width="1592" height="286" key="GridCell.Tab.0.bottom" timestamp="1597075948640">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state width="1592" height="286" key="GridCell.Tab.0.bottom/65.24.1615.1026@65.24.1615.1026" timestamp="1597068854725" />
+    <state width="1592" height="286" key="GridCell.Tab.0.bottom/65.24.1615.1026@65.24.1615.1026" timestamp="1597075948640" />
     <state width="1832" height="296" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1596094482846" />
-    <state width="1592" height="286" key="GridCell.Tab.0.center" timestamp="1597068854724">
+    <state width="1592" height="286" key="GridCell.Tab.0.center" timestamp="1597075948640">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state width="1592" height="286" key="GridCell.Tab.0.center/65.24.1615.1026@65.24.1615.1026" timestamp="1597068854724" />
+    <state width="1592" height="286" key="GridCell.Tab.0.center/65.24.1615.1026@65.24.1615.1026" timestamp="1597075948640" />
     <state width="1832" height="296" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1596094482838" />
-    <state width="1592" height="286" key="GridCell.Tab.0.left" timestamp="1597068854724">
+    <state width="1592" height="286" key="GridCell.Tab.0.left" timestamp="1597075948640">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state width="1592" height="286" key="GridCell.Tab.0.left/65.24.1615.1026@65.24.1615.1026" timestamp="1597068854724" />
+    <state width="1592" height="286" key="GridCell.Tab.0.left/65.24.1615.1026@65.24.1615.1026" timestamp="1597075948640" />
     <state width="1832" height="296" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1596094482836" />
-    <state width="1592" height="286" key="GridCell.Tab.0.right" timestamp="1597068854724">
+    <state width="1592" height="286" key="GridCell.Tab.0.right" timestamp="1597075948640">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state width="1592" height="286" key="GridCell.Tab.0.right/65.24.1615.1026@65.24.1615.1026" timestamp="1597068854724" />
+    <state width="1592" height="286" key="GridCell.Tab.0.right/65.24.1615.1026@65.24.1615.1026" timestamp="1597075948640" />
     <state width="1832" height="296" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1596094482844" />
     <state width="1592" height="353" key="GridCell.Tab.1.bottom" timestamp="1597067774475">
       <screen x="65" y="24" width="1615" height="1026" />
@@ -412,10 +418,10 @@
     </state>
     <state width="498" height="434" key="SwitcherDM/65.24.1615.1026@65.24.1615.1026" timestamp="1596119261947" />
     <state width="498" height="446" key="SwitcherDM/65.24.1855.1056@65.24.1855.1056" timestamp="1596085459874" />
-    <state x="523" y="268" key="Vcs.Push.Dialog.v2" timestamp="1596697069586">
+    <state x="523" y="268" key="Vcs.Push.Dialog.v2" timestamp="1597068897181">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state x="523" y="268" key="Vcs.Push.Dialog.v2/65.24.1615.1026@65.24.1615.1026" timestamp="1596697069586" />
+    <state x="523" y="268" key="Vcs.Push.Dialog.v2/65.24.1615.1026@65.24.1615.1026" timestamp="1597068897181" />
     <state x="591" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1596081128384" />
     <state x="676" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596613910172">
       <screen x="65" y="24" width="1615" height="1026" />
