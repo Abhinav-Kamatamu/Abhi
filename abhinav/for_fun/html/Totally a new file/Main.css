@@ -5,10 +5,10 @@ body{
 }
 .Main{
     text-align: center;
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)) ,url(Main%20Pic.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)) ,url("Main Pic.png");
     padding: 25% 5%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     margin: 0px;
     color: rgba(0, 232, 214, 0.1);
     text-transform: capitalize;

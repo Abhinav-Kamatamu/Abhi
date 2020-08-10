@@ -107,7 +107,7 @@ def block(i):
             checker = False
 
 
-def quit():
+def stop():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             print('\n\n\n\n\nAbhinav\'s Game Says,\'Your score was {}'.format(score))
@@ -126,7 +126,7 @@ while True:
     draw()
     for i in range(no_blocks):
         block(i + 1)
-    quit()
+    stop()
     _type_ = pygame.font.Font('freesansbold.ttf', (w * 4) // 100)
     text = _type_.render('Score:- {}'.format(score), True, (255, 0, 0))
     textrect = text.get_rect()
