@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2e91c0e1-0a97-4821-9926-ef5ec074b0e1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/python/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/.idea/python.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/python/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/genaral/NumberName.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/genaral/NumberName.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1fJacC3JAQqi16vmYxeqIrMDKEt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2e91c0e1-0a97-4821-9926-ef5ec074b0e1" name="Default Changelist" comment="" />
+      <created>1595938725572</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1595938725572</updated>
+    </task>
+    <servers />
+  </component>
+</project>
