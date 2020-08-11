@@ -169,10 +169,10 @@
     </configuration>
     <list>
       <item itemvalue="Python.Collect_the_blocks" />
+      <item itemvalue="Python.Falling_blocks" />
       <item itemvalue="Python.Geo_2.0" />
       <item itemvalue="Python.Solour" />
       <item itemvalue="Python.Try" />
-      <item itemvalue="Python.Falling_blocks" />
     </list>
     <recent_temporary>
       <list>
