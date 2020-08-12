@@ -26,11 +26,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a695d8-cf47-4519-8ab3-b65d8c4bed4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pygame/Solour_1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pygame/Solour_4.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pygame/Solour_5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pygame/Colour_Genarator/Solour.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pygame/Colour_Genarator/Solour_1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pygame/Colour_Genarator/Solour_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pygame/Colour_Genarator/Solour_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pygame/Colour_Genarator/Solour_4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pygame/Colour_Genarator/Solour_5.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pygame/Colour_Genarator/Solour_6.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pygame/Solour.py" beforeDir="false" afterPath="$PROJECT_DIR$/pygame/Solour.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pygame/Solour.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pygame/Solour_1.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pygame/Solour_2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pygame/Solour_3.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pygame/Solour_4.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pygame/Solour_5.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +68,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pygame" />
   </component>
   <component name="RecentsManager">
@@ -68,28 +81,7 @@
       <recent name="$PROJECT_DIR$/pygame" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Solour_5">
-    <configuration name="Solour" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pygame" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Solour.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.Solour__6">
     <configuration name="Solour_1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -132,7 +124,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Solour_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Solour_4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -144,7 +136,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Solour_3.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Solour_4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -174,20 +166,41 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Solour__6" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pygame" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Solour__6.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.Solour" />
-      <item itemvalue="Python.Solour_3" />
       <item itemvalue="Python.Solour_2" />
       <item itemvalue="Python.Solour_1" />
+      <item itemvalue="Python.Solour_4" />
       <item itemvalue="Python.Solour_5" />
+      <item itemvalue="Python.Solour__6" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Solour_5" />
+        <item itemvalue="Python.Solour__6" />
         <item itemvalue="Python.Solour_1" />
-        <item itemvalue="Python.Solour" />
         <item itemvalue="Python.Solour_2" />
-        <item itemvalue="Python.Solour_3" />
+        <item itemvalue="Python.Solour_5" />
+        <item itemvalue="Python.Solour_4" />
       </list>
     </recent_temporary>
   </component>
@@ -315,7 +328,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597203588421</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Scolour_more">
+      <created>1597214522250</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1597214522250</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -343,6 +363,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Checking again" />
     <MESSAGE value="NEw File" />
     <MESSAGE value="NEw Filee" />
@@ -355,7 +376,8 @@
     <MESSAGE value="Comments" />
     <MESSAGE value="Jest in case" />
     <MESSAGE value="Scolour" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scolour" />
+    <MESSAGE value="Scolour_more" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scolour_more" />
   </component>
   <component name="WindowStateProjectService">
     <state x="625" y="220" key="#Inspections" timestamp="1595938669343">
@@ -374,10 +396,10 @@
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
     <state x="634" y="268" key="#xdebugger.evaluate/65.24.1615.1026@65.24.1615.1026" timestamp="1597067766031" />
-    <state x="468" y="97" key="CommitChangelistDialog2" timestamp="1597203588256">
+    <state x="468" y="97" key="CommitChangelistDialog2" timestamp="1597214522122">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state x="468" y="97" key="CommitChangelistDialog2/65.24.1615.1026@65.24.1615.1026" timestamp="1597203588256" />
+    <state x="468" y="97" key="CommitChangelistDialog2/65.24.1615.1026@65.24.1615.1026" timestamp="1597214522122" />
     <state x="528" y="99" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1596081101881" />
     <state x="223" y="94" key="DiffContextDialog" timestamp="1596040401785">
       <screen x="65" y="24" width="1855" height="1056" />
@@ -388,25 +410,41 @@
     </state>
     <state x="687" y="289" key="FileChooserDialogImpl/65.24.1615.1026@65.24.1615.1026" timestamp="1597170022833" />
     <state x="779" y="297" key="FileChooserDialogImpl/65.24.1855.1056@65.24.1855.1056" timestamp="1596077932404" />
-    <state width="1592" height="353" key="GridCell.Tab.0.bottom" timestamp="1597214501185">
+    <state width="1592" height="284" key="GridCell.Tab.0.bottom" timestamp="1597225628602">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state width="1592" height="353" key="GridCell.Tab.0.bottom/65.24.1615.1026@65.24.1615.1026" timestamp="1597214501185" />
+    <state width="1680" height="295" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1597215831316">
+      <screen x="65" y="24" width="1615" height="1026" />
+    </state>
+    <state width="1680" height="295" key="GridCell.Tab.0.bottom.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831316" />
+    <state width="1592" height="284" key="GridCell.Tab.0.bottom/65.24.1615.1026@65.24.1615.1026" timestamp="1597225628602" />
     <state width="1832" height="296" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1596094482846" />
-    <state width="1592" height="353" key="GridCell.Tab.0.center" timestamp="1597214501184">
+    <state width="1592" height="284" key="GridCell.Tab.0.center" timestamp="1597225628602">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state width="1592" height="353" key="GridCell.Tab.0.center/65.24.1615.1026@65.24.1615.1026" timestamp="1597214501184" />
+    <state width="1680" height="295" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1597215831316">
+      <screen x="65" y="24" width="1615" height="1026" />
+    </state>
+    <state width="1680" height="295" key="GridCell.Tab.0.center.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831316" />
+    <state width="1592" height="284" key="GridCell.Tab.0.center/65.24.1615.1026@65.24.1615.1026" timestamp="1597225628602" />
     <state width="1832" height="296" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1596094482838" />
-    <state width="1592" height="353" key="GridCell.Tab.0.left" timestamp="1597214501184">
+    <state width="1592" height="284" key="GridCell.Tab.0.left" timestamp="1597225628601">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state width="1592" height="353" key="GridCell.Tab.0.left/65.24.1615.1026@65.24.1615.1026" timestamp="1597214501184" />
+    <state width="1680" height="295" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1597215831316">
+      <screen x="65" y="24" width="1615" height="1026" />
+    </state>
+    <state width="1680" height="295" key="GridCell.Tab.0.left.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831315" />
+    <state width="1592" height="284" key="GridCell.Tab.0.left/65.24.1615.1026@65.24.1615.1026" timestamp="1597225628601" />
     <state width="1832" height="296" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1596094482836" />
-    <state width="1592" height="353" key="GridCell.Tab.0.right" timestamp="1597214501184">
+    <state width="1592" height="284" key="GridCell.Tab.0.right" timestamp="1597225628602">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state width="1592" height="353" key="GridCell.Tab.0.right/65.24.1615.1026@65.24.1615.1026" timestamp="1597214501184" />
+    <state width="1680" height="295" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1597215831316">
+      <screen x="65" y="24" width="1615" height="1026" />
+    </state>
+    <state width="1680" height="295" key="GridCell.Tab.0.right.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831316" />
+    <state width="1592" height="284" key="GridCell.Tab.0.right/65.24.1615.1026@65.24.1615.1026" timestamp="1597225628602" />
     <state width="1832" height="296" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1596094482844" />
     <state width="1592" height="353" key="GridCell.Tab.1.bottom" timestamp="1597214501185">
       <screen x="65" y="24" width="1615" height="1026" />
@@ -433,10 +471,10 @@
     </state>
     <state width="498" height="434" key="SwitcherDM/65.24.1615.1026@65.24.1615.1026" timestamp="1596119261947" />
     <state width="498" height="446" key="SwitcherDM/65.24.1855.1056@65.24.1855.1056" timestamp="1596085459874" />
-    <state x="523" y="268" key="Vcs.Push.Dialog.v2" timestamp="1597203590922">
+    <state x="523" y="268" key="Vcs.Push.Dialog.v2" timestamp="1597214525816">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state x="523" y="268" key="Vcs.Push.Dialog.v2/65.24.1615.1026@65.24.1615.1026" timestamp="1597203590922" />
+    <state x="523" y="268" key="Vcs.Push.Dialog.v2/65.24.1615.1026@65.24.1615.1026" timestamp="1597214525816" />
     <state x="591" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1596081128384" />
     <state x="676" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596613910172">
       <screen x="65" y="24" width="1615" height="1026" />
