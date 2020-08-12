@@ -24,11 +24,11 @@ for j in range(1, 256):
     s20 = [i * 20 + j for i in range(0, 260 // 20)]
     for i in range(1, 256):
         pygame.draw.rect(win, (r, g, b), (x, y, 1, 1))
-        b += 1
+        r += 1
+        g += 1
         x += 1
-        if b in s20:
-            r += 19
-            g += 19
+        if r in s20:
+            b += 19
     y += 1
     r = 0
     g = 0
