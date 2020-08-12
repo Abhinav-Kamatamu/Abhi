@@ -21,7 +21,7 @@ def quit():
 
 
 for j in range(1, 256):
-    s20 = [i * (20 + j) for i in range(0, 260 // 20)]
+    s20 = [i * 20 - j for i in range(0, 260 // 20)]
     for i in range(1, 256):
         pygame.draw.rect(win, (r, g, b), (x, y, 1, 1))
         b += 1
