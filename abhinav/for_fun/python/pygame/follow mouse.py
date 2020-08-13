@@ -1,8 +1,8 @@
 import pygame
 from pygame.locals import *
 #-----variables-----#
-h = 600
-w = h
+h = 970
+w = 1600
 win = pygame.display.set_mode((w,h))
 x,y = w/2 , h/2
 r = 1
@@ -29,6 +29,10 @@ def draw(x,y):
         pygame.draw.rect(win,(0,255,0),(inx,iny,r,r))
         if pa == 'mo':
             pygame.draw.line(win,(0,255,0),(px,py),(x,y),r*2)
+    if col == 4:
+        pygame.draw.rect(win,(0,0,0),(inx,iny,r,r))
+        if pa == 'mo':
+            pygame.draw.line(win,(0,0,0),(px,py),(x,y),r*2)
     pygame.display.update()
     
 while True:
@@ -62,4 +66,15 @@ while True:
             if event.key == K_d:
                 y =y+ 1
                 pa = 0
+    keys = pygame.key.get_pressed()
+    if keys[K_c]:
+        win.fill((0,0,0))
+    if keys[K_g]:
+        win.fill((0,255,0))
+    if keys[K_f]:
+        win.fill((255,255,255))
+    if keys[K_ESCAPE]:
+        exit()
+    if keys[K_4]:
+        col = 4
     draw(x,y)

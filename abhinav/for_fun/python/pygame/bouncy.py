@@ -10,6 +10,9 @@ s = 20
 x = r.randint(s, w - s)
 y = r.randint(s, w - s)
 speed = 3
+ra = r.randint(0, 255)
+ba = r.randint(0, 255)
+ga = r.randint(0, 255)
 speed_x = r.choice((-speed, speed))
 speed_y = r.choice((-speed, speed))
 win = pygame.display.set_mode((w, w))
@@ -26,49 +29,61 @@ def stop():
             exit()
 
 
-def get_r():
-    return ((r.randint(0, 255), r.randint(0, 255), r.randint(0, 255)))
-
-
 def check():
-    global speed_y, speed_x, x, y
+    global speed_y, speed_x, x, y, ra, ba, ga
 
     # x on right
 
     if x >= w - s:
         if speed_x == speed:
             speed_x = -speed
-            win.fill(get_r())
+            ra = r.randint(0, 255)
+            ga = r.randint(0, 255)
+            ba = r.randint(0, 255)
         else:
             speed_x = speed
-            win.fill(get_r())
+            ra = r.randint(0, 255)
+            ga = r.randint(0, 255)
+            ba = r.randint(0, 255)
 
     # y on bottom
 
     elif y >= w - s:
         if speed_y == speed:
             speed_y = -speed
-            win.fill(get_r())
+            ra = r.randint(0, 255)
+            ga = r.randint(0, 255)
+            ba = r.randint(0, 255)
         else:
             speed_y = speed
-            win.fill(get_r())
+            ra = r.randint(0, 255)
+            ga = r.randint(0, 255)
+            ba = r.randint(0, 255)
 
     # x on right
 
     elif x <= s:
         if speed_x == speed:
             speed_x = -speed
-            win, fill(())
+            ra = r.randint(0, 255)
+            ga = r.randint(0, 255)
+            ba = r.randint(0, 255)
         else:
             speed_x = speed
-            win.fill(get_r())
+            ra = r.randint(0, 255)
+            ga = r.randint(0, 255)
+            ba = r.randint(0, 255)
     elif y <= s:
         if speed_y == speed:
             speed_y = -speed
-            win.fill(get_r())
+            ra = r.randint(0, 255)
+            ga = r.randint(0, 255)
+            ba = r.randint(0, 255)
         else:
             speed_y = speed
-            win.fill(get_r())
+            ra = r.randint(0, 255)
+            ga = r.randint(0, 255)
+            ba = r.randint(0, 255)
 
 
 def follow():
@@ -81,6 +96,7 @@ def follow():
                 speed_x = 0
                 speed_y = 0
                 fps = 10000
+
         else:
             speed_x = r.choice((-speed, speed))
             speed_y = r.choice((-speed, speed))
@@ -89,10 +105,11 @@ def follow():
 
 while True:
     stop()
-    win.fill((255, 255, 255))
-    pygame.draw.circle(win, (255, 0, 0), (x, y), s)
-    pygame.display.update()
+    win.fill((ra, ga, ba))
     check()
+    pygame.draw.circle(win, (255, 0, 0), (x, y), s)
+    pygame.draw.circle(win, (0, 0, 0), (x, y), s,2)
+    pygame.display.update()
     follow()
     x += speed_x
     y += speed_y
