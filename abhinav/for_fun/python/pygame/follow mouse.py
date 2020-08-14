@@ -77,4 +77,6 @@ while True:
         exit()
     if keys[K_4]:
         col = 4
+    if keys[KMOD_CTRL] and keys[K_w]:
+        exit()
     draw(x,y)
