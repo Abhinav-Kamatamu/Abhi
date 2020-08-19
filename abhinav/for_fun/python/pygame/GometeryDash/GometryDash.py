@@ -128,7 +128,7 @@ mario = Mario(200, 275)
 
 while main:
     name = name.capitalize()
-    pygame.display.set_caption(f'{name}, Your Score  Is  :-  {co}')
+    pygame.display.set_caption('{}, Your Score  Is  :-  {}'.format(name,co))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
