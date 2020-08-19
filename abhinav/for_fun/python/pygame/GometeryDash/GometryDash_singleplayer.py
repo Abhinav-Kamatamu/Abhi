@@ -1,7 +1,7 @@
 import pygame, time, math, random, sys
 from pygame.locals import *
 
-name = input('name  :-  ')
+name = 'Abhinav' #input('name  :-  ')
 W, H = 640, 400
 FPS = 40
 get_ran = random.randint(0,150)
@@ -30,7 +30,7 @@ def get_p(name):
         if (i >= 'a' and i <= 'z') or i == ' ' :
             pass
         else:
-            print(f'I think {name} is not a proper name')
+            print('I think {} is not a proper name'.format(name))
             time.sleep(2)
             exit()
 class Mario():
@@ -40,9 +40,12 @@ class Mario():
         self.y = y
         self.isJump = False
         self.jumpCount = 10
+        self.yer = 10
 
     def draw(self):
         pygame.draw.rect(screen, (255,0,0), (self.x, self.y, 40, 40))
+        self.y -= self.yer**2 * 0.1 * 1
+        self.yer += 1
     def clash(self):
         global my,runing,FPS,co,pos_x,name, forsi,pos_x, main, no,col,r,g,b,check,si,first
         hi = int(self.y)
@@ -100,7 +103,7 @@ class Mario():
 
     def jump(self):
         if self.isJump:
-            if self.jumpCount >= -15:
+            if self.jumpCount >= -10:
                 neg = -1
                 if self.jumpCount > 0:
                     neg = 1
@@ -138,7 +141,7 @@ get_p(name)
 screen = pygame.display.set_mode((W,H))
 while main:
     name = name.capitalize()
-    pygame.display.set_caption(f'{name}, Your Score  Is  :-  {co}')
+    pygame.display.set_caption('{}, Your Score  Is  :-  {}'.format(name,co))
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
