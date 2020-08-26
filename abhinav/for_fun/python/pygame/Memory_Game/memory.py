@@ -3,6 +3,8 @@ from typing import Tuple
 
 from pygame.locals import *
 
+pygame.init()
+
 FPS = 30
 WINDOWWIDTH = 640
 WINDOWHEIGHT = 480
@@ -43,7 +45,6 @@ GREENRECT  = pygame.Rect(XMARGIN + BUTTONSIZE + BUTTONGAPSIZE, YMARGIN + BUTTONS
 
 def main():
     global FPSCLOCK, DISPLAYSURF, BASICFONT, BEEP1, BEEP2, BEEP3, BEEP4
-    pygame.init()
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOWWIDTH, WINDOWHEIGHT))
     pygame.display.set_caption('Simulate')
@@ -54,10 +55,10 @@ def main():
     infoRect = infoSurf.get_rect()
     infoRect.topleft = (10, WINDOWHEIGHT - 25)
     # load the sound files
-    BEEP1 = pygame.mixer.Sound('beep1.ogg')
-    BEEP2 = pygame.mixer.Sound('beep2.ogg')
-    BEEP3 = pygame.mixer.Sound('beep3.ogg')
-    BEEP4 = pygame.mixer.Sound('beep4.ogg')
+    BEEP1 = pygame.mixer.Sound('/home/abhinav/Desktop/Abhi/abhinav/for_fun/python/pygame/Memory_Game/beep1.ogg')
+    BEEP2 = pygame.mixer.Sound('/home/abhinav/Desktop/Abhi/abhinav/for_fun/python/pygame/Memory_Game/beep2.ogg')
+    BEEP3 = pygame.mixer.Sound('/home/abhinav/Desktop/Abhi/abhinav/for_fun/python/pygame/Memory_Game/beep3.ogg')
+    BEEP4 = pygame.mixer.Sound('/home/abhinav/Desktop/Abhi/abhinav/for_fun/python/pygame/Memory_Game/beep4.ogg')
 
     # Initialize some variables for a new game
     pattern = [] # stores the pattern of colors
@@ -251,6 +252,4 @@ def getButtonClicked(x, y):
 
 
 
-if __name__ == '__main__':
-
-    main()
+main()

@@ -1,0 +1,49 @@
+body{
+    margin: 0px;
+    padding: 0px
+}
+.Header{
+    padding: 50px 0px;
+    background-color: #fe983e;
+    color: #ffffff;
+    text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa;
+    transition: text-shadow 0.5s;
+}
+.Header:hover{
+    text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 40px;
+}
+.Header::after{
+    display: block;
+    height: 2px;
+    background-color: #227ce6;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+h1{
+    text-transform: capitalize;
+    font-family: helvetica;
+    text-align: center;
+    
+}
+.Txt-Holder {
+    margin: 200px;
+    padding: 20px;
+    width: 1400px;
+    height: 1200px;
+}
+.grider{
+    
+}
+
