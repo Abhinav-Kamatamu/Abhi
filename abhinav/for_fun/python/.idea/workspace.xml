@@ -26,11 +26,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a695d8-cf47-4519-8ab3-b65d8c4bed4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pygame/Genaral/Random_List.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/Test_1/Fav_Col.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../html/Test_1/Fav_Col.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/Test_1/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../html/Test_1/Main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/Test_1/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/../html/Test_1/index.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_08_20,_11_22_AM_[Default_Changelist]/score.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_08_20,_11_22_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_08_20__11_22_AM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pygame/Genaral/fade.py" beforeDir="false" afterPath="$PROJECT_DIR$/pygame/Genaral/fade.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pygame/Memory_Game/memory.py" beforeDir="false" afterPath="$PROJECT_DIR$/pygame/Memory_Game/memory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pygame/Songs/Beliver.py" beforeDir="false" afterPath="$PROJECT_DIR$/pygame/Songs/Beliver.py" afterDir="false" />
+      <change beforePath="$USER_HOME$/Python_Codes/.idea/python_codes.iml" beforeDir="false" afterPath="$USER_HOME$/Python_Codes/.idea/python_codes.iml" afterDir="false" />
+      <change beforePath="$USER_HOME$/Python_Codes/Snake/SnakeGame.py" beforeDir="false" afterPath="$USER_HOME$/Python_Codes/Snake/SnakeGame.py" afterDir="false" />
+      <change beforePath="$USER_HOME$/Python_Codes/Snake/score.dat" beforeDir="false" afterPath="$USER_HOME$/Python_Codes/Snake/score.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +52,7 @@
         <option value="Abhinav-Kamatamu &lt;abhinav.kamatamu@gmail.com&gt;" />
       </list>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$/Python_Codes" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/genaral/NumberName.py" root0="FORCE_HIGHLIGHTING" />
@@ -63,7 +71,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/python_codes" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Python_Codes" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -77,8 +85,8 @@
       <recent name="$PROJECT_DIR$/pygame" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Random_List">
-    <configuration name="Beliver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.SnakeGame">
+    <configuration name="Falling_blocks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -86,11 +94,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pygame/Songs" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pygame/Blocks" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Songs/Beliver.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Blocks/Falling_blocks.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -99,19 +107,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="GometryDash_singleplayer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="python" />
+    <configuration name="FlappyBird" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python_codes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pygame/GometeryDash" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Python_Codes/Flappy Bird" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/GometeryDash/GometryDash_singleplayer.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Python_Codes/Flappy Bird/FlappyBird.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,19 +149,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="fade" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="python" />
+    <configuration name="SnakeGame" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python_codes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pygame" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Python_Codes/Snake" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Genaral/fade.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Python_Codes/Snake/SnakeGame.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -162,19 +170,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="memory" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="python" />
+    <configuration name="TIC TAC TOE" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Downloads" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pygame" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Memory_Game/memory.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/TIC TAC TOE.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -184,19 +192,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.memory" />
-      <item itemvalue="Python.fade" />
-      <item itemvalue="Python.GometryDash_singleplayer" />
-      <item itemvalue="Python.Beliver" />
+      <item itemvalue="Python.FlappyBird" />
       <item itemvalue="Python.Random_List" />
+      <item itemvalue="Python.SnakeGame" />
+      <item itemvalue="Python.TIC TAC TOE" />
+      <item itemvalue="Python.Falling_blocks" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.SnakeGame" />
+        <item itemvalue="Python.Falling_blocks" />
+        <item itemvalue="Python.FlappyBird" />
+        <item itemvalue="Python.TIC TAC TOE" />
         <item itemvalue="Python.Random_List" />
-        <item itemvalue="Python.fade" />
-        <item itemvalue="Python.memory" />
-        <item itemvalue="Python.Beliver" />
-        <item itemvalue="Python.GometryDash_singleplayer" />
       </list>
     </recent_temporary>
   </component>
@@ -414,11 +422,11 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="456" y="197" width="1073" height="731" key="#com.intellij.execution.impl.EditConfigurationsDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1596078071977" />
-    <state x="562" y="332" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598335758633">
-      <screen x="65" y="24" width="1615" height="1026" />
+    <state x="636" y="341" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599621480247">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="562" y="332" key="#com.intellij.fileTypes.FileTypeChooser/65.24.1615.1026@65.24.1615.1026" timestamp="1598335758633" />
-    <state x="636" y="341" key="#com.intellij.fileTypes.FileTypeChooser/65.24.1855.1056@65.24.1855.1056" timestamp="1596080900035" />
+    <state x="636" y="341" key="#com.intellij.fileTypes.FileTypeChooser/65.24.1855.1056@65.24.1855.1056" timestamp="1599621480247" />
     <state x="634" y="268" key="#xdebugger.evaluate" timestamp="1597067766031">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
@@ -433,12 +441,12 @@
     </state>
     <state x="203" y="92" width="1292" height="820" key="DiffContextDialog/65.24.1615.1026@65.24.1615.1026" timestamp="1597757579842" />
     <state x="223" y="94" key="DiffContextDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1596040401785" />
-    <state x="687" y="289" key="FileChooserDialogImpl" timestamp="1597904961244">
-      <screen x="65" y="24" width="1615" height="1026" />
+    <state x="779" y="297" key="FileChooserDialogImpl" timestamp="1599621403331">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="687" y="289" key="FileChooserDialogImpl/65.24.1615.1026@65.24.1615.1026" timestamp="1597904961244" />
-    <state x="779" y="297" key="FileChooserDialogImpl/65.24.1855.1056@65.24.1855.1056" timestamp="1596077932404" />
-    <state width="1832" height="306" key="GridCell.Tab.0.bottom" timestamp="1598413683855">
+    <state x="779" y="297" key="FileChooserDialogImpl/65.24.1855.1056@65.24.1855.1056" timestamp="1599621403331" />
+    <state width="1832" height="298" key="GridCell.Tab.0.bottom" timestamp="1600195419063">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1597215831316">
@@ -446,8 +454,8 @@
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.bottom.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831316" />
     <state width="1592" height="306" key="GridCell.Tab.0.bottom/65.24.1615.1026@65.24.1615.1026" timestamp="1598359306879" />
-    <state width="1832" height="306" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1598413683855" />
-    <state width="1832" height="306" key="GridCell.Tab.0.center" timestamp="1598413683854">
+    <state width="1832" height="298" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1600195419063" />
+    <state width="1832" height="298" key="GridCell.Tab.0.center" timestamp="1600195419062">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1597215831316">
@@ -455,8 +463,8 @@
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.center.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831316" />
     <state width="1592" height="306" key="GridCell.Tab.0.center/65.24.1615.1026@65.24.1615.1026" timestamp="1598359306879" />
-    <state width="1832" height="306" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1598413683854" />
-    <state width="1832" height="306" key="GridCell.Tab.0.left" timestamp="1598413683854">
+    <state width="1832" height="298" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1600195419062" />
+    <state width="1832" height="298" key="GridCell.Tab.0.left" timestamp="1600195419062">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1597215831316">
@@ -464,8 +472,8 @@
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.left.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831315" />
     <state width="1592" height="306" key="GridCell.Tab.0.left/65.24.1615.1026@65.24.1615.1026" timestamp="1598359306878" />
-    <state width="1832" height="306" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1598413683854" />
-    <state width="1832" height="306" key="GridCell.Tab.0.right" timestamp="1598413683855">
+    <state width="1832" height="298" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1600195419062" />
+    <state width="1832" height="298" key="GridCell.Tab.0.right" timestamp="1600195419063">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1597215831316">
@@ -473,7 +481,7 @@
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.right.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831316" />
     <state width="1592" height="306" key="GridCell.Tab.0.right/65.24.1615.1026@65.24.1615.1026" timestamp="1598359306879" />
-    <state width="1832" height="306" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1598413683855" />
+    <state width="1832" height="298" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1600195419063" />
     <state width="1592" height="286" key="GridCell.Tab.1.bottom" timestamp="1597922511582">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
