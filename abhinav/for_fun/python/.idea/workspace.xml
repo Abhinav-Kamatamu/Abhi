@@ -26,19 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a695d8-cf47-4519-8ab3-b65d8c4bed4d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../html/Test_1/Fav_Col.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../html/Test_1/Fav_Col.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../html/Test_1/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../html/Test_1/Main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../html/Test_1/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/../html/Test_1/index.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/python.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_08_20,_11_22_AM_[Default_Changelist]/score.dat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_08_20,_11_22_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_08_20__11_22_AM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$USER_HOME$/Python_Codes/.idea/python_codes.iml" beforeDir="false" afterPath="$USER_HOME$/Python_Codes/.idea/python_codes.iml" afterDir="false" />
-      <change beforePath="$USER_HOME$/Python_Codes/Snake/SnakeGame.py" beforeDir="false" afterPath="$USER_HOME$/Python_Codes/Snake/SnakeGame.py" afterDir="false" />
-      <change beforePath="$USER_HOME$/Python_Codes/Snake/score.dat" beforeDir="false" afterPath="$USER_HOME$/Python_Codes/Snake/score.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +40,7 @@
         <option value="Abhinav-Kamatamu &lt;abhinav.kamatamu@gmail.com&gt;" />
       </list>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$/Python_Codes" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/genaral/NumberName.py" root0="FORCE_HIGHLIGHTING" />
@@ -192,11 +180,11 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Falling_blocks" />
       <item itemvalue="Python.FlappyBird" />
       <item itemvalue="Python.Random_List" />
       <item itemvalue="Python.SnakeGame" />
       <item itemvalue="Python.TIC TAC TOE" />
+      <item itemvalue="Python.Falling_blocks" />
     </list>
     <recent_temporary>
       <list>
@@ -367,7 +355,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598105184454</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="joji">
+      <created>1600588911007</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1600588911008</updated>
+    </task>
+    <task id="LOCAL-00023" summary="joji">
+      <created>1600588954802</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1600588954802</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -411,7 +413,8 @@
     <MESSAGE value="Scolour_more" />
     <MESSAGE value="scolour_most" />
     <MESSAGE value="memory.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="memory.py" />
+    <MESSAGE value="joji" />
+    <option name="LAST_COMMIT_MESSAGE" value="joji" />
   </component>
   <component name="WindowStateProjectService">
     <state x="625" y="220" key="#Inspections" timestamp="1595938669343">
@@ -431,11 +434,11 @@
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
     <state x="634" y="268" key="#xdebugger.evaluate/65.24.1615.1026@65.24.1615.1026" timestamp="1597067766031" />
-    <state x="468" y="97" key="CommitChangelistDialog2" timestamp="1598105184266">
-      <screen x="65" y="24" width="1615" height="1026" />
+    <state x="528" y="99" key="CommitChangelistDialog2" timestamp="1600588954640">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="468" y="97" key="CommitChangelistDialog2/65.24.1615.1026@65.24.1615.1026" timestamp="1598105184266" />
-    <state x="528" y="99" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1596081101881" />
+    <state x="528" y="99" key="CommitChangelistDialog2/65.24.1855.1056@65.24.1855.1056" timestamp="1600588954640" />
     <state x="203" y="92" width="1292" height="820" key="DiffContextDialog" timestamp="1597757579842">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
@@ -511,16 +514,16 @@
     </state>
     <state width="498" height="434" key="SwitcherDM/65.24.1615.1026@65.24.1615.1026" timestamp="1596119261947" />
     <state width="498" height="446" key="SwitcherDM/65.24.1855.1056@65.24.1855.1056" timestamp="1596085459874" />
-    <state x="523" y="268" key="Vcs.Push.Dialog.v2" timestamp="1598105187603">
-      <screen x="65" y="24" width="1615" height="1026" />
+    <state x="591" y="275" key="Vcs.Push.Dialog.v2" timestamp="1600588966774">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="523" y="268" key="Vcs.Push.Dialog.v2/65.24.1615.1026@65.24.1615.1026" timestamp="1598105187603" />
-    <state x="591" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1596081128384" />
-    <state x="676" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597903428646">
-      <screen x="65" y="24" width="1615" height="1026" />
+    <state x="591" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1600588966774" />
+    <state x="767" y="454" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600588932208">
+      <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="676" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/65.24.1615.1026@65.24.1615.1026" timestamp="1597903428646" />
-    <state x="767" y="454" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/65.24.1855.1056@65.24.1855.1056" timestamp="1596034420428" />
+    <state x="767" y="454" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/65.24.1855.1056@65.24.1855.1056" timestamp="1600588932208" />
     <state x="683" y="248" width="618" height="580" key="find.popup" timestamp="1596033391474">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
