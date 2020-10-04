@@ -26,7 +26,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a695d8-cf47-4519-8ab3-b65d8c4bed4d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pygame/Memory_Game/my_mem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_09_20,_1_32_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_09_20__1_32_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pygame/Blocks/Falling_blocks.py" beforeDir="false" afterPath="$PROJECT_DIR$/pygame/Blocks/Falling_blocks.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +64,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Python_Codes" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -73,7 +77,28 @@
       <recent name="$PROJECT_DIR$/pygame" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.SnakeGame">
+  <component name="RunManager" selected="Python.my_mem">
+    <configuration name="Don't_yet_know" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pygame" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Don't_yet_know.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Falling_blocks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,27 +141,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Random_List" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="python" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pygame/Genaral" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Genaral/Random_List.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="SnakeGame" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python_codes" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,19 +162,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TIC TAC TOE" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Downloads" />
+    <configuration name="my_mem" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Downloads" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pygame/Memory_Game" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Downloads/TIC TAC TOE.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pygame/Memory_Game/my_mem.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -181,18 +185,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.FlappyBird" />
-      <item itemvalue="Python.Random_List" />
       <item itemvalue="Python.SnakeGame" />
-      <item itemvalue="Python.TIC TAC TOE" />
       <item itemvalue="Python.Falling_blocks" />
+      <item itemvalue="Python.Don't_yet_know" />
+      <item itemvalue="Python.my_mem" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.SnakeGame" />
+        <item itemvalue="Python.my_mem" />
         <item itemvalue="Python.Falling_blocks" />
+        <item itemvalue="Python.Don't_yet_know" />
+        <item itemvalue="Python.SnakeGame" />
         <item itemvalue="Python.FlappyBird" />
-        <item itemvalue="Python.TIC TAC TOE" />
-        <item itemvalue="Python.Random_List" />
       </list>
     </recent_temporary>
   </component>
@@ -425,11 +429,11 @@
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="456" y="197" width="1073" height="731" key="#com.intellij.execution.impl.EditConfigurationsDialog/65.24.1855.1056@65.24.1855.1056" timestamp="1596078071977" />
-    <state x="636" y="341" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599621480247">
+    <state x="636" y="341" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601199296229">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state x="562" y="332" key="#com.intellij.fileTypes.FileTypeChooser/65.24.1615.1026@65.24.1615.1026" timestamp="1598335758633" />
-    <state x="636" y="341" key="#com.intellij.fileTypes.FileTypeChooser/65.24.1855.1056@65.24.1855.1056" timestamp="1599621480247" />
+    <state x="636" y="341" key="#com.intellij.fileTypes.FileTypeChooser/65.24.1855.1056@65.24.1855.1056" timestamp="1601199296229" />
     <state x="634" y="268" key="#xdebugger.evaluate" timestamp="1597067766031">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
@@ -449,42 +453,42 @@
     </state>
     <state x="687" y="289" key="FileChooserDialogImpl/65.24.1615.1026@65.24.1615.1026" timestamp="1597904961244" />
     <state x="779" y="297" key="FileChooserDialogImpl/65.24.1855.1056@65.24.1855.1056" timestamp="1599621403331" />
-    <state width="1832" height="298" key="GridCell.Tab.0.bottom" timestamp="1600195419063">
+    <state width="1832" height="287" key="GridCell.Tab.0.bottom" timestamp="1601799024597">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1597215831316">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.bottom.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831316" />
-    <state width="1592" height="306" key="GridCell.Tab.0.bottom/65.24.1615.1026@65.24.1615.1026" timestamp="1598359306879" />
-    <state width="1832" height="298" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1600195419063" />
-    <state width="1832" height="298" key="GridCell.Tab.0.center" timestamp="1600195419062">
+    <state width="1592" height="287" key="GridCell.Tab.0.bottom/65.24.1615.1026@65.24.1615.1026" timestamp="1601637301360" />
+    <state width="1832" height="287" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1601799024597" />
+    <state width="1832" height="287" key="GridCell.Tab.0.center" timestamp="1601799024594">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1597215831316">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.center.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831316" />
-    <state width="1592" height="306" key="GridCell.Tab.0.center/65.24.1615.1026@65.24.1615.1026" timestamp="1598359306879" />
-    <state width="1832" height="298" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1600195419062" />
-    <state width="1832" height="298" key="GridCell.Tab.0.left" timestamp="1600195419062">
+    <state width="1592" height="287" key="GridCell.Tab.0.center/65.24.1615.1026@65.24.1615.1026" timestamp="1601637301360" />
+    <state width="1832" height="287" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1601799024594" />
+    <state width="1832" height="287" key="GridCell.Tab.0.left" timestamp="1601799024593">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1597215831316">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.left.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831315" />
-    <state width="1592" height="306" key="GridCell.Tab.0.left/65.24.1615.1026@65.24.1615.1026" timestamp="1598359306878" />
-    <state width="1832" height="298" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1600195419062" />
-    <state width="1832" height="298" key="GridCell.Tab.0.right" timestamp="1600195419063">
+    <state width="1592" height="287" key="GridCell.Tab.0.left/65.24.1615.1026@65.24.1615.1026" timestamp="1601637301359" />
+    <state width="1832" height="287" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1601799024593" />
+    <state width="1832" height="287" key="GridCell.Tab.0.right" timestamp="1601799024596">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1597215831316">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.right.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831316" />
-    <state width="1592" height="306" key="GridCell.Tab.0.right/65.24.1615.1026@65.24.1615.1026" timestamp="1598359306879" />
-    <state width="1832" height="298" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1600195419063" />
+    <state width="1592" height="287" key="GridCell.Tab.0.right/65.24.1615.1026@65.24.1615.1026" timestamp="1601637301360" />
+    <state width="1832" height="287" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1601799024596" />
     <state width="1592" height="286" key="GridCell.Tab.1.bottom" timestamp="1597922511582">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
@@ -505,10 +509,11 @@
     </state>
     <state width="1592" height="286" key="GridCell.Tab.1.right/65.24.1615.1026@65.24.1615.1026" timestamp="1597922511582" />
     <state width="1832" height="365" key="GridCell.Tab.1.right/65.24.1855.1056@65.24.1855.1056" timestamp="1596077838001" />
-    <state x="365" y="159" key="SettingsEditor" timestamp="1597916165455">
+    <state x="365" y="159" key="SettingsEditor" timestamp="1601628262636">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state x="365" y="159" key="SettingsEditor/65.24.1615.1026@65.24.1615.1026" timestamp="1597916165455" />
+    <state x="365" y="159" key="SettingsEditor/65.24.1615.1026@65.24.1615.1026" timestamp="1601628262636" />
+    <state x="410" y="163" key="SettingsEditor/65.24.1855.1056@65.24.1855.1056" timestamp="1601211228153" />
     <state width="498" height="434" key="SwitcherDM" timestamp="1596119261947">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
@@ -519,11 +524,11 @@
     </state>
     <state x="523" y="268" key="Vcs.Push.Dialog.v2/65.24.1615.1026@65.24.1615.1026" timestamp="1598105187603" />
     <state x="591" y="275" key="Vcs.Push.Dialog.v2/65.24.1855.1056@65.24.1855.1056" timestamp="1600588966774" />
-    <state x="767" y="454" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600588932208">
-      <screen x="65" y="24" width="1855" height="1056" />
+    <state x="676" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601545358853">
+      <screen x="65" y="24" width="1615" height="1026" />
     </state>
-    <state x="676" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/65.24.1615.1026@65.24.1615.1026" timestamp="1597903428646" />
-    <state x="767" y="454" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/65.24.1855.1056@65.24.1855.1056" timestamp="1600588932208" />
+    <state x="676" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/65.24.1615.1026@65.24.1615.1026" timestamp="1601545358853" />
+    <state x="767" y="454" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/65.24.1855.1056@65.24.1855.1056" timestamp="1601192463106" />
     <state x="683" y="248" width="618" height="580" key="find.popup" timestamp="1596033391474">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
