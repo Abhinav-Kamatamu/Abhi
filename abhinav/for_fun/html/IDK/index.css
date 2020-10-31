@@ -1,10 +1,9 @@
 body{
-    margin: 0;
+    font-size: 20px;
+    margin: 0px;
 }
 h1{
-    color: #4b6dff;
+    color: #ff64c9;
     text-align: center;
-    font-family: serif;
-    background-color: #e3e3ff;
-    padding: 25px;
+    background-color: #dffff8;
 }

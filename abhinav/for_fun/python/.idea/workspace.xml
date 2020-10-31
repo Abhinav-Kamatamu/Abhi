@@ -26,6 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37a695d8-cf47-4519-8ab3-b65d8c4bed4d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../html/IDK/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../html/IDK/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../html/IDK/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/../html/IDK/index.htm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +42,7 @@
         <option value="Abhinav-Kamatamu &lt;abhinav.kamatamu@gmail.com&gt;" />
       </list>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$/Python_Codes" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/genaral/NumberName.py" root0="FORCE_HIGHLIGHTING" />
@@ -73,7 +75,7 @@
       <recent name="$PROJECT_DIR$/pygame" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.my_mem">
+  <component name="RunManager" selected="Python.SnakeGame">
     <configuration name="Don't_yet_know" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -180,18 +182,18 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.Don't_yet_know" />
+      <item itemvalue="Python.Falling_blocks" />
       <item itemvalue="Python.FlappyBird" />
       <item itemvalue="Python.SnakeGame" />
-      <item itemvalue="Python.Falling_blocks" />
-      <item itemvalue="Python.Don't_yet_know" />
       <item itemvalue="Python.my_mem" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.SnakeGame" />
         <item itemvalue="Python.my_mem" />
         <item itemvalue="Python.Falling_blocks" />
         <item itemvalue="Python.Don't_yet_know" />
-        <item itemvalue="Python.SnakeGame" />
         <item itemvalue="Python.FlappyBird" />
       </list>
     </recent_temporary>
@@ -457,7 +459,7 @@
     </state>
     <state x="687" y="289" key="FileChooserDialogImpl/65.24.1615.1026@65.24.1615.1026" timestamp="1597904961244" />
     <state x="779" y="297" key="FileChooserDialogImpl/65.24.1855.1056@65.24.1855.1056" timestamp="1599621403331" />
-    <state width="1832" height="287" key="GridCell.Tab.0.bottom" timestamp="1601805310359">
+    <state width="1832" height="287" key="GridCell.Tab.0.bottom" timestamp="1603110900789">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.bottom.inPresentationMode" timestamp="1597215831316">
@@ -465,8 +467,8 @@
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.bottom.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831316" />
     <state width="1592" height="287" key="GridCell.Tab.0.bottom/65.24.1615.1026@65.24.1615.1026" timestamp="1601637301360" />
-    <state width="1832" height="287" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1601805310359" />
-    <state width="1832" height="287" key="GridCell.Tab.0.center" timestamp="1601805310359">
+    <state width="1832" height="287" key="GridCell.Tab.0.bottom/65.24.1855.1056@65.24.1855.1056" timestamp="1603110900789" />
+    <state width="1832" height="287" key="GridCell.Tab.0.center" timestamp="1603110900789">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.center.inPresentationMode" timestamp="1597215831316">
@@ -474,8 +476,8 @@
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.center.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831316" />
     <state width="1592" height="287" key="GridCell.Tab.0.center/65.24.1615.1026@65.24.1615.1026" timestamp="1601637301360" />
-    <state width="1832" height="287" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1601805310359" />
-    <state width="1832" height="287" key="GridCell.Tab.0.left" timestamp="1601805310359">
+    <state width="1832" height="287" key="GridCell.Tab.0.center/65.24.1855.1056@65.24.1855.1056" timestamp="1603110900789" />
+    <state width="1832" height="287" key="GridCell.Tab.0.left" timestamp="1603110900789">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.left.inPresentationMode" timestamp="1597215831316">
@@ -483,8 +485,8 @@
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.left.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831315" />
     <state width="1592" height="287" key="GridCell.Tab.0.left/65.24.1615.1026@65.24.1615.1026" timestamp="1601637301359" />
-    <state width="1832" height="287" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1601805310359" />
-    <state width="1832" height="287" key="GridCell.Tab.0.right" timestamp="1601805310359">
+    <state width="1832" height="287" key="GridCell.Tab.0.left/65.24.1855.1056@65.24.1855.1056" timestamp="1603110900789" />
+    <state width="1832" height="287" key="GridCell.Tab.0.right" timestamp="1603110900789">
       <screen x="65" y="24" width="1855" height="1056" />
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.right.inPresentationMode" timestamp="1597215831316">
@@ -492,7 +494,7 @@
     </state>
     <state width="1680" height="295" key="GridCell.Tab.0.right.inPresentationMode/65.24.1615.1026@65.24.1615.1026" timestamp="1597215831316" />
     <state width="1592" height="287" key="GridCell.Tab.0.right/65.24.1615.1026@65.24.1615.1026" timestamp="1601637301360" />
-    <state width="1832" height="287" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1601805310359" />
+    <state width="1832" height="287" key="GridCell.Tab.0.right/65.24.1855.1056@65.24.1855.1056" timestamp="1603110900789" />
     <state width="1592" height="286" key="GridCell.Tab.1.bottom" timestamp="1597922511582">
       <screen x="65" y="24" width="1615" height="1026" />
     </state>
