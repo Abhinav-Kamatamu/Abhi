@@ -52,7 +52,7 @@ class Mario:
         _type_ = pygame.font.Font('freesansbold.ttf', 15)
         text = _type_.render('YOU', True, (0, 0, 0))
         textrect = text.get_rect()
-        textrect.topleft = (self.x+5, self.y -20)
+        textrect.topleft = (self.x + 5, self.y - 20)
         screen.blit(text, textrect)
 
     def clash(self):
@@ -148,6 +148,33 @@ def ranobj():
 mario = Mario(200, 275)
 get_p(name)
 screen = pygame.display.set_mode((W, H))
+
+
+def init():
+    global screen
+    screen.fill((0, 0, 0))
+    redraw()
+    pygame.display.update()
+    time.sleep(2)
+    fade = pygame.Surface((640, 400))
+    fade.fill((255, 255, 255))
+    for alpha in range(0, 50):
+        fade.set_alpha(alpha)
+        screen.blit(fade, (0, 0))
+        pygame.display.update()
+        pygame.time.delay(30)
+        pygame.display.update()
+
+
+def redraw():
+    screen.fill((0, 0, 0))
+    image = pygame.image.load('GeoDash.png')
+    screen.blit(image, (0, 0))
+
+
+name = name.capitalize()
+pygame.display.set_caption('{}, Your Score  Is  :-  {}'.format(name, co))
+init()
 while main:
     name = name.capitalize()
     pygame.display.set_caption('{}, Your Score  Is  :-  {}'.format(name, co))
