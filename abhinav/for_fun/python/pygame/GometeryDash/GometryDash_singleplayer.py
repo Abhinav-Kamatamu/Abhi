@@ -52,7 +52,7 @@ class Mario:
         _type_ = pygame.font.Font('freesansbold.ttf', 15)
         text = _type_.render('YOU', True, (0, 0, 0))
         textrect = text.get_rect()
-        textrect.topleft = (self.x + 5, self.y - 20)
+        textrect.topleft = (self.x + 3, self.y - 20)
         screen.blit(text, textrect)
 
     def clash(self):
