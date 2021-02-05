@@ -10,7 +10,7 @@ name = input("enter first person's name:-  ")
 name_2 = input("enter second person name person's name:-  ")
 print(name, 'is blue')
 print(name_2, 'is red')
-bg = pygame.image.load('Abhinav_18.jpg')
+bg = pygame.image.load('/home/abhinav/Desktop/Abhi/abhinav/for_fun/python/pygame/snakes_ladders/snakes_and_ladders.jpeg')
 a = 0
 b = 0
 snakes_ladders = {8: 26, 19: 33, 21: 82, 36: 57, 50: 91, 43: 77, 54: 88, 61: 99, \

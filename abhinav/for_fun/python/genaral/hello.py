@@ -1,10 +1,15 @@
-a = int(input("enter a:-   "))
-b = int(input("enter b:-   "))
+operation = 0
+while operation != 2:
+    operation = int(input('Enter 1 for comparison and 2 to quit   '))
+    if operation != 1 and operation != 2:
+        print('That is not a valid operation \n try again')
+    if operation == 1:
+        i = int(input('Enter the number   '))
+        a = int(input('Enter the number   '))
 
-if a == b:
-    print('equal')
-else:
-    if a > b:
-        print("a is bigger")
-    else:
-        print("b is bigger")
+        if i > a:
+            print(f'{i} is greater')
+        elif i == a:
+            print('they are equal')
+        else:
+            print(f'{a} is greater')
