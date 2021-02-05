@@ -7,7 +7,7 @@ name=input("enter first person's name:-  ")
 name_2=input("enter second person name person's name:-  ")
 print(name,'is red')
 print(name_2,'is blue')
-bg=pygame.image.load('Abhinav_18.jpg')
+bg=pygame.image.load('snakes_and_ladders.gif')
 a=0
 b=0
 mx=0
