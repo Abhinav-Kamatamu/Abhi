@@ -19,16 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cbf6dc5-1963-44d3-8b43-60e5cc691846" name="Default Changelist" comment="Game_of_life">
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/Nanna's tables/complete_file_412228.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/Nanna's tables/complete_file_685529.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/Nanna's tables/wrong_file_1582057.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/Nanna's tables/wrong_file_412228.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/Nanna's tables/wrong_file_685529.pkl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Always_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/GameOfLife.py" afterDir="false" />
+    <list default="true" id="6cbf6dc5-1963-44d3-8b43-60e5cc691846" name="Default Changelist" comment="Game_of_life under devlopment_ brain burst">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$USER_HOME$/Documents/Python_Codes/game_of_life.py" beforeDir="false" afterPath="$USER_HOME$/Documents/Python_Codes/game_of_life.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +53,7 @@
       <recent name="$PROJECT_DIR$/abhinav/for_fun/python/pygame" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.GameOfLife">
+  <component name="RunManager" selected="Python.Game_of_life">
     <configuration name="Always_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Abhi" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -96,6 +88,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/GameOfLife.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Game_of_life" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Abhi" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Game_of_life.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -167,34 +180,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_IDK" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Abhi" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/test_IDK.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Game_of_life" />
         <item itemvalue="Python.GameOfLife" />
         <item itemvalue="Python.Always_test" />
         <item itemvalue="Python.Tables" />
         <item itemvalue="Python.game_of_life" />
-        <item itemvalue="Python.test_IDK" />
       </list>
     </recent_temporary>
   </component>
@@ -298,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612505103260</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Game_of_life under devlopment_ brain burst">
+      <created>1612933030742</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1612933030742</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -327,10 +326,18 @@
     <MESSAGE value="pygame_1" />
     <MESSAGE value="pygame_2" />
     <MESSAGE value="Game_of_life" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game_of_life" />
+    <MESSAGE value="Game_of_life under devlopment_ brain burst" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game_of_life under devlopment_ brain burst" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/abhinav/for_fun/python/pygame/Game_of_life.py</url>
+          <line>86</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
