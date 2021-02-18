@@ -20,8 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cbf6dc5-1963-44d3-8b43-60e5cc691846" name="Default Changelist" comment="Game_of_life under devlopment_ brain burst">
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/abcd.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/hello.py" beforeDir="false" afterPath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/School_Codes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Game_of_life.py" beforeDir="false" afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Game_of_life.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,20 +63,20 @@
       <recent name="$PROJECT_DIR$/abhinav/for_fun/python/pygame" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.abcd">
-    <configuration name="Always_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Abhi" />
+  <component name="RunManager" selected="Python.School_Codes">
+    <configuration name="Colour_3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python_Codes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Documents/Python_Codes/Colour_Genarator" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Always_test.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Documents/Python_Codes/Colour_Genarator/Colour_3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -84,19 +85,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="GameOfLife" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Abhi" />
+    <configuration name="Colour_4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python_Codes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Documents/Python_Codes/Colour_Genarator" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/GameOfLife.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Documents/Python_Codes/Colour_Genarator/Colour_4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -105,19 +106,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Game_of_life" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Abhi" />
+    <configuration name="Colour_5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python_Codes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Documents/Python_Codes/Colour_Genarator" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Game_of_life.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Documents/Python_Codes/Colour_Genarator/Colour_5.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -126,19 +127,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Tables" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Abhi" />
+    <configuration name="Colour_6" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Python_Codes" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/genaral/Nanna's tables" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Documents/Python_Codes/Colour_Genarator" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/genaral/Nanna's tables/Tables.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Documents/Python_Codes/Colour_Genarator/Colour_6.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -147,7 +148,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="abcd" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="School_Codes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Abhi" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -159,7 +160,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/genaral/abcd.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/genaral/School_Codes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -191,11 +192,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.abcd" />
-        <item itemvalue="Python.Game_of_life" />
-        <item itemvalue="Python.GameOfLife" />
-        <item itemvalue="Python.Always_test" />
-        <item itemvalue="Python.Tables" />
+        <item itemvalue="Python.School_Codes" />
+        <item itemvalue="Python.Colour_6" />
+        <item itemvalue="Python.Colour_5" />
+        <item itemvalue="Python.Colour_4" />
+        <item itemvalue="Python.Colour_3" />
       </list>
     </recent_temporary>
   </component>

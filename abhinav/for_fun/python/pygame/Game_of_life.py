@@ -46,7 +46,7 @@ class Cell:
         self.sizex = board.width // board.columns
         self.sizey = board.height // board.rows
         self.listat = attribute
-        if self.listat == 2 or self.listat == 53 or self.listat == 101 or self.listat == 102 or self.listat == 103:
+        if self.listat == 24 or self.listat == 75 or self.listat == 123 or self.listat == 124 or self.listat == 125:
             self.fake_state = 1
             self.state = 1
         else:
@@ -65,25 +65,21 @@ class Cell:
         neighbours_list.append((self.x + self.sizex, self.y + self.sizey))
         neighbours_list.append((self.x + self.sizex, self.y))
         neighbours_list.append((self.x - self.sizex, self.y))
-
         return neighbours_list
 
     def active_neighbours(self):
         global classList
         self.activeNeighbours = 0
-        match = 0
         times = 0
         for i in classList:
             if (i.x, i.y) == self.neighbours()[times]:
                 times += 1
-                match += 1
                 if i.state == 1:
                     self.activeNeighbours += 1
         return self.activeNeighbours
 
     def update(self):
         self.active_neighbours()
-        print(self.activeNeighbours)
         if self.activeNeighbours < 2:
             self.fake_state = 0
         if self.activeNeighbours == 2 and self.state == 1:
@@ -120,10 +116,10 @@ for i in range(board.rows):
 # ---- Board ---- #
 board.window()
 # ---- Board ---- #
-for i in classList:
-    if i.listat == 2 or i.listat == 53 or i.listat == 101 or i.listat == 102 or i.listat == 103:
-        i.fake_state = 1
-        i.state = 1
+# for i in classList:
+#     if i.listat == 2 or i.listat == 53 or i.listat == 101 or i.listat == 102 or i.listat == 103:
+#         i.fake_state = 1
+#         i.state = 1
 while True:
     for i in classList:
         i.update()
