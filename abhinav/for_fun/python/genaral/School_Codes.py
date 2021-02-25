@@ -41,9 +41,11 @@ while operation != 2:
 """
 put the bellow triple quote after the code 
 """
-count = 1
-term = 2
-while count <= 10:
-    print(term)
-    count += 1
-    term += 2
+first = int(input('What is the start of the series  '))
+limit = int(input('Where do you want to end the code  '))
+sum = 0
+while first <= limit:
+    print(first)
+    sum += first
+    first += 1
+print(f'\n\nThe sum of all the numbers is {sum}')
