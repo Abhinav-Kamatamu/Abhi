@@ -39,8 +39,6 @@ while operation != 2:
 
 # --- Series --- #
 """
-put the bellow triple quote after the code 
-"""
 first = int(input('What is the start of the series  '))
 limit = int(input('Where do you want to end the code  '))
 sum = 0
@@ -49,3 +47,19 @@ while first <= limit:
     sum += first
     first += 1
 print(f'\n\nThe sum of all the numbers is {sum}')
+"""
+
+# --- Fibonacci series --- #
+
+last = int(input('enter the number of fibonacci number you want   '))
+previousTerm = 1
+fakeTerm = previousTerm
+term = 1
+print('\t',1)
+count = 2
+while count <= last:
+    print('\t',term)
+    count += 1
+    fakeTerm = term
+    term += previousTerm
+    previousTerm = fakeTerm

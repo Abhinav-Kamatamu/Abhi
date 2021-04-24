@@ -19,11 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cbf6dc5-1963-44d3-8b43-60e5cc691846" name="Default Changelist" comment="Uploading School_Codes with Game_of_life.py">
+    <list default="true" id="6cbf6dc5-1963-44d3-8b43-60e5cc691846" name="Default Changelist" comment="school codes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/html/IDK/Untitled-1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/html/IDK/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/html/IDK/index.htm" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/School_Codes.py" beforeDir="false" afterPath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/School_Codes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -323,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613622307663</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="school codes">
+      <created>1614226860636</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1614226860636</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -354,7 +358,8 @@
     <MESSAGE value="Game_of_life" />
     <MESSAGE value="Game_of_life under devlopment_ brain burst" />
     <MESSAGE value="Uploading School_Codes with Game_of_life.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Uploading School_Codes with Game_of_life.py" />
+    <MESSAGE value="school codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="school codes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
