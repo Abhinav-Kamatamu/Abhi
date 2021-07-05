@@ -3,18 +3,22 @@ import time
 import pygame
 
 pygame.init()
-count = 0
 
 width = 600
 height = 650
+timespan = (700, 1100)
+rounds = 150
+rounds_passed = 0
 
 win = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
 
 background = pygame.image.load('Board.png')
 thing = pygame.image.load('Thing.png')
+intro = pygame.image.load('Intro.png')
+difficulty = pygame.image.load('Diffficulty.png')
 
-winer = pygame.mixer.Sound('beep1.ogg')
+winner = pygame.mixer.Sound('beep1.ogg')
 
 
 class Board:
@@ -38,11 +42,10 @@ class Board:
         win.blit(background, (0, 50))
         if self.getPositon() != False:
             win.blit(thing, (self.getPositon()))
-        font = pygame.font.Font('freesansbold.ttf', 16)
-        text = font.render(f'Live Score :- {item.score}',0,(255,0,0))
-        win.blit(text, (5, 10))
+        font = pygame.font.Font('freesansbold.ttf', 25)
+        text = font.render(f'Live Score :- {item.score}', 1, (255, 0, 0))
+        win.blit(text, (20, 15))
         pygame.display.update()
-
 
     def layouter(self):
         return self.layout
@@ -63,20 +66,19 @@ class Thing:
         self.y = random.randint(0, 2)
         self.x = random.randint(0, 2)
 
-
     def get_random_board(self):
-        global count
-        count += 1
         board.reset()
+        board.display()
         pre_x = self.x
         pre_y = self.y
-        while (pre_x, pre_y) == (self.x,self.y):
+        while (pre_x, pre_y) == (self.x, self.y):
             self.y = random.randint(0, 2)
             self.x = random.randint(0, 2)
         board.layouter()[self.y][self.x] = 1
         board.display()
 
     def click(self):
+        global rounds_passed
         start = time.time()
         while True:
             for i in range(3):
@@ -86,34 +88,71 @@ class Thing:
                             self.tempScore += 1
 
             end = time.time()
-            if random.randint(700, 1100) < (end - start) * 1000 < random.randint(700, 1100):
+            if random.randint(timespan[0], timespan[1]) < (end - start) * 1000 < random.randint(timespan[0],
+                                                                                                timespan[1]):
+                rounds_passed += 1
                 break
         if self.tempScore > 0:
-            winer.play()
+            winner.play()
             self.score += 1
             self.tempScore = 0
 
-def intro():
-    global board
-    intro = pygame.image.load('Intro.png')
+
+def introSlide():
+    global board, timespan
+    notgiven = True
     win.blit(intro, (0, 0))
     pygame.display.update()
     time.sleep(1)
     win.fill((255, 206, 104))
     win.blit(background, (0, 50))
-    for alpha in range(300,0,-4):
+    for alpha in range(300, 0, -4):
         intro.set_alpha(alpha)
-        win.fill((255, 206, 104))
-        win.blit(background, (0, 50))
+        win.blit(difficulty, (0, 0))
         win.blit(intro, (0, 0))
         pygame.display.update()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    quit()
+    while notgiven:
+        win.blit(difficulty, (0, 0))
+        pygame.display.update()
+        if inputs() == 1:
+            timespan = (1250, 1750)
+            notgiven = False
+        elif inputs() == 2:
+            notgiven = False
+        elif inputs() == 3:
+            timespan = (400, 800)
+            notgiven = False
+    win.blit(difficulty, (0, 0))
+    pygame.display.update()
+    win.fill((255, 206, 104))
+    win.blit(background, (0, 50))
+    for alpha in range(300, 0, -4):
+        difficulty.set_alpha(alpha)
+        win.fill((255, 206, 104))
+        win.blit(background, (0, 50))
+        win.blit(difficulty, (0, 0))
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    quit()
+
+
 def inputs():
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                quit()
     keys = pygame.key.get_pressed()
     if keys[pygame.K_KP_7]:
         return 1
@@ -133,14 +172,43 @@ def inputs():
         return 8
     if keys[pygame.K_KP_3]:
         return 9
+    if keys[pygame.K_1]:
+        return 1
+    if keys[pygame.K_2]:
+        return 2
+    if keys[pygame.K_3]:
+        return 3
+
+
+def ending():
+    for i in range(0, 3):
+        win.fill((0, 0, 0))
+        pygame.display.update()
+        pygame.time.delay(500)
+        text_font = pygame.font.Font('freesansbold.ttf', (width * 4) // 45)
+        text_2 = text_font.render('TIME UP', True, (255, 255, 255))
+        textrect = text_2.get_rect()
+        textrect.center = (width // 2, height // 2)
+        win.blit(text_2, textrect)
+        pygame.display.update()
+        time.sleep(1)
+    win.fill((0, 0, 0))
+    pygame.display.update()
+    text_font = pygame.font.Font('freesansbold.ttf', 32)
+    text_3 = text_font.render(f'Your final score was:-  {item.score}', True, (255, 255, 255))
+    textrect = text_3.get_rect()
+    textrect.center = (width // 2, height // 2)
+    win.blit(text_3, textrect)
+    pygame.display.update()
+    time.sleep(2)
+    exit()
+
 
 board = Board()
 item = Thing()
-intro()
-starter = time.time()
+introSlide()
 while True:
     item.get_random_board()
     item.click()
-    ender =time.time()
-    if ender-starter >= 120:
-        exit()
+    if rounds_passed >= rounds:
+        ending()
