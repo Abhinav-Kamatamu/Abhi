@@ -1,6 +1,7 @@
 import random
 import time
 import pygame
+from pygame.locals import *
 
 pygame.init()
 
@@ -11,6 +12,7 @@ rounds = 150
 rounds_passed = 0
 
 win = pygame.display.set_mode((width, height))
+pygame.display.set_caption('Hit The Thing')
 clock = pygame.time.Clock()
 
 background = pygame.image.load('Board.png')
@@ -19,6 +21,7 @@ intro = pygame.image.load('Intro.png')
 difficulty = pygame.image.load('Diffficulty.png')
 
 winner = pygame.mixer.Sound('beep1.ogg')
+looser = pygame.mixer.Sound('beep4.ogg')
 
 
 class Board:
@@ -84,7 +87,7 @@ class Thing:
             for i in range(3):
                 for j in range(3):
                     if board.layout[i][j] == 1:
-                        if inputs() == i * 3 + j + 1:
+                        if inputs() == 9 - (i * 3 + j + 1):
                             self.tempScore += 1
 
             end = time.time()
@@ -103,7 +106,7 @@ def introSlide():
     notgiven = True
     win.blit(intro, (0, 0))
     pygame.display.update()
-    time.sleep(1)
+    time.sleep(2)
     win.fill((255, 206, 104))
     win.blit(background, (0, 50))
     for alpha in range(300, 0, -4):
@@ -126,7 +129,7 @@ def introSlide():
         elif inputs() == 2:
             notgiven = False
         elif inputs() == 3:
-            timespan = (400, 800)
+            timespan = (500, 800)
             notgiven = False
     win.blit(difficulty, (0, 0))
     pygame.display.update()
@@ -154,30 +157,24 @@ def inputs():
             if event.key == pygame.K_ESCAPE:
                 quit()
     keys = pygame.key.get_pressed()
-    if keys[pygame.K_KP_7]:
+    if keys[pygame.K_KP_7] or keys[pygame.K_1] or keys[K_q]:
         return 1
-    if keys[pygame.K_KP_8]:
+    elif keys[pygame.K_KP_8] or keys[pygame.K_2] or keys[K_w]:
         return 2
-    if keys[pygame.K_KP_9]:
+    elif keys[pygame.K_KP_9] or keys[pygame.K_3] or keys[K_e]:
         return 3
-    if keys[pygame.K_KP_4]:
+    elif keys[pygame.K_KP_4] or keys[K_a]:
         return 4
-    if keys[pygame.K_KP_5]:
+    elif keys[pygame.K_KP_5]or keys[K_s]:
         return 5
-    if keys[pygame.K_KP_6]:
+    elif keys[pygame.K_KP_6]or keys[K_d]:
         return 6
-    if keys[pygame.K_KP_1]:
+    elif keys[pygame.K_KP_1]or keys[K_z]:
         return 7
-    if keys[pygame.K_KP_2]:
+    elif keys[pygame.K_KP_2]or keys[K_x]:
         return 8
-    if keys[pygame.K_KP_3]:
+    elif keys[pygame.K_KP_3]or keys[K_c]:
         return 9
-    if keys[pygame.K_1]:
-        return 1
-    if keys[pygame.K_2]:
-        return 2
-    if keys[pygame.K_3]:
-        return 3
 
 
 def ending():
@@ -201,6 +198,7 @@ def ending():
     win.blit(text_3, textrect)
     pygame.display.update()
     time.sleep(2)
+    print(f'Your final score was:-  {item.score}')
     exit()
 
 

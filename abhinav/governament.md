@@ -1,4 +1,4 @@
-# Governament---
+# Government---
 
 * central - mp's -LOKHSABA, RAJYASABHA  -  constituencies
 * state    -mla's - parties - CM - Vidhan Sabha ,Vidhan Parishad  - wards
@@ -45,8 +45,7 @@
 		* money bill:-
 			* financial bills
 			* only to be discused in the vidhan sabha
-
->>>>>>> 2c482b1de2a5e43eb3a81c59ea46991532de58e8
+	
 ####from bill to law;-
 * bill is put to vote
 * goes to the other houses for approval
