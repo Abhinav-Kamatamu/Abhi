@@ -5,17 +5,18 @@ from pygame.locals import *
 
 pygame.init()
 
-w = 300
-s = 200
+w = 100
+h = 50
+s = 20
 x = r.randint(s, w - s)
-y = r.randint(s, w - s)
+y = r.randint(s, h - s)
 speed = 3
 ra = r.randint(0, 255)
 ba = r.randint(0, 255)
 ga = r.randint(0, 255)
 speed_x = r.choice((-speed, speed))
 speed_y = r.choice((-speed, speed))
-win = pygame.display.set_mode((w, w))
+win = pygame.display.set_mode((w, h))
 clock = pygame.time.Clock()
 fps = 120
 
@@ -48,7 +49,7 @@ def check():
 
     # y on bottom
 
-    elif y >= w - s:
+    elif y >= h - s:
         if speed_y == speed:
             speed_y = -speed
             ra = r.randint(0, 255)

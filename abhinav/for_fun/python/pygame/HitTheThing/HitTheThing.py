@@ -87,7 +87,7 @@ class Thing:
             for i in range(3):
                 for j in range(3):
                     if board.layout[i][j] == 1:
-                        if inputs() == 9 - (i * 3 + j + 1):
+                        if inputs() == (i * 3 + j + 1):
                             self.tempScore += 1
 
             end = time.time()

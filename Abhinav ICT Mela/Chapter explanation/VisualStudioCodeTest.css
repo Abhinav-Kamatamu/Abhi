@@ -1,0 +1,38 @@
+body{
+    margin: 0px;
+    background-color: rgb(255, 253, 225);
+    font-size: 25px;
+    font-family: cursive;
+}
+.Main_Heading{
+    color: rgb(163, 85, 85);
+    text-align: center;
+    font-size: 150%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+}
+
+.Container{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    margin: 100px 2%;
+    
+}
+
+.coloumn1-4{
+    text-align: center;
+    border-left: solid black 1px;
+    border-right: solid black 1px;
+    margin: 0px 8px;
+    border-bottom: solid black 1px;
+}
+
+.ParaHeading{
+    padding-bottom: 5%;
+    border-bottom: solid black 1px;
+}
+
+.ParaContent{
+    margin: 5% 5%;
+    font-size: 90%;
+    text-align: left;
+}
