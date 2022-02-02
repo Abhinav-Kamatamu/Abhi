@@ -20,14 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cbf6dc5-1963-44d3-8b43-60e5cc691846" name="Default Changelist" comment="school codes">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/TheFundamentalUnitOfLife.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/DELME.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/French_Revelution.md" beforeDir="false" afterPath="$PROJECT_DIR$/abhinav/French_Revelution.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/Nanna's tables/complete_file_412228.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/Nanna's tables/complete_file_685529.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/Nanna's tables/wrong_file_1582057.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/Nanna's tables/wrong_file_412228.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/genaral/Nanna's tables/wrong_file_685529.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Genaral/bouncy.py" beforeDir="false" afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Genaral/bouncy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/HitTheThing/HitTheThing.py" beforeDir="false" afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/HitTheThing/HitTheThing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Memory_Game/memory.py" beforeDir="false" afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Memory_Game/memory.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +45,12 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="1jlXMrohwpOCiV3gPU0JyN94noD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -61,8 +66,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/pop_the_balloon" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -72,8 +77,8 @@
       <recent name="$PROJECT_DIR$/abhinav/for_fun/python/pygame" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.TableGenaration">
-    <configuration name="Collect_the_blocks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.memory">
+    <configuration name="HitTheThing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Abhi" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -81,11 +86,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Blocks" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/HitTheThing" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Blocks/Collect_the_blocks.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/HitTheThing/HitTheThing.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -115,27 +120,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="School_Codes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Abhi" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/genaral" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/genaral/School_Codes.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="TableGenaration" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Abhi" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -149,6 +133,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/genaral/TableGenaration.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="memory" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Abhi" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Memory_Game" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Memory_Game/memory.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -201,11 +206,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.memory" />
+        <item itemvalue="Python.HitTheThing" />
         <item itemvalue="Python.TableGenaration" />
         <item itemvalue="Python.reverseTheLeters" />
         <item itemvalue="Python.Pop_the_balloon" />
-        <item itemvalue="Python.Collect_the_blocks" />
-        <item itemvalue="Python.School_Codes" />
       </list>
     </recent_temporary>
   </component>
@@ -350,12 +355,12 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$USER_HOME$/Documents/Programs" />
+      <path value="$USER_HOME$/Documents/Python_Codes" />
     </ignored-roots>
     <MESSAGE value="YOU geometery" />
     <MESSAGE value="delete" />

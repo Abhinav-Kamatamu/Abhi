@@ -165,15 +165,15 @@ def inputs():
         return 3
     elif keys[pygame.K_KP_4] or keys[K_a]:
         return 4
-    elif keys[pygame.K_KP_5]or keys[K_s]:
+    elif keys[pygame.K_KP_5] or keys[K_s]:
         return 5
-    elif keys[pygame.K_KP_6]or keys[K_d]:
+    elif keys[pygame.K_KP_6] or keys[K_d]:
         return 6
-    elif keys[pygame.K_KP_1]or keys[K_z]:
+    elif keys[pygame.K_KP_1] or keys[K_z]:
         return 7
-    elif keys[pygame.K_KP_2]or keys[K_x]:
+    elif keys[pygame.K_KP_2] or keys[K_x]:
         return 8
-    elif keys[pygame.K_KP_3]or keys[K_c]:
+    elif keys[pygame.K_KP_3] or keys[K_c]:
         return 9
 
 
