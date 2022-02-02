@@ -6,8 +6,8 @@ from pygame.locals import *
 pygame.init()
 
 w = 100
-h = 50
-s = 20
+h = 500
+s = 200
 x = r.randint(s, w - s)
 y = r.randint(s, h - s)
 speed = 3
