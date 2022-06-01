@@ -28,7 +28,7 @@
 * all plants and animals are made of cells
 * Come from pre-existing cells
 * First 2 theories - Schleiden(1838), Schwann(1838)
-* Last theory - Virchow 
+* Last theory - Virchow (1855) 
 ### Activity Preparation of Temporary mount of onion peel
 * Cut the onion bulb
 * peel the inner layer
@@ -58,7 +58,7 @@
 * Osmosis & Diffusion - Passive transport - No energy
 * Active transport - Lower Concentration to Higher concentration - High energy
 * Mechanic Barrier
-* Recondition- there is a substance on the cell which helps it recognise things
+* Recongnition- there is a substance on the cell which helps it recognise things
 * can differentiate to perform specific tasks- absorption of nutrients in micro villi.
 
 <br>
