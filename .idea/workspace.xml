@@ -19,18 +19,22 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cbf6dc5-1963-44d3-8b43-60e5cc691846" name="Default Changelist" comment="Just stuff in General">
-      <change afterPath="$PROJECT_DIR$/abhinav/French_Revelution(IX).md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/French_Revolution(IX).pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/TheFundamentalUnitOfLife(IX).md" afterDir="false" />
+    <list default="true" id="6cbf6dc5-1963-44d3-8b43-60e5cc691846" name="Default Changelist" comment="Some MarkDown stuff">
+      <change afterPath="$PROJECT_DIR$/abhinav/DelhiSulthanate.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/Development_Of_Resources(X).md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/Government.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/TheFundamentalUnitOfLife(IX).docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/French_Revelution.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/TheFundamentalUnitOfLife.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abhinav/French_Revolution(IX).pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="printScope" value="1" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/exportToHTML" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -349,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643786007788</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Some MarkDown stuff">
+      <created>1654420267275</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1654420267275</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -385,7 +396,8 @@
     <MESSAGE value="Uploading School_Codes with Game_of_life.py" />
     <MESSAGE value="school codes" />
     <MESSAGE value="Just stuff in General" />
-    <option name="LAST_COMMIT_MESSAGE" value="Just stuff in General" />
+    <MESSAGE value="Some MarkDown stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some MarkDown stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
