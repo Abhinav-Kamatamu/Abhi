@@ -57,37 +57,40 @@ class Piece:
         def __init__(self, colour, x, y):
             self.colour = colour
             self.position = [x, y]
-            self.type = PAWN
+            self.piece_type = PAWN
 
     class Rook:
         def __init__(self, colour, x, y):
             self.colour = colour
             self.position = [x, y]
-            self.type = ROOK
+            self.piece_type = ROOK
 
     class Knight:
         def __init__(self, colour, x, y):
             self.colour = colour
             self.position = [x, y]
-            self.type = KNIGHT
+            self.piece_type = KNIGHT
 
     class Bishop:
         def __init__(self, colour, x, y):
             self.colour = colour
             self.position = [x, y]
-            self.type = BISHOP
+            self.piece_type = BISHOP
 
     class Queen:
         def __init__(self, colour, x, y):
             self.colour = colour
             self.position = [x, y]
-            self.type = QUEEN
+            self.piece_type = QUEEN
 
     class King:
         def __init__(self, colour, x, y):
             self.colour = colour
             self.position = [x, y]
-            self.type = KING
+            self.piece_type = KING
+
+        def check_castle(self):
+            return True
 
 
 class Board:
@@ -131,6 +134,7 @@ class Board:
         self.turn = WHITE
         self.clicx = 0
         self.clicky = 0
+        self.show_possibility = False
 
     def startup(self):
         self.win = pygame.display.set_mode((self.width, self.height))
@@ -138,29 +142,32 @@ class Board:
         pygame.display.update()
         pygame.display.set_caption("CHESS")
 
-    def renderDirectionA(self):
+    def render_direction_white(self):
         self.win.blit(chessboard, boardStartPoint)
         for i in range(0, 8):
             for j in range(0, 8):
                 if self.grid[i][j] != 0:
                     if self.grid[i][j].colour == WHITE:
-                        self.win.blit(self.whiteDict[self.grid[i][j].type], (
+                        self.win.blit(self.whiteDict[self.grid[i][j].piece_type], (
                             (self.grid[i][j].position[0] - 1) * piecesize + boardStartPoint[0],
                             (self.grid[i][j].position[1] - 1) * piecesize + boardStartPoint[1]))
                     if self.grid[i][j].colour == BLACK:
-                        self.win.blit(self.blackDict[self.grid[i][j].type], (
+                        self.win.blit(self.blackDict[self.grid[i][j].piece_type], (
                             (self.grid[i][j].position[0] - 1) * piecesize + boardStartPoint[0],
                             (self.grid[i][j].position[1] - 1) * piecesize + boardStartPoint[1]))
         pygame.display.update()
 
-    def detectClick(self):
+    def detect_click(self):
         for event in pygame.event.get():
             if event.type == MOUSEBUTTONDOWN:
                 (self.clicx, self.clicky) = event.pos
                 return self.clicx, self.clicky
+            else:
+                return None, None
 
-    def getMoves(self, x, y, type, colour):
-        if type == PAWN:
+    def potential_moves(self, x, y, piece_type, colour):
+        possible_moves = []
+        if piece_type == PAWN:
             if colour == WHITE:
                 possible_moves = [(x - 1, y - 2), (x - 1, y - 3), (x, y - 2), (x - 2, y - 2)]
                 if y != 7:
@@ -191,89 +198,124 @@ class Board:
                     if self.grid[i[1]][i[0]] != 0:
                         if self.grid[i[1]][i[0]].colour == BLACK:
                             possible_moves.remove(i)
-        if type == BISHOP:
+        if piece_type == BISHOP:
             possible_moves = []
             for j in range(0, 4):
                 for i in range(1, 9):
                     if j == 0:
-                        dealer = (x - 1 - i, y - 1 - i)
+                        direction_coordinate = (x - 1 - i, y - 1 - i)
                     elif j == 1:
-                        dealer = (x - 1 + i, y - 1 + i)
+                        direction_coordinate = (x - 1 + i, y - 1 + i)
                     elif j == 2:
-                        dealer = (x - 1 - i, y - 1 + i)
+                        direction_coordinate = (x - 1 - i, y - 1 + i)
                     else:
-                        dealer = (x - 1 + i, y - 1 - i)
-                    if dealer[1] > 7 or dealer[1] < 0:
+                        direction_coordinate = (x - 1 + i, y - 1 - i)
+                    if direction_coordinate[1] > 7 or direction_coordinate[1] < 0:
                         break
-                    elif dealer[0] > 7 or dealer[0] < 0:
+                    elif direction_coordinate[0] > 7 or direction_coordinate[0] < 0:
                         break
-                    elif self.grid[dealer[1]][dealer[0]] != 0:
-                        if self.grid[dealer[1]][dealer[0]].colour == colour:
+                    elif self.grid[direction_coordinate[1]][direction_coordinate[0]] != 0:
+                        if self.grid[direction_coordinate[1]][direction_coordinate[0]].colour == colour:
                             break
                         else:
-                            possible_moves.append(dealer)
+                            possible_moves.append(direction_coordinate)
                             break
                     else:
-                        possible_moves.append(dealer)
-        if type == ROOK:
+                        possible_moves.append(direction_coordinate)
+        if piece_type == ROOK:
             possible_moves = []
             for j in range(0, 4):
                 for i in range(1, 9):
                     if j == 0:
-                        dealer = (x - 1 - i, y - 1)
+                        direction_coordinate = (x - 1 - i, y - 1)
                     elif j == 1:
-                        dealer = (x - 1 + i, y - 1)
+                        direction_coordinate = (x - 1 + i, y - 1)
                     elif j == 2:
-                        dealer = (x - 1, y - 1 + i)
+                        direction_coordinate = (x - 1, y - 1 + i)
                     else:
-                        dealer = (x - 1, y - 1 - i)
-                    if dealer[1] > 7 or dealer[1] < 0:
+                        direction_coordinate = (x - 1, y - 1 - i)
+                    if direction_coordinate[1] > 7 or direction_coordinate[1] < 0:
                         break
-                    elif dealer[0] > 7 or dealer[0] < 0:
+                    elif direction_coordinate[0] > 7 or direction_coordinate[0] < 0:
                         break
-                    elif self.grid[dealer[1]][dealer[0]] != 0:
-                        if self.grid[dealer[1]][dealer[0]].colour == colour:
+                    elif self.grid[direction_coordinate[1]][direction_coordinate[0]] != 0:
+                        if self.grid[direction_coordinate[1]][direction_coordinate[0]].colour == colour:
                             break
                         else:
-                            possible_moves.append(dealer)
+                            possible_moves.append(direction_coordinate)
                             break
                     else:
-                        possible_moves.append(dealer)
-        if type == QUEEN:
+                        possible_moves.append(direction_coordinate)
+        if piece_type == QUEEN:
             possible_moves = []
             for j in range(0, 8):
                 for i in range(1, 9):
                     if j == 0:
-                        dealer = (x - 1 - i, y - 1)
+                        direction_coordinate = (x - 1 - i, y - 1)
                     elif j == 1:
-                        dealer = (x - 1 + i, y - 1)
+                        direction_coordinate = (x - 1 + i, y - 1)
                     elif j == 2:
-                        dealer = (x - 1, y - 1 + i)
+                        direction_coordinate = (x - 1, y - 1 + i)
                     elif j == 3:
-                        dealer = (x - 1, y - 1 - i)
+                        direction_coordinate = (x - 1, y - 1 - i)
                     if j == 4:
-                        dealer = (x - 1 - i, y - 1)
+                        direction_coordinate = (x - 1 - i, y - 1)
                     elif j == 5:
-                        dealer = (x - 1 + i, y - 1)
+                        direction_coordinate = (x - 1 + i, y - 1)
                     elif j == 6:
-                        dealer = (x - 1, y - 1 + i)
+                        direction_coordinate = (x - 1, y - 1 + i)
                     else:
-                        dealer = (x - 1, y - 1 - i)
-                    if dealer[1] > 7 or dealer[1] < 0:
+                        direction_coordinate = (x - 1, y - 1 - i)
+                    if direction_coordinate[1] > 7 or direction_coordinate[1] < 0:
                         break
-                    elif dealer[0] > 7 or dealer[0] < 0:
+                    elif direction_coordinate[0] > 7 or direction_coordinate[0] < 0:
                         break
-                    elif self.grid[dealer[1]][dealer[0]] != 0:
-                        if self.grid[dealer[1]][dealer[0]].colour == colour:
+                    elif self.grid[direction_coordinate[1]][direction_coordinate[0]] != 0:
+                        if self.grid[direction_coordinate[1]][direction_coordinate[0]].colour == colour:
                             break
                         else:
-                            possible_moves.append(dealer)
+                            possible_moves.append(direction_coordinate)
                             break
                     else:
-                        possible_moves.append(dealer)
+                        possible_moves.append(direction_coordinate)
+        if piece_type == KING:
+            possible_moves = [(x + 1, y - 1), (x + 3, y - 1), (x - 2, y - 2), (x - 1, y - 2), (x, y - 2),
+                              (x + 2, y - 1), (x - 2, y), (x, y - 1), (x, y), (x - 1, y)]
+            if not self.grid[y - 1][x - 1].check_castle():
+                possible_moves.remove(possible_moves[0])
+                possible_moves.remove(possible_moves[1])
+            for i in possible_moves:
+                if ((i[0] > 7) or (i[0] < 0)) or ((i[1] > 7) or (i[1] < 0)):
+                    possible_moves.remove(i)
+                if self.grid[i[1]][i[0]] != 0:
+                    if self.grid[i[1]][i[0]].colour == colour:
+                        possible_moves.remove(i)
+        return possible_moves
+
+    def get_pressed_block(self):
+        (x, y) = self.detect_click()
+        if (x, y) is not (None, None):
+            x = x - 100 // piecesize
+            y = y - 100 // piecesize
+            if ((x > 7) or (x < 0)) or ((y > 7) or (y < 0)):
+                clickedblock = (None, None)
+                return clickedblock
+            else:
+                clickedblock = (x, y)
+                return clickedblock
+        else:
+            return None,None
+    def show_peice_possibility(self):
+        (x,y) = self.get_pressed_block()
+        if self.grid[y][x] != 0
+            possible_moves = self.potential_moves(x+1,y+1,self.grid[y][x].piece_type, self.grid[y][x].colour)
+
+
+
+
 
 board = Board(width, height)
 board.startup()
-board.renderDirectionA()
+board.render_direction_white()
 while True:
     pass

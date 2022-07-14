@@ -20,23 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cbf6dc5-1963-44d3-8b43-60e5cc691846" name="Default Changelist" comment="Chess initiated">
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/Board.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/Chess_copy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/bb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/bk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/bn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/bp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/bq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/br.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/wb.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/wk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/wn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/wp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/wq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/wr.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/Chess.py" beforeDir="false" afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/Chess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/snakes_ladders/s_old.py" beforeDir="false" afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/snakes_ladders/s_old.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/Chess_copy.py" beforeDir="false" afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/Chess_copy.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,11 +60,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;/home/abhinav/Desktop/Abhi/abhinav/for_fun/python/pygame/Chess&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/abhinav/Desktop/Abhi",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess" />
@@ -89,7 +78,7 @@
       <recent name="$PROJECT_DIR$/abhinav/for_fun/python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Chess">
+  <component name="RunManager" selected="Python.Chess_copy">
     <configuration name="Chess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Abhi" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -218,8 +207,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Chess" />
         <item itemvalue="Python.Chess_copy" />
+        <item itemvalue="Python.Chess" />
         <item itemvalue="Python.Text" />
         <item itemvalue="Python.memory" />
         <item itemvalue="Python.HitTheThing" />

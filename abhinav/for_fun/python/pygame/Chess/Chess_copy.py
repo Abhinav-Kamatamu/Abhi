@@ -17,8 +17,7 @@
 #     [Hi(1,2), 0]
 # ]
 # list[1][0].move()
-list = []
-for i in range(1, 8):
-    print(i)
-
-print(list)
+def hi():
+    return 0,None
+(x,y) = hi()
+print(x,y)
