@@ -304,14 +304,13 @@ class Board:
                 clickedblock = (x, y)
                 return clickedblock
         else:
-            return None,None
+            return None, None
+
     def show_peice_possibility(self):
-        (x,y) = self.get_pressed_block()
-        if self.grid[y][x] != 0
-            possible_moves = self.potential_moves(x+1,y+1,self.grid[y][x].piece_type, self.grid[y][x].colour)
-
-
-
+        (x, y) = self.get_pressed_block()
+        if self.grid[y][x] != 0:
+            if self.grid[y][x] == self.turn:
+                possible_moves = self.potential_moves(x - 1, y - 1, self.grid[y][x].piece_type, self.grid[y][x].colour)
 
 
 board = Board(width, height)
