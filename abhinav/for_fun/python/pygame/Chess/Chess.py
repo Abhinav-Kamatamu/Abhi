@@ -88,7 +88,9 @@ class Piece:
             self.colour = colour
             self.position = [x, y]
             self.piece_type = KING
-
+        def king_possibilies(self, postion, colour): #this is to check which square the king is safe
+            if colour == WHITE:
+                
         def check_castle(self):
             return True
 
@@ -311,6 +313,10 @@ class Board:
         if self.grid[y][x] != 0:
             if self.grid[y][x] == self.turn:
                 possible_moves = self.potential_moves(x - 1, y - 1, self.grid[y][x].piece_type, self.grid[y][x].colour)
+                for i in possible_moves:
+                    dot = pygame.draw.circle(win,(0,0,0),(int((piecesize*(i[0]-0.5))+boardStartPoint),int((piecesize*(i[1]-0.5))+boardStartPoint)), piecesize//3)
+                    dot.set_alpha(50)
+        pygame.display.update()
 
 
 board = Board(width, height)
