@@ -19,13 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cbf6dc5-1963-44d3-8b43-60e5cc691846" name="Default Changelist" comment="Some MarkDown stuff">
-      <change afterPath="$PROJECT_DIR$/abhinav/DelhiSulthanate.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/Development_Of_Resources(X).md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/Government.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/abhinav/TheFundamentalUnitOfLife(IX).docx" afterDir="false" />
+    <list default="true" id="6cbf6dc5-1963-44d3-8b43-60e5cc691846" name="Default Changelist" comment="Chess initiated">
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/Board.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/Chess_copy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/bb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/bk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/bn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/bp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/bq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/br.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/wb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/wk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/wn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/wp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/wq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/wr.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/abhinav/French_Revolution(IX).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/Chess.py" beforeDir="false" afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/Chess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/snakes_ladders/s_old.py" beforeDir="false" afterPath="$PROJECT_DIR$/abhinav/for_fun/python/pygame/snakes_ladders/s_old.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,25 +74,64 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="Markdown" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;last_opened_file_path&quot;: &quot;/home/abhinav/Desktop/Abhi/abhinav/for_fun/python/pygame/Chess&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess" />
       <recent name="$PROJECT_DIR$/abhinav/for_fun/python/pygame/pop_the_balloon" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/abhinav/for_fun/python/pygame" />
+      <recent name="$PROJECT_DIR$/abhinav/for_fun/python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Text">
+  <component name="RunManager" selected="Python.Chess">
+    <configuration name="Chess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Abhi" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/Chess.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Chess_copy" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Abhi" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/Chess/Chess_copy.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="HitTheThing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Abhi" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -95,27 +145,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/pygame/HitTheThing/HitTheThing.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TableGenaration" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Abhi" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/genaral" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/genaral/TableGenaration.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,34 +216,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="reverseTheLeters" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Abhi" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/abhinav/for_fun/python/genaral" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/abhinav/for_fun/python/genaral/reverseTheLeters.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Chess" />
+        <item itemvalue="Python.Chess_copy" />
         <item itemvalue="Python.Text" />
         <item itemvalue="Python.memory" />
         <item itemvalue="Python.HitTheThing" />
-        <item itemvalue="Python.TableGenaration" />
-        <item itemvalue="Python.reverseTheLeters" />
       </list>
     </recent_temporary>
   </component>
@@ -360,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654420267275</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Chess initiated">
+      <created>1657623791987</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1657623791987</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -397,7 +412,8 @@
     <MESSAGE value="school codes" />
     <MESSAGE value="Just stuff in General" />
     <MESSAGE value="Some MarkDown stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some MarkDown stuff" />
+    <MESSAGE value="Chess initiated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chess initiated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
