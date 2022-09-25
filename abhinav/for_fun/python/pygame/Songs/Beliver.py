@@ -1,12 +1,9 @@
 import pygame
-from pygame.locals import *
-
+file = 'Song.mp3'
 pygame.init()
 pygame.mixer.init()
-pygame.mixer_music.load("/home/abhinav/Desktop/Abhi/abhinav/for_fun/python/pygame/Songs/Song.mp3")
-pygame.mixer_music.set_volume(0.8)
-print(pygame.mixer_music.get_volume())
-play_1 = pygame.mixer.music.play()
-pygame.mixer.music.load("/Song.mp3")
-while True:
-    pass
+pygame.mixer.music.load(file)
+pygame.mixer.music.play()
+while pygame.mixer.music.get_busy():
+  pygame.time.Clock().tick(1)
+print('done')
