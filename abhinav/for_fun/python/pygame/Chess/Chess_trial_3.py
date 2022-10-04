@@ -26,6 +26,10 @@ class GameBoard:
     self.king_pos = {"white":(4,7), "black":(4,0)}
     self.possible_moves = []
     self.fake_board = None
+    self.selected_piece = (None,None)
+    self.images = self.imgae_import()
+    self.previous_board = None
+
     
     
 # Main Loop
