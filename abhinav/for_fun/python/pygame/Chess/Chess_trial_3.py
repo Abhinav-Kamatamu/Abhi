@@ -18,8 +18,8 @@ class GameBoard:
       [None,None,None,None,None,None,None,None],
       [None,None,None,None,None,None,None,None],
       [None,None,None,None,None,None,None,None],
-      [None,None,None,None,None,None,None,None],
-      [["br","black","rook",(0,0)], ["bn","black","knight",(1,0)], ["bb","black","bishop",(2,0)], ["bq","black","queen",(3,0)], ["bk","black","king",(4,0)],["bb","black","bishop",(5,0)],["bn","black","knight",(6,0)],["br","black","rook",(7,0)]],
+      [["wp","white","pawn",(0,6)],["wp","white","pawn",(1,6)],["wp","black","white",(2,6)],["wp","white","pawn",(3,6)],["wp","white","pawn",(4,6)],["wp","white","pawn",(5,6)],["wp","white","pawn",(6,6)],["wp","white","pawn",(7,6)]],
+      [["wr","white","rook",(0,7)], ["wn","white","knight",(1,7)], ["wb","white","bishop",(2,7)], ["wq","white","queen",(3,7)], ["wk","white",  "king",(4,7)],["wb","white","bishop",(5,7)],["wn","white","knight",(6,7)],["wr","white","rook",(7,7)]]
 
 # Main Loop
 While True:
