@@ -31,13 +31,13 @@ class GameBoard:
     self.previous_board = None
     
   def image_import(self):
-    images = {}
+    images = {'board' : pygame.image.transform.scale(pygame.image.load('Board.png'),(WIDTH,HEIGHT)}
     pieces = ['br', 'bn', 'bb', 'bn' , 'bq', 'bk', 'bp','wr', 'wn', 'wb', 'wn' , 'wq', 'wk', 'wp']
     for piece in pieces:
       images[piece] = pygame.image.transform.scale(pygame.image.load(f'{piece}.png'), (WIDTH//8,HEIGHT//8))
     return images
-  def 
-      
+  def draw_game_board(self):
+    screen.blit(self.images[board],(0,0))
 
     
     
