@@ -27,8 +27,17 @@ class GameBoard:
     self.possible_moves = []
     self.fake_board = None
     self.selected_piece = (None,None)
-    self.images = self.imgae_import()
+    self.images = self.image_import()
     self.previous_board = None
+    
+  def image_import(self):
+    images = {}
+    pieces = ['br', 'bn', 'bb', 'bn' , 'bq', 'bk', 'bp','wr', 'wn', 'wb', 'wn' , 'wq', 'wk', 'wp']
+    for piece in pieces:
+      images[piece] = pygame.image.transform.scale(pygame.image.load(f'{piece}.png'), (WIDTH//8,HEIGHT//8))
+    return images
+  def 
+      
 
     
     
