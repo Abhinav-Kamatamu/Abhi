@@ -20,7 +20,14 @@ class GameBoard:
       [None,None,None,None,None,None,None,None],
       [["wp","white","pawn",(0,6)],["wp","white","pawn",(1,6)],["wp","black","white",(2,6)],["wp","white","pawn",(3,6)],["wp","white","pawn",(4,6)],["wp","white","pawn",(5,6)],["wp","white","pawn",(6,6)],["wp","white","pawn",(7,6)]],
       [["wr","white","rook",(0,7)], ["wn","white","knight",(1,7)], ["wb","white","bishop",(2,7)], ["wq","white","queen",(3,7)], ["wk","white",  "king",(4,7)],["wb","white","bishop",(5,7)],["wn","white","knight",(6,7)],["wr","white","rook",(7,7)]]
-
+    ]
+    self.isWhiteTrun = True
+    self.draw_white_side = 1 # 1 means true in this case. Black turn would mean -1
+    self.king_pos = {"white":(4,7), "black":(4,0)}
+    self.possible_moves = []
+    self.fake_board = None
+    
+    
 # Main Loop
 While True:
   for event in pygame.event.get_pressed():
