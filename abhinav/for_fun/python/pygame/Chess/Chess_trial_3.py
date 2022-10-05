@@ -5,8 +5,9 @@ pygame.init()
 
 # Defining Variables
 WIDTH = HEIGHT = 800
+piece_size = WIDTH//8
 screen = pygame.display.set_mode((WIDTH,HEIGHT))
-board = GameBoard()
+
 
 # Defining Classes
 class GameBoard:
@@ -21,7 +22,7 @@ class GameBoard:
       [["wp","white","pawn",(0,6)],["wp","white","pawn",(1,6)],["wp","black","white",(2,6)],["wp","white","pawn",(3,6)],["wp","white","pawn",(4,6)],["wp","white","pawn",(5,6)],["wp","white","pawn",(6,6)],["wp","white","pawn",(7,6)]],
       [["wr","white","rook",(0,7)], ["wn","white","knight",(1,7)], ["wb","white","bishop",(2,7)], ["wq","white","queen",(3,7)], ["wk","white",  "king",(4,7)],["wb","white","bishop",(5,7)],["wn","white","knight",(6,7)],["wr","white","rook",(7,7)]]
     ]
-    self.isWhiteTrun = True
+    self.turn = 'white'
     self.draw_white_side = 1 # 1 means true in this case. Black turn would mean -1
     self.king_pos = {"white":(4,7), "black":(4,0)}
     self.possible_moves = []
@@ -29,19 +30,42 @@ class GameBoard:
     self.selected_piece = (None,None)
     self.images = self.image_import()
     self.previous_board = None
-    
+    self.isSelected = False
+    self.draw_game_board()
   def image_import(self):
-    images = {'board' : pygame.image.transform.scale(pygame.image.load('Board.png'),(WIDTH,HEIGHT)}
+    images = {'board' : pygame.transform.scale(pygame.image.load('Board.png'),(WIDTH,HEIGHT))}
     pieces = ['br', 'bn', 'bb', 'bn' , 'bq', 'bk', 'bp','wr', 'wn', 'wb', 'wn' , 'wq', 'wk', 'wp']
     for piece in pieces:
-      images[piece] = pygame.image.transform.scale(pygame.image.load(f'{piece}.png'), (WIDTH//8,HEIGHT//8))
+      images[piece] = pygame.transform.scale(pygame.image.load(f'{piece}.png'), (piece_size,piece_size))
     return images
   def draw_game_board(self):
-    screen.blit(self.images[board],(0,0))
+    screen.blit(self.images['board'],(0,0))
+    self.draw_pieces()
+    pygame.display.update()
+  def draw_pieces(self):
+      for y in range(0,8,self.draw_white_side):
+          for x in range(0,8,self.draw_white_side):
+              if self.game_board[y][x] != None:
+                  screen.blit(self.images[f'{self.game_board[y][x][0]}'], (x*piece_size, y* piece_size))
+  def select_piece(self,mouse_pos):
+      x,y = (mouse_pos[0]//piece_size,mouse_pos[1]//piece_size)
+      if self.selected_piece == (x,y):
+          self.selected_piece = (None,None)
+      elif self.game_board[y][x] == None:
+          self.selected_piece = (None,None)
+      elif self.game_board[y][x][1] != self.turn:
+          self.selected_piece = (None,None)
+          self.isSelcted = False
+      else:
+          self.selected_piece = (x,y)
+          self.isSelected = True
+      print(self.selected_piece)
     
-    
+board = GameBoard() 
 # Main Loop
-While True:
-  for event in pygame.event.get_pressed():
-    if evnt.type == QUIT:
+while True:
+  for event in pygame.event.get():
+    if event.type == QUIT:
       exit()
+    if event.type == MOUSEBUTTONDOWN:
+        board.select_piece(event.pos)
