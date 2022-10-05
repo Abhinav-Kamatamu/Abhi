@@ -38,7 +38,6 @@ class GameBoard:
     return images
   def draw_game_board(self):
     screen.blit(self.images[board],(0,0))
-
     
     
 # Main Loop
