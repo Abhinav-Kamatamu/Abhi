@@ -71,14 +71,14 @@ class Piece:
             }
             if self.colour == BLACK:
                 if y != 2:
-                    if grid[y + 1][x] != 0:
-                        possibility_dict[self.colour].remove(possibility_dict[self.colour][1])
-                        possibility_dict[self.colour].remove(possibility_dict[self.colour][2])
+                    possibility_dict[self.colour].remove(possibility_dict[self.colour][1])
+                elif grid[y + 1][x] != 0:
+                    possibility_dict[self.colour].remove(possibility_dict[self.colour][1])
             if self.colour == WHITE:
                 if y != 7:
-                    if grid[y - 1][x] != 0:
-                        possibility_dict[self.colour].remove(possibility_dict[self.colour][1])
-                        possibility_dict[self.colour].remove(possibility_dict[self.colour][2])
+                    possibility_dict[self.colour].remove(possibility_dict[self.colour][1])
+                elif grid[y - 1][x] != 0:
+                    possibility_dict[self.colour].remove(possibility_dict[self.colour][1])
             for i in possibility_dict[self.colour]:
                 if (i[0] < 0 or i[0] > 7) or (i[1] < 0 or i[1] > 7):
                     possibility_dict[self.colour].remove(i)
@@ -221,7 +221,7 @@ class Board:
              Piece.King(WHITE, 4, 7), Piece.Bishop(WHITE, 5, 7), Piece.Knight(WHITE, 6, 7), Piece.Rook(WHITE, 7, 7)]
         ]
         self.active_block = (None, None)
-        self.turn = WHITE
+        self.turn = BLACK
         self.active_block_possibilities = []
         self.win = None
         self.blackDict = {PAWN: bp, ROOK: br, KNIGHT: bn, BISHOP: bb, QUEEN: bq, KING: bb}
