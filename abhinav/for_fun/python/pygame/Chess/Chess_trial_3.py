@@ -26,12 +26,13 @@ class GameBoard: # contains all the things that a game should be able to do
     self.isWhiteTurn = True # This is to check if it is white's turn
     self.turn_dict = {True: 'white', False: 'black'} # This will be used to determine who's turn it is
     self.draw_white_side = 1 # 1 means true in this case. Black turn would mean -1
-    self.king_pos = {"white":(4,7), "black":(4,0)}
-    self.possible_moves = []
-    self.fake_board = None
+    self.king_pos = {"white":(4,7), "black":(4,0)} # stores the kings position
+    self.possible_moves = [] # this is the list of possible moves
+    self.fake_board = None # This is a fake board that is being used 
     self.selected_piece = (None,None)
     self.images = self.image_import()
     self.previous_board = None
+    self.change_side = False
     self.move_loc = (None,None)
     self.draw_game_board()
     
@@ -43,7 +44,8 @@ class GameBoard: # contains all the things that a game should be able to do
     return images
 
   def after_move(self):
-      
+      if self.change_side:
+          self.draw_white_side *= -1
       self.draw_game_board()
       self.isWhiteTurn = not self.isWhiteTurn
       
@@ -52,6 +54,7 @@ class GameBoard: # contains all the things that a game should be able to do
     screen.blit(self.images['board'],(0,0))
     self.draw_pieces()
     pygame.display.update()
+    
   def move_piece(self, board, start, end , want_duplicate):
       ((start_x,start_y), (end_x,end_y)) = (start,end)
       duplicate = copy.deepcopy(board)
@@ -65,15 +68,15 @@ class GameBoard: # contains all the things that a game should be able to do
           return duplicate
       else:
           return board
-  
-#  def after_a_move(self):
-#      #en pasant
-#       
+     
   def draw_pieces(self):
-      for y in range(0,8,self.draw_white_side):
-          for x in range(0,8,self.draw_white_side):
+      for y in range(8):
+          for x in range(8):
               if self.game_board[y][x] != None:
-                  screen.blit(self.images[f'{self.game_board[y][x][0]}'], (x*piece_size, y* piece_size))
+                  if self.draw_white_side == -1:
+                      screen.blit(self.images[f'{self.game_board[y][x][0]}'], (WIDTH-(x+1)*piece_size, HEIGHT-(y+1)* piece_size))
+                  if self.draw_white_side == 1:
+                      screen.blit(self.images[f'{self.game_board[y][x][0]}'], (x*piece_size, y* piece_size))
                   
   def select_piece(self,mouse_pos):
       x,y = (mouse_pos[0]//piece_size,mouse_pos[1]//piece_size)
@@ -111,9 +114,14 @@ while True:
     if event.type == QUIT: 
       exit()
     if event.type == MOUSEBUTTONDOWN:
-        board.select_piece(event.pos)
+        if board.draw_white_side == -1:
+            board.select_piece((WIDTH - event.pos[0], HEIGHT - event.pos[1]))
+        else:
+            board.select_piece(event.pos)
     if event.type == KEYDOWN:
         if event.key == K_b:
             board.take_back()
+        if event.key == K_c:
+            board.change_side = not board.change_side
   keys = pygame.key.get_pressed()
     
