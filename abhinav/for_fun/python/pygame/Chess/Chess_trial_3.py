@@ -15,28 +15,34 @@ pygame.display.set_caption('PLAY CHESS')  # sets a caption to the window
 class GameBoard:  # contains all the things that a game should be able to do
     def __init__(self):
         self.game_board = [  # here, each piece is being represented as a list of all its properties
-            [["br", "black", "rook", (0, 0)], ["bn", "black", "knight", (1, 0)], ["bb", "black", "bishop", (2, 0)], ["bq", "black", "queen", (3, 0)], ["bk", "black", "king", (4, 0)], ["bb", "black", "bishop", (5, 0)], ["bn", "black", "knight", (6, 0)], ["br", "black", "rook", (7, 0)]],
+            [["br", "black", "rook", (0, 0), True], ["bn", "black", "knight", (1, 0)], ["bb", "black", "bishop", (2, 0)], ["bq", "black", "queen", (3, 0)], ["bk", "black", "king", (4, 0), True], ["bb", "black", "bishop", (5, 0)], ["bn", "black", "knight", (6, 0)], ["br", "black", "rook", (7, 0), True]],
             [["bp", "black", "pawn", (0, 1), True], ["bp", "black", "pawn", (1, 1), True], ["bp", "black", "pawn", (2, 1), True], ["bp", "black", "pawn", (3, 1), True], ["bp", "black", "pawn", (4, 1), True], ["bp", "black", "pawn", (5, 1), True], ["bp", "black", "pawn", (6, 1), True], ["bp", "black", "pawn", (7, 1), True]],
             [None, None, None, None, None, None, None, None],
             [None, None, None, None, None, None, None, None],
             [None, None, None, None, None, None, None, None],
             [None, None, None, None, None, None, None, None],  # -                 This true stands for pawn eligible for 2 jump
             [["wp", "white", "pawn", (0, 6), True], ["wp", "white", "pawn", (1, 6), True], ["wp", "white", (2, 6), True], ["wp", "white", "pawn", (3, 6), True], ["wp", "white", "pawn", (4, 6), True], ["wp", "white", "pawn", (5, 6), True], ["wp", "white", "pawn", (6, 6), True], ["wp", "white", "pawn", (7, 6), True]],
-            [["wr", "white", "rook", (0, 7)], ["wn", "white", "knight", (1, 7)], ["wb", "white", "bishop", (2, 7)], ["wq", "white", "queen", (3, 7)], ["wk", "white", "king", (4, 7)], ["wb", "white", "bishop", (5, 7)], ["wn", "white", "knight", (6, 7)], ["wr", "white", "rook", (7, 7)]]
-        ]
-        self.isWhiteTurn = True  # This is to check if it is white's turn
-        self.turn_dict = {True: 'white', False: 'black'}  # This will be used to determine who's turn it is
+            [["wr", "white", "rook", (0, 7), True], ["wn", "white", "knight", (1, 7)], ["wb", "white", "bishop", (2, 7)], ["wq", "white", "queen", (3, 7)], ["wk", "white", "king", (4, 7), True], ["wb", "white", "bishop", (5, 7)], ["wn", "white", "knight", (6, 7)], ["wr", "white", "rook", (7, 7), True]]
+        ]  # Both the King and the Rook have a "true" parameter which represents if they are capable of castling
 
-        self.draw_white_side = 1  # 1 means true in this case. Black turn would mean -1
+        self.isWhiteTurn = True  # This is to check if it is white's turn
+        self.turn_dict = {True: 'white', False: 'black'}  # This will be used to determine a str value of who's turn it is based on value of self.isWhiteTurn
+
+        self.change_side = False  # Enable in case you want to change the side of the board with every turn
+        self.turn_dict_change_side = {True: 0, False: 1}
+        self.draw_white_side = 0  # 0 means true in this case. Black side would mean 1
+
         self.images = self.image_import()  # This is a dictionary of the following format {'wr' : corresponding image}
 
         self.king_pos = {"white": (4, 7), "black": (4, 0)}  # stores the kings position
-        self.possible_moves = []  # this is the list of possible moves
         self.fake_board = None  # This is a fake board that is being used to check if the king is in a check
+
+        self.possible_moves = []  # this is the list of possible moves
+
         self.selected_piece = (None, None)  # stores the coordinates of the selected piece
         self.move_loc = (None, None)  # coordinates of the point you want the selected piece to move to
+
         self.previous_board = None  # This stores the state of the previous board in case you want to take back
-        self.change_side = False  # Enable in case you want to change the side of the board with every turn
         self.draw_game_board()  # draws the game board
 
     def image_import(self):
@@ -45,20 +51,18 @@ class GameBoard:  # contains all the things that a game should be able to do
             It will also return that dictionary
         """
         images = {'board': pygame.transform.scale(pygame.image.load('Board.png'), (WIDTH, HEIGHT))}
-        pieces = ['br', 'bn', 'bb', 'bn', 'bq', 'bk', 'bp', 'wr', 'wn', 'wb', 'wn', 'wq', 'wk', 'wp']
-        for piece in pieces:
+        for piece in ['br', 'bn', 'bb', 'bn', 'bq', 'bk', 'bp', 'wr', 'wn', 'wb', 'wn', 'wq', 'wk', 'wp']:
             images[piece] = pygame.transform.scale(pygame.image.load(f'{piece}.png'), (piece_size[0], piece_size[1]))
         return images
 
-    def after_move(self):
+    def draw_pieces(self):
         """
-            This contains the code that has to be run after a move is made
+        Draws the pieces on the board in respective positions
         """
-        if self.change_side:  # If change_side is enabled, then it will change the draw side every time a move is made
-            self.draw_white_side *= -1  # This will change draw_white_side to the opposite
-        self.draw_game_board()  # The display needs to be updated after every move
-        self.isWhiteTurn = not self.isWhiteTurn  # Changes the turn
-        pygame.display.set_caption(f'it is {}')
+        for y in range(8):
+            for x in range(8):
+                if self.game_board[y][x] is not None:  # If there is a piece on a square
+                    screen.blit(self.images[f'{self.game_board[y][x][0]}'], (abs(7 * self.draw_white_side - x) * piece_size[0], abs(7 * self.draw_white_side - y) * piece_size[1]))  # Displays the piece images based on self.draw_white_side
 
     def draw_game_board(self):
         """
@@ -69,45 +73,28 @@ class GameBoard:  # contains all the things that a game should be able to do
             4) Draw all the pieces
         """
         screen.blit(self.images['board'], (0, 0))  # Draws the board image
+        # Enable function to highlight pieces
+        # Enable function to draw possible moves
         self.draw_pieces()  # Draws the images of the pieces
         pygame.display.update()  # Updates the display
 
-    def move_piece(self, chess_board, start, end, want_duplicate):
-        ((start_x, start_y), (end_x, end_y)) = (start, end)
-        duplicate = copy.deepcopy(chess_board)
-        chess_board[end_y][end_x] = chess_board[start_y][start_x]
-        chess_board[end_y][end_x][3] = end
-        chess_board[start_y][start_x] = None
-        if chess_board[end_y][end_x][2] == 'king':
-            self.king_pos[chess_board[end_y][end_x][1]] = end
-        self.after_move()
-        if want_duplicate:
-            return duplicate
-        else:
-            return chess_board
-
-    def draw_pieces(self):
-        for y in range(8):
-            for x in range(8):
-                if self.game_board[y][x] is not None:
-                    if self.draw_white_side == -1:
-                        screen.blit(self.images[f'{self.game_board[y][x][0]}'],
-                                    (WIDTH - (x + 1) * piece_size[0], HEIGHT - (y + 1) * piece_size[1]))
-                    if self.draw_white_side == 1:
-                        screen.blit(self.images[f'{self.game_board[y][x][0]}'], (x * piece_size[0], y * piece_size[1]))
-
     def select_piece(self, mouse_pos):
-        x, y = (mouse_pos[0] // piece_size[0], mouse_pos[1] // piece_size[1])
-        if self.selected_piece == (None, None) and self.move_loc == (None, None):
-            if self.game_board[y][x] is not None:
-                if self.game_board[y][x][1] == self.turn_dict[self.isWhiteTurn]:
-                    self.selected_piece = (x, y)
-                    # show poasibility
-        if self.selected_piece != (None, None) and self.move_loc == (None, None):
-            if self.game_board[y][x] is not None:
-                if self.game_board[y][x][1] == self.turn_dict[self.isWhiteTurn]:
-                    self.selected_piece = (x, y)
-                    # show poasibiliy
+        """
+        With the input of where the mouse clicked, it will decide if a piece is selected, to be moved or to be unselected
+        """
+        x, y = (mouse_pos[0] // piece_size[0], mouse_pos[1] // piece_size[1])  # Obtains the coordinates of the square that has been selected
+
+        if self.selected_piece == (None, None) and self.move_loc == (None, None):  # If a piece has not been previously selected...
+            if self.game_board[y][x] is not None:  # And if there is a piece on the currently selected square...
+                if self.game_board[y][x][1] == self.turn_dict[self.isWhiteTurn]:  # If it is the turn of the colour of the piece that has been selected
+                    self.selected_piece = (x, y)  # Then store the value of the selected piece
+                    # insert show poasibility code here [ AKA, put the draw game board method over here]
+
+        if self.selected_piece != (None, None) and self.move_loc == (None, None):  # If a piece has already been selected but not moved yet...
+            if self.game_board[y][x] is not None:  # If the square clicked on just now is not empty...
+                if self.game_board[y][x][1] == self.turn_dict[self.isWhiteTurn]:  # And the new piece selected is of the colour of the turn...
+                    self.selected_piece = (x, y)  # Change this to be the new selected piece
+                    # insert show poasibility code here [ AKA, put the draw game board method over here]
                 else:
                     self.move_loc = (x, y)
                     self.previous_board = self.move_piece(self.game_board, self.selected_piece, self.move_loc, True)
@@ -117,11 +104,40 @@ class GameBoard:  # contains all the things that a game should be able to do
                 self.previous_board = self.move_piece(self.game_board, self.selected_piece, self.move_loc, True)
                 self.move_loc = self.selected_piece = (None, None)
 
-        print(self.selected_piece, self.move_loc)
+    def move_piece(self, chess_board, start, end, want_duplicate):
+        """
+        Moves a piece to a new location
+
+        Input : Takes the game board, the start position of the piece to be moved, the end position, if we want a duplicate of the game board
+        Output : Duplicate_board / Game board (output depends on if we want and ouput or not)
+        """
+        ((start_x, start_y), (end_x, end_y)) = (start, end)  # Extracts the x and y coordinates from start and end
+        duplicate = copy.deepcopy(chess_board)  # Creates a duplicate version of the board in case you want to take back
+        chess_board[end_y][end_x] = chess_board[start_y][start_x]  # Creates a duplicate of the piece you want to move in the end positon
+        chess_board[end_y][end_x][3] = end  # Sets the coordinates of the new duplicate piece to update
+        chess_board[start_y][start_x] = None  # Erases the original piece from the board
+        if chess_board[end_y][end_x][2] == 'king':  # If the piece moved was a king...
+            self.king_pos[chess_board[end_y][end_x][1]] = end  # Sets the king postion value to update
+        self.after_move()  # Runs a set of commands that need to run after a move has been made
+        if want_duplicate:  # If you want a duplicate version of the board...
+            return duplicate  # Return the duplicate
+        else:
+            return chess_board  # Return the chessboard
+
+    def after_move(self):
+        """
+            This contains the code that has to be run after a move is made
+        """
+        if self.change_side:  # If change_side is enabled, then it will change the draw side every time a move is made
+            self.draw_white_side = (self.draw_white_side * -1) + 1  # This will change draw_white_side to the opposite
+        self.draw_game_board()  # The display needs to be updated after every move
+        self.isWhiteTurn = not self.isWhiteTurn  # Changes the turn
+        # pygame.display.set_caption(f'it is {}')
 
     def take_back(self):
         self.game_board = self.previous_board
         self.isWhiteTurn = not self.isWhiteTurn
+        self.draw_white_side = (self.draw_white_side * -1) + 1
         self.draw_game_board()
 
 
@@ -131,14 +147,19 @@ while True:
     for event in pygame.event.get():
         if event.type == QUIT:
             exit()
+
         if event.type == MOUSEBUTTONDOWN:
-            if board.draw_white_side == -1:
+            if board.draw_white_side == 1:
                 board.select_piece((WIDTH - event.pos[0], HEIGHT - event.pos[1]))
             else:
                 board.select_piece(event.pos)
+
         if event.type == KEYDOWN:
             if event.key == K_b:
                 board.take_back()
             if event.key == K_c:
                 board.change_side = not board.change_side
+                board.draw_white_side = board.turn_dict_change_side[board.isWhiteTurn]
+                board.draw_game_board()
+
     keys = pygame.key.get_pressed()
