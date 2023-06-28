@@ -104,6 +104,12 @@ class GameBoard:  # contains all the things that a game should be able to do
                 self.previous_board = self.move_piece(self.game_board, self.selected_piece, self.move_loc, True)
                 self.move_loc = self.selected_piece = (None, None)
 
+    def get_piece_possibility(self):
+        x, y = self.selected_piece
+
+        if self.game_board[y][x][2] == 'pawn':
+            pass
+
     def move_piece(self, chess_board, start, end, want_duplicate):
         """
         Moves a piece to a new location
@@ -137,7 +143,8 @@ class GameBoard:  # contains all the things that a game should be able to do
     def take_back(self):
         self.game_board = self.previous_board
         self.isWhiteTurn = not self.isWhiteTurn
-        self.draw_white_side = (self.draw_white_side * -1) + 1
+        if self.change_side:
+            self.draw_white_side = (self.draw_white_side * -1) + 1
         self.draw_game_board()
 
 
