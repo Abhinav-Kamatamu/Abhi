@@ -1,6 +1,8 @@
 # Refer to this link to find out the problmes:--    https://cemc.uwaterloo.ca/sites/default/files/documents/2024/2024CCCJrProblems.html
 
-#Problem 3
+# Problem 3
+'''
+
 import random
 
 how_many = [1, 0, 0]
@@ -23,3 +25,5 @@ for input in data:
         how_many[turn] += 1
 
 print(winner[2], how_many[2])
+'''
+
