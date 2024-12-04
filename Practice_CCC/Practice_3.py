@@ -28,6 +28,9 @@ print(winner[2], how_many[2])
 '''
 
 
+#Problem 4
+'''
+
 def find_troublesome_keys(key_presses, screen_output):
     silly_key = None
     wrong_letter = None
@@ -76,3 +79,86 @@ key_presses3 = "forloops"
 screen_output3 = "frlpz"
 find_troublesome_keys(key_presses3, screen_output3)
 
+'''
+
+#Problem 5
+
+def is_valid_mapping(pressed_keys, displayed_letters, silly_key, wrong_letter, quiet_key):
+    i = 0  # Pointer for pressed_keys
+    j = 0  # Pointer for displayed_letters
+    prev_key = None  # Previous key pressed
+
+    while i < len(pressed_keys):
+        current_key = pressed_keys[i]
+
+        if current_key == silly_key:
+            # Silly key should map to wrong_letter
+            if j >= len(displayed_letters) or displayed_letters[j] != wrong_letter:
+                return False
+            # Check constraints
+            if prev_key == quiet_key:
+                return False
+            prev_key = silly_key
+            i += 1
+            j += 1
+        elif quiet_key and current_key == quiet_key:
+            # Quiet key does not display anything
+            # Check constraints
+            if prev_key == silly_key:
+                return False
+            prev_key = quiet_key
+            i += 1
+            # j remains the same
+        else:
+            # Normal key should display itself
+            if j >= len(displayed_letters) or displayed_letters[j] != current_key:
+                return False
+            # Check constraints
+            if (prev_key == quiet_key and current_key == silly_key) or \
+               (prev_key == silly_key and current_key == quiet_key):
+                return False
+            prev_key = current_key
+            i += 1
+            j += 1
+
+    # After processing all pressed_keys, all displayed_letters should be consumed
+    if j != len(displayed_letters):
+        return False
+
+    return True
+
+def find_troublesome_keys(pressed_keys, displayed_letters):
+    pressed_set = set(pressed_keys)
+    displayed_set = set(displayed_letters)
+
+    for silly_key in pressed_set:
+        # Possible wrong letters are displayed letters that are not the silly_key itself
+        possible_wrong_letters = displayed_set.copy()
+        if silly_key in possible_wrong_letters:
+            possible_wrong_letters.remove(silly_key)
+
+        for wrong_letter in possible_wrong_letters:
+            # Possible quiet keys are keys that are pressed but never displayed, excluding the silly key
+            possible_quiet_keys = pressed_set - displayed_set - {silly_key}
+            quiet_keys_to_consider = list(possible_quiet_keys) + [None]
+
+            for quiet_key in quiet_keys_to_consider:
+                if is_valid_mapping(pressed_keys, displayed_letters, silly_key, wrong_letter, quiet_key):
+                    # Output the silly key and wrong letter
+                    print(f"{silly_key} {wrong_letter}")
+                    # Output the quiet key or '-' if none
+                    if quiet_key is not None:
+                        print(quiet_key)
+                    else:
+                        print("-")
+                    return
+
+    # If no valid mapping is found
+    print("No solution found")
+
+# Read input
+pressed_keys = input().strip()
+displayed_letters = input().strip()
+
+# Find and print the troublesome keys
+find_troublesome_keys(pressed_keys, displayed_letters)
