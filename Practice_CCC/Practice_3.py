@@ -81,8 +81,9 @@ find_troublesome_keys(key_presses3, screen_output3)
 
 '''
 
-#Problem 5
+#Problem 4 -- working version
 
+'''
 def is_valid_mapping(pressed_keys, displayed_letters, silly_key, wrong_letter, quiet_key):
     i = 0  # Pointer for pressed_keys
     j = 0  # Pointer for displayed_letters
@@ -162,3 +163,55 @@ displayed_letters = input().strip()
 
 # Find and print the troublesome keys
 find_troublesome_keys(pressed_keys, displayed_letters)
+'''
+
+
+# Problem 5
+
+def main():
+    # Read R and C directly
+    R, C = map(int, input().strip().split())
+
+    # Read the grid
+    grid = []
+    for _ in range(R):
+        row = list(map(int, input().strip().split()))
+        # If your input is well-formed, row should already have C elements
+        grid.append(row)
+
+    # Read the starting position (S_r, S_c)
+    S_r, S_c = map(int, input().strip().split())
+    S_r -= 1  # Convert to 0-based
+    S_c -= 1
+
+    if grid[S_r][S_c] == 0:
+        print(0)
+        return
+
+    # Mark visited and use BFS
+    visited = [[False]*C for _ in range(R)]
+    visited[S_r][S_c] = True
+    total_pumpkins = grid[S_r][S_c]
+
+    queue = [(S_r, S_c)]
+    head = 0
+
+    directions = [(-1,0),(1,0),(0,-1),(0,1)]
+
+    while head < len(queue):
+        r, c = queue[head]
+        head += 1
+
+        for dr, dc in directions:
+            nr, nc = r + dr, c + dc
+            if 0 <= nr < R and 0 <= nc < C:
+                if grid[nr][nc] > 0 and not visited[nr][nc]:
+                    visited[nr][nc] = True
+                    total_pumpkins += grid[nr][nc]
+                    queue.append((nr, nc))
+
+    print(total_pumpkins)
+
+if __name__ == "__main__":
+    main()
+
