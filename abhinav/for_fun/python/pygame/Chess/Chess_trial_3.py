@@ -10,7 +10,7 @@ piece_size = (WIDTH // 8, HEIGHT // 8)  # size of each square on the board
 screen = pygame.display.set_mode((WIDTH, HEIGHT))  # makes a screen of given size
 pygame.display.set_caption('PLAY CHESS')  # sets a caption to the window
 
-
+# If I work on something, then it has to be a verison of this game only!
 # Defining Classes
 class GameBoard:  # contains all the things that a game should be able to do
     def __init__(self):
