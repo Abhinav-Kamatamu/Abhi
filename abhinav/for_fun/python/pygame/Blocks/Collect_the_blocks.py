@@ -64,7 +64,6 @@ def draw():
     global win, x, y, s, player, speed, pcol
     player = pygame.draw.rect(win, pcol, (x, y, s, s))
     pygame.draw.rect(win, (0, 0, 0), (x, y, s, s), 1)
-    pygame.display.update()
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a] or keys[pygame.K_LEFT]:
         if x <= 0:
@@ -85,7 +84,6 @@ def block(i):
     if S[i - 1] - T[i - 1] >= C[i - 1] * 1000:
         pygame.draw.rect(win, bcol, (Bx[i - 1], By[i - 1], Bs, Bs))
         pygame.draw.rect(win, (0, 0, 0), (Bx[i - 1], By[i - 1], Bs, Bs), 1)
-        pygame.display.update()
         By[i - 1] += speed
         if By[i - 1] > w + Bs:
             By[i - 1] = -Bs
