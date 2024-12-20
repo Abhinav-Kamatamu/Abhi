@@ -35,7 +35,7 @@ bn = pygame.image.load('bn.png')
 bb = pygame.image.load('bb.png')
 bk = pygame.image.load('bk.png')
 bq = pygame.image.load('bq.png')
-selected = pygame.image.load('Selected.png')
+selected = pygame.image.load('movable.png')
 
 chessboard = pygame.transform.scale(chessboard, (chesswidth, chessheight))
 wp = pygame.transform.scale(wp, (piecesize, piecesize))
