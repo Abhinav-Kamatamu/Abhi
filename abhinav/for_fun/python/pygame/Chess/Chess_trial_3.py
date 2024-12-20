@@ -1,4 +1,4 @@
-import pygame
+import pygame, time
 import copy
 from pygame.locals import *
 
@@ -12,6 +12,8 @@ pygame.display.set_caption('PLAY CHESS')  # sets a caption to the window
 
 # If I work on something, then it has to be a verison of this game only!
 # Defining Classes
+
+
 class GameBoard:  # contains all the things that a game should be able to do
     def __init__(self):
         self.game_board = [  # here, each piece is being represented as a list of all its properties
@@ -20,10 +22,10 @@ class GameBoard:  # contains all the things that a game should be able to do
             [None, None, None, None, None, None, None, None],
             [None, None, None, None, None, None, None, None],
             [None, None, None, None, None, None, None, None],
-            [None, None, None, None, None, None, None, None],  # -                 This true stands for pawn eligible for 2 jump
+            [None, None, None, None, None, None, None, None],
             [["wp", "white", "pawn", (0, 6), True], ["wp", "white", "pawn", (1, 6), True], ["wp", "white", (2, 6), True], ["wp", "white", "pawn", (3, 6), True], ["wp", "white", "pawn", (4, 6), True], ["wp", "white", "pawn", (5, 6), True], ["wp", "white", "pawn", (6, 6), True], ["wp", "white", "pawn", (7, 6), True]],
             [["wr", "white", "rook", (0, 7), True], ["wn", "white", "knight", (1, 7)], ["wb", "white", "bishop", (2, 7)], ["wq", "white", "queen", (3, 7)], ["wk", "white", "king", (4, 7), True], ["wb", "white", "bishop", (5, 7)], ["wn", "white", "knight", (6, 7)], ["wr", "white", "rook", (7, 7), True]]
-        ]  # Both the King and the Rook have a "true" parameter which represents if they are capable of castling
+        ]
 
         self.isWhiteTurn = True  # This is to check if it is white's turn
         self.turn_dict = {True: 'white', False: 'black'}  # This will be used to determine a str value of who's turn it is based on value of self.isWhiteTurn
@@ -43,6 +45,7 @@ class GameBoard:  # contains all the things that a game should be able to do
         self.move_loc = (None, None)  # coordinates of the point you want the selected piece to move to
 
         self.previous_board = None  # This stores the state of the previous board in case you want to take back
+        self.latest_move = None  # Stores the latest move made
         self.draw_game_board()  # draws the game board
 
     def image_import(self):
@@ -50,7 +53,7 @@ class GameBoard:  # contains all the things that a game should be able to do
             For each of the images, it will import a scaled version of that image and define it in a dictionary
             It will also return that dictionary
         """
-        images = {'board': pygame.transform.scale(pygame.image.load('Board.png'), (WIDTH, HEIGHT))}
+        images = {'board': pygame.transform.scale(pygame.image.load('Board.png'), (WIDTH, HEIGHT)), 'movable': pygame.transform.scale(pygame.image.load('movable.png'), (piece_size[0], piece_size[1]))}
         for piece in ['br', 'bn', 'bb', 'bn', 'bq', 'bk', 'bp', 'wr', 'wn', 'wb', 'wn', 'wq', 'wk', 'wp']:
             images[piece] = pygame.transform.scale(pygame.image.load(f'{piece}.png'), (piece_size[0], piece_size[1]))
         return images
@@ -73,10 +76,18 @@ class GameBoard:  # contains all the things that a game should be able to do
             4) Draw all the pieces
         """
         screen.blit(self.images['board'], (0, 0))  # Draws the board image
-        # Enable function to highlight pieces
-        # Enable function to draw possible moves
         self.draw_pieces()  # Draws the images of the pieces
         pygame.display.update()  # Updates the display
+
+    def draw_possibilities(self, possibilities):
+        """
+        Highlights possible moves on the board.
+        """
+        self.draw_game_board()
+        for move in possibilities:
+            x, y = move
+            screen.blit(self.images['movable'], (abs(7 * self.draw_white_side - x) * piece_size[0], abs(7 * self.draw_white_side - y) * piece_size[1]))
+            pygame.display.update()
 
     def select_piece(self, mouse_pos):
         """
@@ -88,43 +99,127 @@ class GameBoard:  # contains all the things that a game should be able to do
             if self.game_board[y][x] is not None:  # And if there is a piece on the currently selected square...
                 if self.game_board[y][x][1] == self.turn_dict[self.isWhiteTurn]:  # If it is the turn of the colour of the piece that has been selected
                     self.selected_piece = (x, y)  # Then store the value of the selected piece
-                    # insert show poasibility code here [ AKA, put the draw game board method over here]
+                    self.possible_moves = self.get_piece_possibility()
+                    self.draw_possibilities(self.possible_moves)
 
-        if self.selected_piece != (None, None) and self.move_loc == (None, None):  # If a piece has already been selected but not moved yet...
+        elif self.selected_piece != (None, None) and self.move_loc == (None, None):  # If a piece has already been selected but not moved yet...
             if self.game_board[y][x] is not None:  # If the square clicked on just now is not empty...
                 if self.game_board[y][x][1] == self.turn_dict[self.isWhiteTurn]:  # And the new piece selected is of the colour of the turn...
-                    self.selected_piece = (x, y)  # Change this to be the new selected piece
-                    # insert show poasibility code here [ AKA, put the draw game board method over here]
+                    if self.selected_piece == (x,y):  # If you have selected the same piece again...
+                        self.selected_piece = (None, None)  # Deselect the piece
+                        self.possible_moves = self.get_piece_possibility()
+                        self.draw_possibilities(self.possible_moves)  # Remove the drawn dots
+                    else:
+                        self.selected_piece = (x, y)  # Change this to be the new selected piece
+                        self.possible_moves = self.get_piece_possibility()
+                        self.draw_possibilities(self.possible_moves)
                 else:
                     self.move_loc = (x, y)
-                    self.previous_board = self.move_piece(self.game_board, self.selected_piece, self.move_loc, True)
-                    self.move_loc = self.selected_piece = (None, None)
+                    if self.move_loc in self.possible_moves:
+                        self.previous_board = self.move_piece(self.game_board, self.selected_piece, self.move_loc, True)
+                        self.move_loc = self.selected_piece = (None, None)
+                        self.possible_moves = []
+                    self.move_loc = (None, None)
             else:
                 self.move_loc = (x, y)
-                self.previous_board = self.move_piece(self.game_board, self.selected_piece, self.move_loc, True)
-                self.move_loc = self.selected_piece = (None, None)
+                if self.move_loc in self.possible_moves:
+                    self.previous_board = self.move_piece(self.game_board, self.selected_piece, self.move_loc, True)
+                    self.move_loc = self.selected_piece = (None, None)
+                    self.possible_moves = []
+                self.move_loc = (None, None)
 
     def get_piece_possibility(self):
+        if self.selected_piece == (None, None):
+            return []
         x, y = self.selected_piece
+        piece = self.game_board[y][x]
+        if not piece:
+            return []
 
-        if self.game_board[y][x][2] == 'pawn':
-            pass
+        piece_type = piece[2]
+        color = piece[1]
+        moves = []
+
+        if piece_type == 'pawn':
+            direction = -1 if color == 'white' else 1
+            # Forward move
+            if 0 <= y + direction < 8 and self.game_board[y + direction][x] is None:
+                moves.append((x, y + direction))
+                # Double move from starting position
+                if piece[4] and 0 <= y + 2 * direction < 8 and self.game_board[y + 2 * direction][x] is None:
+                    moves.append((x, y + 2 * direction))
+            # Capture moves
+            for dx in [-1, 1]:
+                if 0 <= x + dx < 8 and 0 <= y + direction < 8:
+                    target = self.game_board[y + direction][x + dx]
+                    if target and target[1] != color:
+                        moves.append((x + dx, y + direction))
+
+        elif piece_type in ['rook', 'bishop', 'queen']:
+            directions = []
+            if piece_type in ['rook', 'queen']:
+                directions += [(0, 1), (0, -1), (1, 0), (-1, 0)]
+            if piece_type in ['bishop', 'queen']:
+                directions += [(1, 1), (1, -1), (-1, 1), (-1, -1)]
+
+            for dx, dy in directions:
+                nx, ny = x + dx, y + dy
+                while 0 <= nx < 8 and 0 <= ny < 8:
+                    target = self.game_board[ny][nx]
+                    if target is None:
+                        moves.append((nx, ny))
+                    else:
+                        if target[1] != color:
+                            moves.append((nx, ny))
+                        break
+                    nx += dx
+                    ny += dy
+
+        elif piece_type == 'knight':
+            for dx, dy in [(2, 1), (2, -1), (-2, 1), (-2, -1), (1, 2), (1, -2), (-1, 2), (-1, -2)]:
+                nx, ny = x + dx, y + dy
+                if 0 <= nx < 8 and 0 <= ny < 8:
+                    target = self.game_board[ny][nx]
+                    if target is None or target[1] != color:
+                        moves.append((nx, ny))
+
+        elif piece_type == 'king':
+            for dx, dy in [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]:
+                nx, ny = x + dx, y + dy
+                if 0 <= nx < 8 and 0 <= ny < 8:
+                    target = self.game_board[ny][nx]
+                    if target is None or target[1] != color:
+                        moves.append((nx, ny))
+
+        return moves
 
     def move_piece(self, chess_board, start, end, want_duplicate):
         """
         Moves a piece to a new location
 
         Input : Takes the game board, the start position of the piece to be moved, the end position, if we want a duplicate of the game board
-        Output : Duplicate_board / Game board (output depends on if we want and ouput or not)
+        Output : Duplicate_board / Game board (output depends on if we want and output or not)
         """
         ((start_x, start_y), (end_x, end_y)) = (start, end)  # Extracts the x and y coordinates from start and end
         duplicate = copy.deepcopy(chess_board)  # Creates a duplicate version of the board in case you want to take back
-        chess_board[end_y][end_x] = chess_board[start_y][start_x]  # Creates a duplicate of the piece you want to move in the end positon
+        chess_board[end_y][end_x] = chess_board[start_y][start_x]  # Creates a duplicate of the piece you want to move in the end position
         chess_board[end_y][end_x][3] = end  # Sets the coordinates of the new duplicate piece to update
+
+        # Update the 'True' flag for a pawn that moves two steps
+        if chess_board[end_y][end_x][2] == 'pawn' and abs(start_y - end_y) == 2:
+            chess_board[end_y][end_x][4] = False
+
         chess_board[start_y][start_x] = None  # Erases the original piece from the board
-        if chess_board[end_y][end_x][2] == 'king':  # If the piece moved was a king...
-            self.king_pos[chess_board[end_y][end_x][1]] = end  # Sets the king postion value to update
+
+        # Update the king's position
+        if chess_board[end_y][end_x][2] == 'king':
+            self.king_pos[chess_board[end_y][end_x][1]] = end
+
+        # Update latest move
+        self.latest_move = [start, end]
+
         self.after_move()  # Runs a set of commands that need to run after a move has been made
+
         if want_duplicate:  # If you want a duplicate version of the board...
             return duplicate  # Return the duplicate
         else:
@@ -138,7 +233,6 @@ class GameBoard:  # contains all the things that a game should be able to do
             self.draw_white_side = (self.draw_white_side * -1) + 1  # This will change draw_white_side to the opposite
         self.draw_game_board()  # The display needs to be updated after every move
         self.isWhiteTurn = not self.isWhiteTurn  # Changes the turn
-        # pygame.display.set_caption(f'it is {}')
 
     def take_back(self):
         self.game_board = self.previous_board
@@ -149,6 +243,8 @@ class GameBoard:  # contains all the things that a game should be able to do
 
 
 board = GameBoard()
+
+
 # Main Loop
 while True:
     for event in pygame.event.get():
