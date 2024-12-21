@@ -101,6 +101,7 @@ class GameBoard:  # contains all the things that a game should be able to do
                     self.selected_piece = (x, y)  # Then store the value of the selected piece
                     self.possible_moves = self.get_piece_possibility()
                     self.draw_possibilities(self.possible_moves)
+                    print(self.is_attack(self.selected_piece, self.game_board, self.turn_dict[self.isWhiteTurn]))
 
         elif self.selected_piece != (None, None) and self.move_loc == (None, None):  # If a piece has already been selected but not moved yet...
             if self.game_board[y][x] is not None:  # If the square clicked on just now is not empty...
@@ -113,6 +114,7 @@ class GameBoard:  # contains all the things that a game should be able to do
                         self.selected_piece = (x, y)  # Change this to be the new selected piece
                         self.possible_moves = self.get_piece_possibility()
                         self.draw_possibilities(self.possible_moves)
+                        print(self.is_attack(self.selected_piece, self.game_board, self.turn_dict[self.isWhiteTurn]))
                 else:
                     self.move_loc = (x, y)
                     if self.move_loc in self.possible_moves:
@@ -329,6 +331,84 @@ class GameBoard:  # contains all the things that a game should be able to do
             False
         ]
         self.draw_game_board()
+
+    def is_attack(self, box_coordinates, board, player_col):
+        """
+        Checks if the given box_coordinates on the board is under attack by any piece
+        from the opposing colour. Returns True if under attack, otherwise False.
+        """
+        x, y = box_coordinates
+
+        # Identify the opponent's colour
+        opponent_col = 'white' if player_col == 'black' else 'black'
+
+        # 1) Check bishop-like (diagonals) for bishop or queen
+        bishop_directions = [(1, 1), (1, -1), (-1, 1), (-1, -1)]
+        for dx, dy in bishop_directions:
+            nx, ny = x + dx, y + dy
+            while 0 <= nx < 8 and 0 <= ny < 8:
+                occupant = board[ny][nx]
+                if occupant:
+                    # If there is a piece here...
+                    if occupant[1] == opponent_col and occupant[2] in ['bishop', 'queen']:
+                        return True
+                    # Stop tracing once a piece is encountered
+                    break
+                nx += dx
+                ny += dy
+
+        # 2) Check rook-like (straights) for rook or queen
+        rook_directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+        for dx, dy in rook_directions:
+            nx, ny = x + dx, y + dy
+            while 0 <= nx < 8 and 0 <= ny < 8:
+                occupant = board[ny][nx]
+                if occupant:
+                    if occupant[1] == opponent_col and occupant[2] in ['rook', 'queen']:
+                        return True
+                    break
+                nx += dx
+                ny += dy
+
+        # 3) Check knight moves
+        knight_moves = [(2, 1), (2, -1), (-2, 1), (-2, -1),
+                        (1, 2), (1, -2), (-1, 2), (-1, -2)]
+        for dx, dy in knight_moves:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < 8 and 0 <= ny < 8:
+                occupant = board[ny][nx]
+                if occupant and occupant[1] == opponent_col and occupant[2] == 'knight':
+                    return True
+
+        # 4) Check king moves
+        king_moves = [(-1, -1), (-1, 0), (-1, 1),
+                      (0, -1), (0, 1),
+                      (1, -1), (1, 0), (1, 1)]
+        for dx, dy in king_moves:
+            nx, ny = x + dx, y + dy
+            if 0 <= nx < 8 and 0 <= ny < 8:
+                occupant = board[ny][nx]
+                if occupant and occupant[1] == opponent_col and occupant[2] == 'king':
+                    return True
+
+        # 5) Check pawn captures
+        #    White pawns capture upward (-1 to y), black pawns capture downward (+1 to y).
+        if player_col == 'white':
+            # Opponent is black, black pawns move down. They would attack from (x ± 1, y + 1).
+            possible_pawn_positions = [(x - 1, y - 1), (x + 1, y - 1)]
+        else:
+            # Opponent is white, white pawns move up. They would attack from (x ± 1, y - 1).
+            possible_pawn_positions = [(x - 1, y + 1), (x + 1, y + 1)]
+
+        for nx, ny in possible_pawn_positions:
+            if 0 <= nx < 8 and 0 <= ny < 8:
+                occupant = board[ny][nx]
+                if occupant and occupant[1] == opponent_col and occupant[2] == 'pawn':
+                    return True
+
+        # If no threats are found
+        return False
+
 
 board = GameBoard()
 
