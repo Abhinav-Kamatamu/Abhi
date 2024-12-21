@@ -10,9 +10,6 @@ piece_size = (WIDTH // 8, HEIGHT // 8)  # size of each square on the board
 screen = pygame.display.set_mode((WIDTH, HEIGHT))  # makes a screen of given size
 pygame.display.set_caption('PLAY CHESS')  # sets a caption to the window
 
-# If I work on something, then it has to be a version of this game only!
-# Defining Classes
-
 
 class GameBoard:  # contains all the things that a game should be able to do
     def __init__(self):
@@ -39,6 +36,9 @@ class GameBoard:  # contains all the things that a game should be able to do
         self.king_pos = {"white": (4, 7), "black": (4, 0)}  # stores the kings position
         self.fake_board = None  # This is a fake board that is being used to check if the king is in a check
 
+        self.draw_alert_box = [False]
+        self.supports = False
+
         self.possible_moves = []  # this is the list of possible moves
 
         self.selected_piece = (None, None)  # stores the coordinates of the selected piece
@@ -54,7 +54,7 @@ class GameBoard:  # contains all the things that a game should be able to do
             It will also return that dictionary
         """
         images = {'board': pygame.transform.scale(pygame.image.load('Board.png'), (WIDTH, HEIGHT)), 'movable': pygame.transform.scale(pygame.image.load('movable.png'), (piece_size[0], piece_size[1]))}
-        for piece in ['br', 'bn', 'bb', 'bn', 'bq', 'bk', 'bp', 'wr', 'wn', 'wb', 'wn', 'wq', 'wk', 'wp']:
+        for piece in ['br', 'bn', 'bb', 'bq', 'bk', 'bp', 'wr', 'wn', 'wb', 'wq', 'wk', 'wp']:
             images[piece] = pygame.transform.scale(pygame.image.load(f'{piece}.png'), (piece_size[0], piece_size[1]))
         return images
 
@@ -77,17 +77,30 @@ class GameBoard:  # contains all the things that a game should be able to do
         """
         screen.blit(self.images['board'], (0, 0))  # Draws the board image
         self.draw_pieces()  # Draws the images of the pieces
+
+        #Highlight Check
+        if self.draw_alert_box[0] and self.supports:
+            # Highlight the king's square
+            king_x, king_y = self.king_pos[self.draw_alert_box[1]]
+            highlight_rect = pygame.Rect(
+                abs(7 * self.draw_white_side - king_x) * piece_size[0],
+                abs(7 * self.draw_white_side - king_y) * piece_size[1],
+                piece_size[0],
+                piece_size[1]
+            )
+            pygame.draw.rect(screen, (255, 0, 0), highlight_rect, 3)  # Red border
         pygame.display.update()  # Updates the display
 
-    def draw_possibilities(self, possibilities):
+    def draw_possibilities(self):
         """
         Highlights possible moves on the board.
         """
-        self.draw_game_board()
-        for move in possibilities:
-            x, y = move
-            screen.blit(self.images['movable'], (abs(7 * self.draw_white_side - x) * piece_size[0], abs(7 * self.draw_white_side - y) * piece_size[1]))
-            pygame.display.update()
+        if self.supports:
+            self.draw_game_board()
+            for move in self.possible_moves:
+                x, y = move
+                screen.blit(self.images['movable'], (abs(7 * self.draw_white_side - x) * piece_size[0], abs(7 * self.draw_white_side - y) * piece_size[1]))
+                pygame.display.update()
 
     def select_piece(self, mouse_pos):
         """
@@ -100,25 +113,26 @@ class GameBoard:  # contains all the things that a game should be able to do
                 if self.game_board[y][x][1] == self.turn_dict[self.isWhiteTurn]:  # If it is the turn of the colour of the piece that has been selected
                     self.selected_piece = (x, y)  # Then store the value of the selected piece
                     self.possible_moves = self.get_piece_possibility()
-                    self.draw_possibilities(self.possible_moves)
+                    self.draw_possibilities()
                     print(self.is_attack(self.selected_piece, self.game_board, self.turn_dict[self.isWhiteTurn]))
 
         elif self.selected_piece != (None, None) and self.move_loc == (None, None):  # If a piece has already been selected but not moved yet...
             if self.game_board[y][x] is not None:  # If the square clicked on just now is not empty...
                 if self.game_board[y][x][1] == self.turn_dict[self.isWhiteTurn]:  # And the new piece selected is of the colour of the turn...
-                    if self.selected_piece == (x,y):  # If you have selected the same piece again...
+                    if self.selected_piece == (x, y):  # If you have selected the same piece again...
                         self.selected_piece = (None, None)  # Deselect the piece
                         self.possible_moves = self.get_piece_possibility()
-                        self.draw_possibilities(self.possible_moves)  # Remove the drawn dots
+                        self.draw_possibilities()  # Remove the drawn dots
                     else:
                         self.selected_piece = (x, y)  # Change this to be the new selected piece
                         self.possible_moves = self.get_piece_possibility()
-                        self.draw_possibilities(self.possible_moves)
+                        self.draw_possibilities()
                         print(self.is_attack(self.selected_piece, self.game_board, self.turn_dict[self.isWhiteTurn]))
                 else:
                     self.move_loc = (x, y)
                     if self.move_loc in self.possible_moves:
                         self.previous_board = self.move_piece(self.game_board, self.selected_piece, self.move_loc, True)
+                        self.after_move(self.selected_piece, self.move_loc, self.game_board)  # Runs a set of commands that need to run after a move has been made
                         self.move_loc = self.selected_piece = (None, None)
                         self.possible_moves = []
                     self.move_loc = (None, None)
@@ -126,6 +140,7 @@ class GameBoard:  # contains all the things that a game should be able to do
                 self.move_loc = (x, y)
                 if self.move_loc in self.possible_moves:
                     self.previous_board = self.move_piece(self.game_board, self.selected_piece, self.move_loc, True)
+                    self.after_move(self.selected_piece, self.move_loc, self.game_board)  # Runs a set of commands that need to run after a move has been made
                     self.move_loc = self.selected_piece = (None, None)
                     self.possible_moves = []
                 self.move_loc = (None, None)
@@ -146,16 +161,21 @@ class GameBoard:  # contains all the things that a game should be able to do
             direction = -1 if color == 'white' else 1
             # Forward move
             if 0 <= y + direction < 8 and self.game_board[y + direction][x] is None:
-                moves.append((x, y + direction))
+                if self.is_legal_move(color, (x, y), (x, y + direction), self.game_board):
+                    moves.append((x, y + direction))
                 # Double move from starting position
                 if piece[4] and 0 <= y + 2 * direction < 8 and self.game_board[y + 2 * direction][x] is None:
-                    moves.append((x, y + 2 * direction))
+                    if self.is_legal_move(color, (x, y), (x, y + 2 * direction), self.game_board):
+                        moves.append((x, y + 2 * direction))
             # Capture moves
             for dx in [-1, 1]:
-                if 0 <= x + dx < 8 and 0 <= y + direction < 8:
-                    target = self.game_board[y + direction][x + dx]
+                new_x = x + dx
+                new_y = y + direction
+                if 0 <= new_x < 8 and 0 <= new_y < 8:
+                    target = self.game_board[new_y][new_x]
                     if target and target[1] != color:
-                        moves.append((x + dx, y + direction))
+                        if self.is_legal_move(color, (x, y), (new_x, new_y), self.game_board):
+                            moves.append((new_x, new_y))
 
         elif piece_type in ['rook', 'bishop', 'queen']:
             directions = []
@@ -169,10 +189,12 @@ class GameBoard:  # contains all the things that a game should be able to do
                 while 0 <= nx < 8 and 0 <= ny < 8:
                     target = self.game_board[ny][nx]
                     if target is None:
-                        moves.append((nx, ny))
+                        if self.is_legal_move(color, (x, y), (nx, ny), self.game_board):
+                            moves.append((nx, ny))
                     else:
                         if target[1] != color:
-                            moves.append((nx, ny))
+                            if self.is_legal_move(color, (x, y), (nx, ny), self.game_board):
+                                moves.append((nx, ny))
                         break
                     nx += dx
                     ny += dy
@@ -183,7 +205,8 @@ class GameBoard:  # contains all the things that a game should be able to do
                 if 0 <= nx < 8 and 0 <= ny < 8:
                     target = self.game_board[ny][nx]
                     if target is None or target[1] != color:
-                        moves.append((nx, ny))
+                        if self.is_legal_move(color, (x, y), (nx, ny), self.game_board):
+                            moves.append((nx, ny))
 
         elif piece_type == 'king':
             for dx, dy in [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]:
@@ -191,7 +214,8 @@ class GameBoard:  # contains all the things that a game should be able to do
                 if 0 <= nx < 8 and 0 <= ny < 8:
                     target = self.game_board[ny][nx]
                     if target is None or target[1] != color:
-                        moves.append((nx, ny))
+                        if self.is_legal_move(color, (x, y), (nx, ny), self.game_board):
+                            moves.append((nx, ny))
 
         return moves
 
@@ -204,7 +228,7 @@ class GameBoard:  # contains all the things that a game should be able to do
         """
         ((start_x, start_y), (end_x, end_y)) = (start, end)  # Extracts the x and y coordinates from start and end
         duplicate = copy.deepcopy(chess_board)  # Creates a duplicate version of the board in case you want to take back
-        chess_board[end_y][end_x] = chess_board[start_y][start_x]  # Creates a duplicate of the piece you want to move in the end position
+        chess_board[end_y][end_x] = chess_board[start_y][start_x].copy()  # Creates a duplicate of the piece you want to move in the end position
         chess_board[end_y][end_x][3] = end  # Sets the coordinates of the new duplicate piece to update
 
         # Update the 'True' flag for a pawn that moves two steps
@@ -213,10 +237,6 @@ class GameBoard:  # contains all the things that a game should be able to do
 
         chess_board[start_y][start_x] = None  # Erases the original piece from the board
 
-        # Update the king's position
-        if chess_board[end_y][end_x][2] == 'king':
-            self.king_pos[chess_board[end_y][end_x][1]] = end
-
         # Check for pawn promotion
         if chess_board[end_y][end_x][2] == 'pawn':
             # For white pawns reaching y=0 and black pawns reaching y=7
@@ -224,20 +244,40 @@ class GameBoard:  # contains all the things that a game should be able to do
                     (chess_board[end_y][end_x][1] == 'black' and end_y == 7):
                 self.promotion_handler(end_x, end_y)
 
-        # Update latest move
-        self.latest_move = [start, end]
-
-        self.after_move()  # Runs a set of commands that need to run after a move has been made
-
         if want_duplicate:  # If you want a duplicate version of the board...
             return duplicate  # Return the duplicate
         else:
             return chess_board  # Return the chessboard
 
-    def after_move(self):
+    def after_move(self, start, end, chess_board):
         """
             This contains the code that has to be run after a move is made
         """
+        end_x, end_y = end
+
+        # Update the king's position
+        if chess_board[end_y][end_x][2] == 'king':
+            self.king_pos[chess_board[end_y][end_x][1]] = end
+
+        # Update latest move
+        self.latest_move = [start, end]
+
+        # Check if the opposing king is in check
+        opposing_col = self.turn_dict[not self.isWhiteTurn]
+        opposing_king_coords = self.king_pos[opposing_col]
+
+        if self.verify_check(opposing_col, chess_board, opposing_king_coords):
+            print(f"{opposing_col.capitalize()} King is in check!")
+            self.draw_alert_box = [True, opposing_col]
+
+            if self.is_checkmate(opposing_col, chess_board):  # Check for checkmate
+                print(f"Checkmate! {self.turn_dict[self.isWhiteTurn].capitalize()} wins!")
+                pygame.quit()
+                exit()
+        else:
+            self.draw_alert_box = [False]
+
+
         if self.change_side:  # If change_side is enabled, then it will change the draw side every time a move is made
             self.draw_white_side = (self.draw_white_side * -1) + 1  # This will change draw_white_side to the opposite
         self.draw_game_board()  # The display needs to be updated after every move
@@ -246,6 +286,7 @@ class GameBoard:  # contains all the things that a game should be able to do
     def take_back(self):
         self.game_board = self.previous_board
         self.isWhiteTurn = not self.isWhiteTurn
+        self.draw_alert_box = False
         if self.change_side:
             self.draw_white_side = (self.draw_white_side * -1) + 1
         self.draw_game_board()
@@ -395,10 +436,10 @@ class GameBoard:  # contains all the things that a game should be able to do
         #    White pawns capture upward (-1 to y), black pawns capture downward (+1 to y).
         if player_col == 'white':
             # Opponent is black, black pawns move down. They would attack from (x ± 1, y + 1).
-            possible_pawn_positions = [(x - 1, y - 1), (x + 1, y - 1)]
+            possible_pawn_positions = [(x - 1, y + 1), (x + 1, y + 1)]
         else:
             # Opponent is white, white pawns move up. They would attack from (x ± 1, y - 1).
-            possible_pawn_positions = [(x - 1, y + 1), (x + 1, y + 1)]
+            possible_pawn_positions = [(x - 1, y - 1), (x + 1, y - 1)]
 
         for nx, ny in possible_pawn_positions:
             if 0 <= nx < 8 and 0 <= ny < 8:
@@ -409,14 +450,105 @@ class GameBoard:  # contains all the things that a game should be able to do
         # If no threats are found
         return False
 
+    def verify_check(self, player_col, board, king_coordinates):
+        """
+        Determines if the player's king is under attack and highlights the king if in check.
 
+        Parameters:
+        - player_col: Color of the player ('white' or 'black').
+        - board: Current state of the board (list of lists).
+        - king_coordinates: Tuple (x, y) representing the king's position.
+
+        Returns:
+        - True if the king is in check, False otherwise.
+        """
+        in_check = self.is_attack(king_coordinates, board, player_col)
+
+        return in_check
+
+    def is_checkmate(self, player_col, board):
+        """
+        Determines if the player is in checkmate.
+
+        Parameters:
+        - player_col: Color of the player ('white' or 'black').
+        - board: Current state of the board (list of lists).
+
+        Returns:
+        - True if the player is in checkmate, False otherwise.
+        """
+        # Find the king's position
+        king_coordinates = self.king_pos[player_col]
+
+        # If the king is not in check, it's not checkmate
+        if not self.verify_check(player_col, board, king_coordinates):
+            return False
+
+        # Iterate through all pieces of the player
+        for y in range(8):
+            for x in range(8):
+                piece = board[y][x]
+                if piece and piece[1] == player_col:
+                    # Temporarily select the piece
+                    self.selected_piece = (x, y)
+                    possible_moves = self.get_piece_possibility()
+                    for move in possible_moves:
+                        # Check if making this move would resolve the check
+                        if self.is_legal_move(player_col, (x, y), move, board):
+                            self.selected_piece = (None, None)
+                            return False  # Found a move that resolves the check
+        return True  # No moves can resolve the check
+
+    def is_legal_move(self, player_col, start, end, board):
+        """
+        Determines if a move is legal by ensuring it doesn't leave the player's king in check.
+
+        Parameters:
+        - player_col: Color of the player ('white' or 'black').
+        - start: Tuple (x, y) representing the starting position of the piece.
+        - end: Tuple (x, y) representing the ending position of the piece.
+        - board: Current state of the board (list of lists).
+
+        Returns:
+        - True if the move is legal, False otherwise.
+        """
+        # Create a deep copy of the board to simulate the move
+        temp_board = copy.deepcopy(board)
+
+        # Perform the move on the temporary board
+        piece = temp_board[start[1]][start[0]]
+        temp_board[end[1]][end[0]] = piece.copy()
+        temp_board[end[1]][end[0]][3] = end  # Update coordinates
+        temp_board[start[1]][start[0]] = None  # Remove the piece from the start
+
+        # Update the king's position if the king is moved
+        if piece[2] == 'king':
+            temp_king_pos = end
+        else:
+            temp_king_pos = self.king_pos[player_col]
+
+        # Find the king's position in the temporary board
+        for y in range(8):
+            for x in range(8):
+                current_piece = temp_board[y][x]
+                if current_piece and current_piece[0] == f'{player_col[0]}k':
+                    temp_king_pos = (x, y)
+                    break
+
+        # Check if the king is under attack in the simulated board
+        in_check = self.verify_check(player_col, temp_board, temp_king_pos)
+
+        return not in_check
+
+
+# Instantiate the GameBoard
 board = GameBoard()
-
 
 # Main Loop
 while True:
     for event in pygame.event.get():
         if event.type == QUIT:
+            pygame.quit()
             exit()
 
         if event.type == MOUSEBUTTONDOWN:
@@ -432,5 +564,9 @@ while True:
                 board.change_side = not board.change_side
                 board.draw_white_side = board.turn_dict_change_side[board.isWhiteTurn]
                 board.draw_game_board()
+            if event.key == K_s:
+                board.supports = not board.supports
+                board.draw_game_board()
+                board.draw_possibilities()
 
     keys = pygame.key.get_pressed()
