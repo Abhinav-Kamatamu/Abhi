@@ -10,7 +10,7 @@ piece_size = (WIDTH // 8, HEIGHT // 8)  # size of each square on the board
 screen = pygame.display.set_mode((WIDTH, HEIGHT))  # makes a screen of given size
 pygame.display.set_caption('PLAY CHESS')  # sets a caption to the window
 
-# If I work on something, then it has to be a verison of this game only!
+# If I work on something, then it has to be a version of this game only!
 # Defining Classes
 
 
@@ -23,7 +23,7 @@ class GameBoard:  # contains all the things that a game should be able to do
             [None, None, None, None, None, None, None, None],
             [None, None, None, None, None, None, None, None],
             [None, None, None, None, None, None, None, None],
-            [["wp", "white", "pawn", (0, 6), True], ["wp", "white", "pawn", (1, 6), True], ["wp", "white", (2, 6), True], ["wp", "white", "pawn", (3, 6), True], ["wp", "white", "pawn", (4, 6), True], ["wp", "white", "pawn", (5, 6), True], ["wp", "white", "pawn", (6, 6), True], ["wp", "white", "pawn", (7, 6), True]],
+            [["wp", "white", "pawn", (0, 6), True], ["wp", "white", "pawn", (1, 6), True], ["wp", "white", "pawn", (2, 6), True], ["wp", "white", "pawn", (3, 6), True], ["wp", "white", "pawn", (4, 6), True], ["wp", "white", "pawn", (5, 6), True], ["wp", "white", "pawn", (6, 6), True], ["wp", "white", "pawn", (7, 6), True]],
             [["wr", "white", "rook", (0, 7), True], ["wn", "white", "knight", (1, 7)], ["wb", "white", "bishop", (2, 7)], ["wq", "white", "queen", (3, 7)], ["wk", "white", "king", (4, 7), True], ["wb", "white", "bishop", (5, 7)], ["wn", "white", "knight", (6, 7)], ["wr", "white", "rook", (7, 7), True]]
         ]
 
@@ -206,7 +206,7 @@ class GameBoard:  # contains all the things that a game should be able to do
         chess_board[end_y][end_x][3] = end  # Sets the coordinates of the new duplicate piece to update
 
         # Update the 'True' flag for a pawn that moves two steps
-        if chess_board[end_y][end_x][2] == 'pawn' and abs(start_y - end_y) == 2:
+        if chess_board[end_y][end_x][2] == 'pawn' and chess_board[end_y][end_x][4]:
             chess_board[end_y][end_x][4] = False
 
         chess_board[start_y][start_x] = None  # Erases the original piece from the board
@@ -214,6 +214,13 @@ class GameBoard:  # contains all the things that a game should be able to do
         # Update the king's position
         if chess_board[end_y][end_x][2] == 'king':
             self.king_pos[chess_board[end_y][end_x][1]] = end
+
+        # Check for pawn promotion
+        if chess_board[end_y][end_x][2] == 'pawn':
+            # For white pawns reaching y=0 and black pawns reaching y=7
+            if (chess_board[end_y][end_x][1] == 'white' and end_y == 0) or \
+                    (chess_board[end_y][end_x][1] == 'black' and end_y == 7):
+                self.promotion_handler(end_x, end_y)
 
         # Update latest move
         self.latest_move = [start, end]
@@ -241,6 +248,87 @@ class GameBoard:  # contains all the things that a game should be able to do
             self.draw_white_side = (self.draw_white_side * -1) + 1
         self.draw_game_board()
 
+    def promotion_handler(self, x, y):
+        """
+        Handles pawn promotion by displaying a dropdown menu with promotion options as icons.
+        Ensures the dropdown is visible within the screen boundaries.
+        """
+        promotion = True
+        selected_piece = None
+        options = ['queen', 'rook', 'bishop', 'knight']
+
+        # Determine the color prefix based on the current turn
+        color_prefix = 'w' if self.isWhiteTurn else 'b'
+
+        # Mapping from option to piece code
+        option_to_piece = {
+            'queen': f'{color_prefix}q',
+            'rook': f'{color_prefix}r',
+            'bishop': f'{color_prefix}b',
+            'knight': f'{color_prefix}n'
+        }
+
+        # Convert board coordinates to screen coordinates
+        screen_x = abs(7 * self.draw_white_side - x) * piece_size[0]
+        screen_y = abs(7 * self.draw_white_side - y) * piece_size[1]
+
+        # Determine dropdown position based on promotion direction
+        if self.isWhiteTurn:
+            # White pawn promotes to the top (y=0), place dropdown below the square
+            dropdown_y = screen_y + piece_size[1]
+            # If dropdown exceeds screen, place it above
+            if dropdown_y + 4 * piece_size[1] > HEIGHT:
+                dropdown_y = screen_y - 4 * piece_size[1]
+        else:
+            # Black pawn promotes to the bottom (y=7), place dropdown above the square
+            dropdown_y = screen_y - 4 * piece_size[1]
+            # If dropdown exceeds screen, place it below
+            if dropdown_y < 0:
+                dropdown_y = screen_y + piece_size[1]
+
+        dropdown_x = screen_x
+
+        # Preload the promotion piece images
+        promotion_images = [self.images[option_to_piece[option]] for option in options]
+
+        while promotion:
+            for event in pygame.event.get():
+                if event.type == QUIT:
+                    pygame.quit()
+                    exit()
+
+                if event.type == MOUSEBUTTONDOWN:
+                    mouse_x, mouse_y = event.pos
+                    for idx, image in enumerate(promotion_images):
+                        rect = pygame.Rect(dropdown_x, dropdown_y + idx * piece_size[1], piece_size[0], piece_size[1])
+                        if rect.collidepoint(mouse_x, mouse_y):
+                            selected_piece = options[idx]
+                            promotion = False
+
+            # Draw the dropdown background (semi-transparent)
+            s = pygame.Surface((piece_size[0], piece_size[1] * len(options)))  # Width x (Height * number of options)
+            s.set_alpha(200)  # Alpha level for transparency
+            s.fill((200, 200, 200))  # Grey background
+            screen.blit(s, (dropdown_x, dropdown_y))
+
+            # Draw each promotion option
+            for idx, piece_code in enumerate(option_to_piece.values()):
+                piece_image = self.images[piece_code]
+                piece_rect = piece_image.get_rect(topleft=(dropdown_x, dropdown_y + idx * piece_size[1]))
+                screen.blit(piece_image, piece_rect)
+
+            pygame.display.update()
+
+        # Replace the pawn with the selected piece
+        selected_piece_code = option_to_piece[selected_piece]
+        self.game_board[y][x] = [
+            selected_piece_code,
+            'white' if self.isWhiteTurn else 'black',
+            selected_piece,
+            (x, y),
+            False
+        ]
+        self.draw_game_board()
 
 board = GameBoard()
 
