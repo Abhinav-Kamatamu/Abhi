@@ -2,24 +2,22 @@ from cryptography.fernet import Fernet
 import os
 import base64
 
-# Function to get a user-defined Base64 key
+# Function to get user-defined encryption key
 def get_user_key():
     while True:
-        key = input("Enter your 44-character Base64 encryption key: ").strip()
-        if len(key) == 44:
+        key = input("Enter your 44-character encryption key: ").strip()
+        if len(key) == 44:  # Fernet keys are always 44 characters in Base64
             try:
-                return base64.urlsafe_b64decode(key)  # Convert from Base64
+                return base64.urlsafe_b64decode(key)  # Properly decode the key
             except Exception:
-                print("❌ Invalid Base64 key! Try again.")
+                print("❌ Invalid Base64 key format! Try again.")
         else:
-            print("❌ Key must be exactly 44 characters long!")
+            print("❌ Key must be **exactly** 44 characters long!")
 
 # Encrypt function
 def encrypt_file(file_name):
-    key = Fernet.generate_key()  # Generate a valid key
-    print(f"🔑 Your encryption key (SAVE THIS SAFELY!): {key.decode()}")
-
-    cipher = Fernet(key)
+    key = get_user_key()  # Ask for key during encryption
+    cipher = Fernet(base64.urlsafe_b64encode(key))  # Properly format the key
 
     with open(file_name, "rb") as file:
         file_data = file.read()
@@ -35,8 +33,8 @@ def encrypt_file(file_name):
 
 # Decrypt function
 def decrypt_file(file_name):
-    key = get_user_key()
-    cipher = Fernet(base64.urlsafe_b64encode(key))  # Convert back to valid key
+    key = get_user_key()  # Ask for key during decryption
+    cipher = Fernet(base64.urlsafe_b64encode(key))  # Properly format the key
 
     try:
         with open(file_name, "rb") as file:
