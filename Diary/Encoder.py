@@ -1,13 +1,12 @@
 from cryptography.fernet import Fernet
 import base64
 import sys
-from tqdm import tqdm  # For progress bar (install with pip install tqdm)
+from tqdm import tqdm
 import cv2
 from pyzbar.pyzbar import decode
 from PIL import Image, ImageGrab
 import pyperclip
 import os
-
 
 def validate_key(key):
     """Check if key is valid (44-char URL-safe Base64)."""
@@ -20,103 +19,142 @@ def validate_key(key):
         pass
     return False
 
-
-def get_key_from_qr_data(qr_data):
-    """Extract and validate key from QR data."""
-    qr_data = qr_data.strip()
-    if validate_key(qr_data):
-        return base64.urlsafe_b64decode(qr_data)
+def get_key_from_qr_data(qr_bytes):
+    """Extract and validate key from QR data (either format)."""
+    # Try raw 32-byte binary first
+    if len(qr_bytes) == 32:
+        return qr_bytes
+    
+    # Try Base64 encoded string
+    try:
+        qr_str = qr_bytes.decode('utf-8').strip()
+        if validate_key(qr_str):
+            return base64.urlsafe_b64decode(qr_str)
+    except:
+        pass
+    
     return None
 
-
 def scan_qr_from_camera():
-    """Capture QR code from webcam with guaranteed 'Q' key exit."""
-    cap = cv2.VideoCapture(0)
-    if not cap.isOpened():
-        print("❌ Could not open camera!")
+    """Camera scanner with better Linux device handling"""
+    print("🔄 Initializing camera...")
+
+    # Try common video devices
+    for dev in ["/dev/video0", "/dev/video1", "/dev/video2"]:
+        try:
+            cap = cv2.VideoCapture(dev, cv2.CAP_V4L2)
+            if cap.isOpened():
+                print(f"✅ Using camera device: {dev}")
+                break
+        except:
+            continue
+
+    if not cap or not cap.isOpened():
+        print("❌ No working camera found!")
+        print("Try these fixes:")
+        print("1. Run: sudo usermod -a -G video $USER")
+        print("2. Reboot after running above command")
+        print("3. Test camera with: guvcview")
         return None
 
-    print("📷 Looking for QR in camera (Press 'Q' to skip)...")
+    # Rest of camera scanning code...
 
-    # Create window first and force focus
+    print("🔍 Looking for QR code... (Press Q to cancel)")
     cv2.namedWindow("QR Scanner", cv2.WINDOW_NORMAL)
-    cv2.resizeWindow("QR Scanner", 800, 600)
 
-    while True:
-        ret, frame = cap.read()
-        if not ret:
-            print("❌ Could not read from camera!")
-            break
+    try:
+        while True:
+            ret, frame = cap.read()
+            if not ret:
+                print("⚠️ Couldn't receive frame from camera")
+                break
 
-        # Show the frame
-        cv2.imshow("QR Scanner", frame)
+            # Show frame with QR detection area
+            cv2.imshow("QR Scanner", frame)
 
-        # MUST use waitKey for proper event processing
-        key = cv2.waitKey(1)
+            # Try decoding both color and grayscale versions
+            decoded = decode(frame) or decode(cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY))
 
-        # Check for ESC or Q key (ASCII 27 or 113/81)
-        if key in (27, ord('q'), ord('Q')):
-            print("⏹ Camera scanning cancelled by user")
-            break
-
-        # Check for QR codes
-        decoded = decode(frame)
-        if decoded:
-            try:
-                qr_data = decoded[0].data.decode('utf-8')
-                key = get_key_from_qr_data(qr_data)
+            if decoded:
+                print("🎯 QR Code Detected! Processing...")
+                qr_bytes = decoded[0].data
+                key = get_key_from_qr_data(qr_bytes)
                 if key:
                     break
-            except Exception as e:
-                print(f"⚠️ QR decode error: {str(e)}")
-                continue
 
-    # Clean up
-    cap.release()
-    cv2.destroyAllWindows()
-    # Ensure all windows are closed
-    for i in range(5):
-        cv2.waitKey(1)
+            # Exit on Q press
+            if cv2.waitKey(1) in [ord('q'), ord('Q')]:
+                print("⏹ User cancelled scanning")
+                break
+
+    except Exception as e:
+        print(f"🚨 Camera error: {str(e)}")
+        return None
+
+    finally:
+        cap.release()
+        cv2.destroyAllWindows()
+        print("🛑 Camera released")
+
     return key if 'key' in locals() else None
 
 def get_key_from_clipboard():
-    """Extract key from clipboard (image or text)."""
+    """Extract key from clipboard (supports both formats)."""
     try:
         # Check for image in clipboard
         img = ImageGrab.grabclipboard()
         if img:
             decoded = decode(img)
             if decoded:
-                qr_data = decoded[0].data.decode('utf-8')
-                return get_key_from_qr_data(qr_data)
+                return get_key_from_qr_data(decoded[0].data)
 
-        # Check for text in clipboard
+        # Check for text in clipboard (either format)
         text = pyperclip.paste().strip()
-        return get_key_from_qr_data(text)
-    except:
-        return None
-
+        if text:
+            # Try raw bytes if pasted as hex string
+            if len(text) == 64 and all(c in '0123456789abcdefABCDEF' for c in text):
+                try:
+                    return bytes.fromhex(text)
+                except:
+                    pass
+            # Try Base64 encoded string
+            return get_key_from_qr_data(text.encode('utf-8'))
+    except Exception as e:
+        print(f"⚠️ Clipboard error: {str(e)}")
+    return None
 
 def scan_qr_from_file(file_path="key_qr.png"):
-    """Read QR from image file."""
+    """Read QR from image file (supports both formats)."""
     try:
         img = Image.open(file_path)
         decoded = decode(img)
         if decoded:
-            qr_data = decoded[0].data.decode('utf-8')
-            return get_key_from_qr_data(qr_data)
-    except:
-        return None
+            return get_key_from_qr_data(decoded[0].data)
+    except Exception as e:
+        print(f"⚠️ File error: {str(e)}")
+    return None
 
+# Rest of the functions remain the same as in your original code
+# (get_key_manual, get_encryption_key, encrypt_file, decrypt_file, main)
 
 def get_key_manual():
     """Fallback: Manual key entry."""
     while True:
-        key = input("⌨️ Enter 44-character key manually: ").strip()
+        key = input("⌨️ Enter key (44-char Base64 or 64-char hex): ").strip()
+        
+        # Try hex format first
+        if len(key) == 64:
+            try:
+                return bytes.fromhex(key)
+            except:
+                print("❌ Invalid hex format!")
+                continue
+                
+        # Try Base64 format
         if validate_key(key):
             return base64.urlsafe_b64decode(key)
-        print("❌ Invalid key (must be 44 chars, URL-safe Base64)")
-
+        
+        print("❌ Invalid key (must be 44-char Base64 or 64-char hex)")
 
 def get_encryption_key():
     """Get key from QR (webcam/image), clipboard, or manual input."""
