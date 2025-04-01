@@ -1,145 +1,7 @@
-# from cryptography.fernet import Fernet
-# import base64
-# import cv2
-# from pyzbar.pyzbar import decode
-# from PIL import Image, ImageGrab
-# import pyperclip
-# import os
-#
-#
-# # --- Key Extraction: QR, Clipboard, or Manual ---
-# def get_encryption_key():
-#     """Get key from QR (webcam/image), clipboard, or manual input."""
-#     print("\n🔑 Getting encryption key...")
-#
-#     # 1. Try scanning QR from webcam
-#     key = scan_qr_from_camera()
-#     if key:
-#         return key
-#
-#     # 2. Try reading QR from clipboard (image or text)
-#     key = get_key_from_clipboard()
-#     if key:
-#         return key
-#
-#     # 3. Try reading QR from file
-#     key = scan_qr_from_file("key_qr.png")
-#     if key:
-#         return key
-#
-#     # 4. Fallback: Manual input
-#     return get_key_manual()
-#
-#
-# def scan_qr_from_camera():
-#     """Capture QR code from webcam."""
-#     cap = cv2.VideoCapture(0)
-#     print("📷 Looking for QR in camera (Press 'Q' to skip)...")
-#     while cap.isOpened():
-#         _, frame = cap.read()
-#         decoded = decode(frame)
-#         cv2.imshow("QR Scanner", frame)
-#
-#         if cv2.waitKey(1) & 0xFF == ord('q'):
-#             break
-#         if decoded:
-#             qr_data = decoded[0].data.decode()
-#             cap.release()
-#             cv2.destroyAllWindows()
-#             if validate_key(qr_data):
-#                 return base64.urlsafe_b64decode(qr_data)
-#
-#     cap.release()
-#     cv2.destroyAllWindows()
-#     return None
-#
-#
-# def get_key_from_clipboard():
-#     """Extract key from clipboard (image or text)."""
-#     try:
-#         # Case 1: Clipboard has QR image
-#         img = ImageGrab.grabclipboard()
-#         if img:
-#             decoded = decode(img)
-#             if decoded:
-#                 qr_data = decoded[0].data.decode()
-#                 if validate_key(qr_data):
-#                     return base64.urlsafe_b64decode(qr_data)
-#
-#         # Case 2: Clipboard has raw text
-#         text = pyperclip.paste().strip()
-#         if validate_key(text):
-#             return base64.urlsafe_b64decode(text)
-#     except:
-#         pass
-#     return None
-#
-#
-# def scan_qr_from_file(file_path):
-#     """Read QR from image file."""
-#     try:
-#         img = Image.open(file_path)
-#         decoded = decode(img)
-#         if decoded:
-#             qr_data = decoded[0].data.decode()
-#             if validate_key(qr_data):
-#                 return base64.urlsafe_b64decode(qr_data)
-#     except:
-#         pass
-#     return None
-#
-#
-# def get_key_manual():
-#     """Fallback: Manual key entry."""
-#     while True:
-#         key = input("⌨️ Enter 44-character key manually: ").strip()
-#         if validate_key(key):
-#             return base64.urlsafe_b64decode(key)
-#         print("❌ Invalid key (must be 44 chars, Base64 encoded)")
-#
-#
-# def validate_key(key):
-#     """Check if key is valid (44-char Base64)."""
-#     return len(key) == 44 and all(c in base64.urlsafe_b64encode(b' ').decode() for c in key)
-#
-#
-# # --- Encryption/Decryption Functions ---
-# def encrypt_file(file_name, cipher):
-#     with open(file_name, "rb") as file:
-#         encrypted = cipher.encrypt(file.read())
-#     with open(file_name + ".enc", "wb") as file:
-#         file.write(encrypted)
-#     os.remove(file_name)
-#     print(f"🔐 Encrypted: {file_name} → {file_name}.enc")
-#
-#
-# def decrypt_file(file_name, cipher):
-#     with open(file_name, "rb") as file:
-#         decrypted = cipher.decrypt(file.read())
-#     original_name = file_name.replace(".enc", "")
-#     with open(original_name, "wb") as file:
-#         file.write(decrypted)
-#     os.remove(file_name)
-#     print(f"🔓 Decrypted: {file_name} → {original_name}")
-#
-#
-# # --- Main Program ---
-# if __name__ == "__main__":
-#     action = input("(E)ncrypt or (D)ecrypt? ").strip().lower()
-#     file_name = input("File path: ").strip()
-#
-#     key = get_encryption_key()
-#     cipher = Fernet(base64.urlsafe_b64encode(key))
-#
-#     if action == "e":
-#         encrypt_file(file_name, cipher)
-#     elif action == "d":
-#         decrypt_file(file_name, cipher)
-#     else:
-#         print("❌ Invalid choice! Use 'E' or 'D'.")
-
 from cryptography.fernet import Fernet
 import base64
+import sys
+from tqdm import tqdm  # For progress bar (install with pip install tqdm)
 import cv2
 from pyzbar.pyzbar import decode
 from PIL import Image, ImageGrab
@@ -302,12 +164,15 @@ def encrypt_file(file_name, cipher):
 
 
 def decrypt_file(file_name, cipher):
-    """Decrypt file and remove .enc extension."""
+    """Decrypt .enc file and remove extension."""
     try:
+        if not file_name.endswith(".enc"):
+            print("⚠️ Warning: Trying to decrypt non-.enc file")
+
         with open(file_name, "rb") as file:
             decrypted = cipher.decrypt(file.read())
 
-        original_name = file_name.replace(".enc", "")
+        original_name = file_name[:-4]  # Safer extension removal
         with open(original_name, "wb") as file:
             file.write(decrypted)
 
@@ -322,23 +187,52 @@ def decrypt_file(file_name, cipher):
 def main():
     """Main program flow."""
     action = input("(E)ncrypt or (D)ecrypt? ").strip().lower()
-    file_name = input("File path: ").strip()
+    path = input("File or directory path: ").strip()
 
-    if not os.path.exists(file_name):
-        print("❌ File not found!")
+    if not os.path.exists(path):
+        print("❌ Path not found!")
         return
 
     key = get_encryption_key()
     cipher = Fernet(base64.urlsafe_b64encode(key))
 
-    if action == "e":
-        encrypt_file(file_name, cipher)
-    elif action == "d":
-        if not file_name.endswith(".enc"):
-            print("⚠️ Warning: File doesn't have .enc extension")
-        decrypt_file(file_name, cipher)
-    else:
-        print("❌ Invalid choice! Use 'E' or 'D'.")
+    if os.path.isdir(path):
+        # Build file list first for accurate progress tracking
+        target_files = []
+        for root, _, files in os.walk(path):
+            for file in files:
+                file_path = os.path.join(root, file)
+                if (action == "e" and not file_path.endswith(".enc")) or \
+                        (action == "d" and file_path.endswith(".enc")):
+                    target_files.append(file_path)
+
+        if not target_files:
+            print("⚠️ No matching files found!")
+            return
+
+        # Process files with progress bar
+        success_count = 0
+        progress_desc = "Encrypting" if action == "e" else "Decrypting"
+
+        for file_path in tqdm(target_files,
+                              desc=progress_desc,
+                              unit="file",
+                              colour='green' if action == 'e' else 'blue'):
+            if action == "e":
+                success_count += encrypt_file(file_path, cipher)
+            else:
+                success_count += decrypt_file(file_path, cipher)
+
+        print(f"\n{'🔐' if action == 'e' else '🔓'} "
+              f"Processed {success_count}/{len(target_files)} files successfully!")
+
+    else:  # Single file processing
+        if action == "e":
+            encrypt_file(path, cipher)
+        elif action == "d":
+            decrypt_file(path, cipher)
+        else:
+            print("❌ Invalid choice! Use 'E' or 'D'.")
 
 
 if __name__ == "__main__":
