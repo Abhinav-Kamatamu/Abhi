@@ -1,5 +1,6 @@
 import os
 import json
+import base64
 from datetime import datetime
 from cryptography.fernet import Fernet
 import tkinter as tk
@@ -29,32 +30,42 @@ class QRGeneratorApp:
         ttk.Button(main_frame, text="View History", command=self.show_history, **btn_style).pack(pady=5)
         
     def generate_fernet_key(self):
-        return Fernet.generate_key().decode()
+        """Returns (base64_str, raw_bytes) tuple"""
+        key = Fernet.generate_key()
+        return key.decode(), base64.urlsafe_b64decode(key)
     
     def get_qr_name(self):
         name = simpledialog.askstring("QR Name", "Enter a name for this QR code:")
         return name.strip() if name else "Unnamed"
     
-    def generate_qr_code(self, key, name):
+    def generate_qr_code(self, binary_key, name):
+        # Version 2 configuration (25x25 modules)
         qr = qrcode.QRCode(
-            version=1,
-            error_correction=qrcode.constants.ERROR_CORRECT_L,
+            version=2,  # Fixed version
+            error_correction=qrcode.constants.ERROR_CORRECT_L,  # 7% recovery
             box_size=10,
             border=4,
         )
-        qr.add_data(key)
-        qr.make(fit=True)
+        
+        # Add data and force version 2
+        qr.add_data(binary_key)
+        try:
+            qr.make(fit=False)  # Disable auto version upgrade
+        except qrcode.exceptions.DataOverflowError:
+            raise ValueError("32-byte key cannot fit in version 2 QR code")
         
         clean_name = "".join([c if c.isalnum() else "_" for c in name])[:30]
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = os.path.join(self.qr_dir, f"{clean_name}_{timestamp}.png")
-        qr.make_image(fill_color="black", back_color="white").save(filename)
+        
+        img = qr.make_image(fill_color="black", back_color="white")
+        img.save(filename)
         return filename
     
-    def save_to_history(self, name, key, filename):
+    def save_to_history(self, name, base64_key, filename):
         self.history.insert(0, {
             'name': name,
-            'key': key,
+            'key': base64_key,
             'filename': filename,
             'date': datetime.now().strftime("%Y-%m-%d"),
             'time': datetime.now().strftime("%H:%M:%S")
@@ -65,12 +76,24 @@ class QRGeneratorApp:
         name = self.get_qr_name()
         if name is None: 
             return
-        key = self.generate_fernet_key()
-        filename = self.generate_qr_code(key, name)
-        self.save_to_history(name, key, filename)
-        messagebox.showinfo("Success", "New QR code generated!")
+            
+        base64_key, binary_key = self.generate_fernet_key()
+        if len(binary_key) != 32:
+            messagebox.showerror("Error", "Invalid key length generated!")
+            return
+            
+        try:
+            filename = self.generate_qr_code(binary_key, name)
+        except ValueError as e:
+            messagebox.showerror("Error", f"QR generation failed: {str(e)}")
+            return
+            
+        self.save_to_history(name, base64_key, filename)
+        messagebox.showinfo("Success", "Version 2 QR code generated!")
         self.view_qr(filename)
-    
+
+    # Rest of the methods remain unchanged from previous version...
+
     def view_recent(self):
         if not self.history:
             messagebox.showwarning("Warning", "No QR codes generated yet!")
