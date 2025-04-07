@@ -26,18 +26,20 @@ def validate_key(key):
 def get_key_from_qr_data(qr_bytes):
     """Extract key from QR data (32-byte binary or Base64)."""
     # Try raw 32-byte key first
-    if len(qr_bytes) == 32:
-        try:
-            Fernet(base64.urlsafe_b64encode(qr_bytes))
+    try:
+        print(Fernet(base64.urlsafe_b64encode(qr_bytes)))
+        if len(qr_bytes) == 32:
             return qr_bytes
-        except:
-            pass
+    except:
+        pass
 
     # Try Base64 decoding
     try:
         qr_str = qr_bytes.decode('utf-8').strip()
+        #print(qr_str)
         decoded = base64.urlsafe_b64decode(qr_str)
         if len(decoded) == 32:
+            #print(decoded)
             return decoded
     except:
         pass
@@ -79,7 +81,11 @@ def scan_qr_from_camera():
 
             decoded = decode(frame)
             if decoded:
+                print(decoded)
+                print(len(decoded[0]))
                 qr_bytes = decoded[0].data
+                print(qr_bytes)
+                print(len(qr_bytes))
                 detected_key = get_key_from_qr_data(qr_bytes)
                 if detected_key:
                     break
