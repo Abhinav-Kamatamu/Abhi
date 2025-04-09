@@ -99,7 +99,7 @@ def scan_qr_from_camera():
             # Case 1: 32 raw bytes → Convert to Fernet key
             if len(raw_data) == 32:
                 detected_key = base64.urlsafe_b64encode(raw_data).decode('utf-8')
-                print("✅ Detected 32-byte key → Fernet key:", detected_key)
+                print("✅ Detected 32-byte key → Fernet key") # Ask to print detected_key if you want to see what the 44-char key is
                 break
 
             # Case 2: 44-character base64 → Validate as Fernet key
@@ -109,7 +109,7 @@ def scan_qr_from_camera():
                     decoded_bytes = base64.urlsafe_b64decode(raw_data)
                     if len(decoded_bytes) == 32:
                         detected_key = raw_data.decode('utf-8')
-                        print("✅ Detected valid 44-char Fernet key:", detected_key)
+                        print("✅ Detected valid 44-char Fernet key.")
                         break
                     else:
                         print(f"⚠️ Base64 decoded to {len(decoded_bytes)} bytes (expected 32)")
@@ -258,7 +258,8 @@ def main():
         return
 
     key = get_encryption_key()
-    cipher = Fernet(base64.urlsafe_b64encode(key))
+    print(key)
+    cipher = Fernet(key)
 
     if os.path.isdir(path):
         files = []
