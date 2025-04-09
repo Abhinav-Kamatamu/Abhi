@@ -24,23 +24,18 @@ def validate_key(key):
 
 
 def get_key_from_qr_data(qr_bytes):
-    """Extract key from QR data (32-byte binary or Base64)."""
-    # Try raw 32-byte key first
-    try:
-        print(Fernet(base64.urlsafe_b64encode(qr_bytes)))
-        if len(qr_bytes) == 32:
-            return qr_bytes
-    except:
-        pass
+    """Extract and validate key from QR data (either format)."""
+    # Try raw 32-byte binary first
+    if len(qr_bytes) == 32:
+        return qr_bytes
 
-    # Try Base64 decoding
+    # Try Base64 encoded string
+
     try:
         qr_str = qr_bytes.decode('utf-8').strip()
-        #print(qr_str)
-        decoded = base64.urlsafe_b64decode(qr_str)
-        if len(decoded) == 32:
-            #print(decoded)
-            return decoded
+        if validate_key(qr_str):
+            return base64.urlsafe_b64decode(qr_str)
+
     except:
         pass
 
@@ -258,8 +253,10 @@ def main():
         return
 
     key = get_encryption_key()
-    print(key)
-    cipher = Fernet(key)
+    try:
+        cipher = Fernet(key)
+    except:
+        pass
 
     if os.path.isdir(path):
         files = []
