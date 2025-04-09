@@ -48,8 +48,11 @@ def get_key_from_qr_data(qr_bytes):
 
 
 def scan_qr_from_camera():
-    """Capture QR code from webcam with multi-format support."""
-    # Try different camera devices
+    """Scan QR codes containing either:
+    - Raw 32-byte Fernet key (for compact QR)
+    - 44-character URL-safe base64 Fernet key (human-readable)
+    """
+    # Initialize camera (same as before)
     for dev in ["/dev/video0", "/dev/video1", 0, 1]:
         try:
             cap = cv2.VideoCapture(dev)
@@ -73,22 +76,49 @@ def scan_qr_from_camera():
                 break
 
             cv2.imshow("QR Scanner", frame)
-            key = cv2.waitKey(1)
-
-            if key in (27, ord('q'), ord('Q')):
+            if cv2.waitKey(1) in (27, ord('q'), ord('Q')):
                 print("⏹ Scanning cancelled")
                 break
 
             decoded = decode(frame)
-            if decoded:
-                print(decoded)
-                print(len(decoded[0]))
-                qr_bytes = decoded[0].data
-                print(qr_bytes)
-                print(len(qr_bytes))
-                detected_key = get_key_from_qr_data(qr_bytes)
-                if detected_key:
-                    break
+            if not decoded:
+                continue
+
+            qr_data = decoded[0].data
+
+            # Handle both bytes and string responses
+            try:
+                # First attempt to decode as UTF-8 (common implicit conversion)
+                raw_data = qr_data.encode('latin1')  # Get raw bytes regardless of type
+                if len(raw_data) != 32:
+                    # If length mismatch, try direct bytes access
+                    raw_data = bytes(qr_data)  # Alternative access for binary data
+            except:
+                raw_data = bytes(qr_data)
+
+            # Case 1: 32 raw bytes → Convert to Fernet key
+            if len(raw_data) == 32:
+                detected_key = base64.urlsafe_b64encode(raw_data).decode('utf-8')
+                print("✅ Detected 32-byte key → Fernet key:", detected_key)
+                break
+
+            # Case 2: 44-character base64 → Validate as Fernet key
+            elif len(raw_data) == 44:
+                try:
+                    # Ensure it's valid base64 and 32 bytes when decoded
+                    decoded_bytes = base64.urlsafe_b64decode(raw_data)
+                    if len(decoded_bytes) == 32:
+                        detected_key = raw_data.decode('utf-8')
+                        print("✅ Detected valid 44-char Fernet key:", detected_key)
+                        break
+                    else:
+                        print(f"⚠️ Base64 decoded to {len(decoded_bytes)} bytes (expected 32)")
+                except:
+                    print("⚠️ Invalid base64 encoding")
+
+            else:
+                print(f"⚠️ Unsupported data length: {len(raw_data)} bytes")
+
     finally:
         cap.release()
         cv2.destroyAllWindows()
