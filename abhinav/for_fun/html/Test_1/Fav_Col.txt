@@ -1,6 +1,0 @@
-#d07306 orange
-#fe983e light_orange
-#3b95ff light_blue
-#0662d0 blue
-#f75f5f light_red
-#d00606 red
