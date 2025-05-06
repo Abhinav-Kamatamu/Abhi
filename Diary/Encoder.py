@@ -1,10 +1,15 @@
 from cryptography.fernet import Fernet
 import base64
+import os
+
+os.environ['GST_DEBUG'] = '0'
 import cv2
 from pyzbar.pyzbar import decode
+# ---
+import subprocess
+# ---
 from PIL import Image, ImageGrab
 import pyperclip
-import os
 from tqdm import tqdm
 
 
@@ -48,9 +53,11 @@ def scan_qr_from_camera():
     - 44-character URL-safe base64 Fernet key (human-readable)
     """
     # Initialize camera (same as before)
+
+    # Try V4L2 backend directly
     for dev in ["/dev/video0", "/dev/video1", 0, 1]:
         try:
-            cap = cv2.VideoCapture(dev)
+            cap = cv2.VideoCapture(dev, cv2.CAP_V4L2)
             if cap.isOpened():
                 print(f"✅ Using camera device: {dev}")
                 break
@@ -62,6 +69,12 @@ def scan_qr_from_camera():
 
     print("📷 Looking for QR code (Press Q to cancel)...")
     cv2.namedWindow("QR Scanner", cv2.WINDOW_NORMAL)
+
+    # Auto-size the window to the actual camera resolution
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    cv2.resizeWindow("QR Scanner", width, height)
+
     detected_key = None
 
     try:
@@ -94,7 +107,8 @@ def scan_qr_from_camera():
             # Case 1: 32 raw bytes → Convert to Fernet key
             if len(raw_data) == 32:
                 detected_key = base64.urlsafe_b64encode(raw_data).decode('utf-8')
-                print("✅ Detected 32-byte key → Fernet key") # Ask to print detected_key if you want to see what the 44-char key is
+                print(
+                    "✅ Detected 32-byte key → Fernet key")  # Ask to print detected_key if you want to see what the 44-char key is
                 break
 
             # Case 2: 44-character base64 → Validate as Fernet key
@@ -243,11 +257,38 @@ def decrypt_file(file_path, cipher):
         return False
 
 
+def get_file_path():
+    choice = input('Would you want folder (f) or document (d)? ').strip().lower()
+    home_dir = os.path.expanduser("~")
+
+    if choice == 'f':
+        result = subprocess.run(
+            ['zenity', '--file-selection', '--directory', f'--filename={home_dir}/'],
+            stdout=subprocess.PIPE
+        )
+        folder_path = result.stdout.decode().strip()
+        print("You selected:", folder_path)
+        return folder_path
+
+    elif choice == 'd':
+        result = subprocess.run(
+            ['zenity', '--file-selection', f'--filename={home_dir}/'],
+            stdout=subprocess.PIPE
+        )
+        file_path = result.stdout.decode().strip()
+        print("You selected:", file_path)
+        return file_path
+
+    else:
+        print("Invalid choice. Please enter 'f' or 'd'.")
+        return None
+
+
 def main():
     """Main application flow."""
     action = input("(E)ncrypt or (D)ecrypt? ").strip().lower()
     path = input("File/directory path: ").strip()
-
+    #path = get_file_path()
     if not os.path.exists(path):
         print("❌ Path not found!")
         return
