@@ -11,6 +11,7 @@ import subprocess
 from PIL import Image, ImageGrab
 import pyperclip
 from tqdm import tqdm
+import platform
 
 
 def validate_key(key):
@@ -52,17 +53,29 @@ def scan_qr_from_camera():
     - Raw 32-byte Fernet key (for compact QR)
     - 44-character URL-safe base64 Fernet key (human-readable)
     """
+
+    os_type =  platform.system()
+
+    # Determine appropriate backend
+    if os_type == "Linux":
+        backends = [cv2.CAP_V4L2]
+    elif os_type == "Windows":
+        backends = [cv2.CAP_DSHOW, cv2.CAP_MSMF, cv2.CAP_ANY]
+    else:
+        backends = [cv2.CAP_ANY]
+
     # Initialize camera (same as before)
 
-    # Try V4L2 backend directly
-    for dev in ["/dev/video0", "/dev/video1", 0, 1]:
-        try:
-            cap = cv2.VideoCapture(dev, cv2.CAP_V4L2)
+    # Try devices 0 through 2 with available backends
+    for dev in [0, 1, 2]:
+        for backend in backends:
+            cap = cv2.VideoCapture(dev, backend)
             if cap.isOpened():
-                print(f"✅ Using camera device: {dev}")
+                print(f"✅ Using camera device: {dev} with backend: {backend}")
                 break
-        except:
+        else:
             continue
+        break
     else:
         print("❌ No working camera found!")
         return None
